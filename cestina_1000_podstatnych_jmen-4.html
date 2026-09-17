@@ -1,0 +1,1117 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1000 чешских существительных для экзамена A2</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink:#1f2937; --muted:#667085; --paper:#fffdf8; --accent:#2855a6;
+      --accent-soft:#eaf0fb; --good:#16805b; --good-bg:#e7f7ef;
+      --bad:#b42318; --bad-bg:#fff0ee; --line:#e8e1d5;
+      --shadow:0 18px 50px rgba(53,58,80,.13);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100vh; color:var(--ink);
+      background:radial-gradient(circle at 8% 8%,#e5edff 0,transparent 31%),radial-gradient(circle at 92% 92%,#f9e7ce 0,transparent 32%),#f5f1e9;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    button{font:inherit}.shell{width:min(760px,calc(100% - 28px));margin:0 auto;padding:24px 0 40px}
+    .eyebrow{margin:0 0 6px;color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    h1{margin:0;font-size:clamp(27px,6vw,42px);line-height:1.08;letter-spacing:-.035em}
+    .lead{margin:12px 0 20px;color:var(--muted);line-height:1.55}
+    .card{overflow:hidden;background:rgba(255,253,248,.96);border:1px solid rgba(232,225,213,.9);border-radius:24px;box-shadow:var(--shadow)}
+    .topbar{display:flex;justify-content:space-between;gap:12px;padding:18px 22px 10px;color:var(--muted);font-size:14px;font-weight:700}
+    .progress-track{height:8px;margin:0 22px;overflow:hidden;border-radius:999px;background:#ebe7df}
+    .progress-fill{width:1%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#2855a6,#5e87d5);transition:width .25s ease}
+    .content{padding:26px 22px 22px}.tag{display:inline-flex;padding:6px 10px;border-radius:999px;color:var(--accent);background:var(--accent-soft);font-size:12px;font-weight:800}
+    .prompt{margin:22px 0 5px;color:var(--muted);font-size:14px;font-weight:700}
+    .word{min-height:70px;margin:0 0 22px;font-size:clamp(36px,10vw,58px);font-weight:850;line-height:1.15;letter-spacing:-.035em}
+    .answers{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+    .answer{width:100%;min-height:58px;padding:14px 15px;border:1.5px solid var(--line);border-radius:15px;color:var(--ink);background:#fff;text-align:left;font-weight:700;cursor:pointer;transition:transform .12s ease,border-color .12s ease,background .12s ease}
+    .answer:hover:not(:disabled){transform:translateY(-1px);border-color:#809bd0}.answer:disabled{cursor:default;opacity:1}
+    .answer.correct{color:var(--good);border-color:#77c8a7;background:var(--good-bg)}.answer.wrong{color:var(--bad);border-color:#e8a49e;background:var(--bad-bg)}
+    .feedback{display:none;margin-top:18px;padding:15px 16px;border-radius:15px;line-height:1.5}.feedback.show{display:block}.feedback.good{color:#125c45;background:var(--good-bg)}.feedback.bad{color:#7f241d;background:var(--bad-bg)}
+    .czech-form{display:block;margin-top:5px;font-size:19px;font-weight:850}.controls{display:flex;justify-content:space-between;gap:12px;margin-top:20px}
+    .btn{min-height:46px;padding:11px 17px;border:0;border-radius:13px;font-weight:800;cursor:pointer}.btn.primary{color:#fff;background:var(--accent)}.btn.secondary{color:var(--accent);background:var(--accent-soft)}.btn.ghost{color:var(--muted);background:transparent;border:1px solid var(--line)}.btn:disabled{opacity:.42;cursor:default}
+    .tip{margin:16px 2px 0;color:var(--muted);font-size:13px;line-height:1.45}.resume-note{display:none;margin-bottom:14px;padding:11px 14px;border-radius:13px;color:#72521d;background:#fff3d7;font-size:14px}.resume-note.show{display:block}
+    .result{display:none;padding:34px 22px;text-align:center}.result.show{display:block}.score-ring{display:grid;place-items:center;width:150px;height:150px;margin:4px auto 22px;border-radius:50%;background:conic-gradient(var(--accent) var(--score),#e9e4da 0)}.score-inner{display:grid;place-items:center;width:122px;height:122px;border-radius:50%;background:var(--paper)}.score-number{font-size:34px;font-weight:850;letter-spacing:-.04em}.result h2{margin:0 0 8px;font-size:28px}.result p{margin:0 auto 22px;max-width:520px;color:var(--muted);line-height:1.55}.result-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+    @media(max-width:520px){.shell{width:min(100% - 18px,760px);padding-top:16px}.card{border-radius:19px}.content{padding:22px 16px 18px}.topbar{padding-inline:16px}.progress-track{margin-inline:16px}.answers{grid-template-columns:1fr}.controls{flex-direction:column-reverse}.btn{width:100%}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <p class="eyebrow">Словарный тренажёр A2</p>
+    <h1>1000 чешских существительных</h1>
+    <p class="lead">Выберите русский перевод чешского слова. Лексика подобрана по темам письменной и устной частей экзамена A2.</p>
+    <div id="resumeNote" class="resume-note">Продолжаем с сохранённого места.</div>
+    <section class="card" aria-live="polite">
+      <div id="quizView">
+        <div class="topbar"><span id="counter">Вопрос 1 из 1000</span><span id="scoreTop">Правильно: 0</span></div>
+        <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+        <div class="content">
+          <span id="tag" class="tag">Семья и люди</span>
+          <p class="prompt">Как переводится слово?</p>
+          <div id="word" class="word"></div>
+          <div id="answers" class="answers"></div>
+          <div id="feedback" class="feedback"></div>
+          <div class="controls">
+            <button id="resetBtn" class="btn ghost" type="button">Сбросить прогресс</button>
+            <button id="nextBtn" class="btn primary" type="button" disabled>Следующее слово</button>
+          </div>
+          <p class="tip">После ответа смотрите на <strong>ten / ta / to</strong>: это поможет запоминать слово сразу вместе с родом.</p>
+        </div>
+      </div>
+      <div id="resultView" class="result">
+        <div id="scoreRing" class="score-ring"><div class="score-inner"><div id="scoreNumber" class="score-number">0%</div></div></div>
+        <h2 id="resultTitle">Тест завершён</h2><p id="resultText"></p>
+        <div class="result-actions"><button id="retryWrongBtn" class="btn secondary" type="button">Повторить ошибки</button><button id="restartBtn" class="btn primary" type="button">Пройти все 1000 заново</button></div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const parseWords=source=>source.trim().split('\n').map(line=>line.split('|'));
+    const topics=[
+      {name:'Семья и люди',words:parseWords(`
+rodina|семья|ta
+rodiče|родители|ti
+matka|мать|ta
+otec|отец|ten
+maminka|мама|ta
+tatínek|папа|ten
+manžel|муж|ten
+manželka|жена|ta
+dítě|ребёнок|to
+syn|сын|ten
+dcera|дочь|ta
+bratr|брат|ten
+sestra|сестра|ta
+babička|бабушка|ta
+dědeček|дедушка|ten
+vnuk|внук|ten
+vnučka|внучка|ta
+teta|тётя|ta
+strýc|дядя|ten
+bratranec|двоюродный брат|ten
+sestřenice|двоюродная сестра|ta
+neteř|племянница|ta
+synovec|племянник|ten
+tchyně|тёща или свекровь|ta
+tchán|тесть или свёкор|ten
+zeť|зять|ten
+snacha|невестка|ta
+partner|партнёр|ten
+partnerka|партнёрша|ta
+pár|пара|ten
+manželství|брак|to
+svatba|свадьба|ta
+rozvod|развод|ten
+narození|рождение|to
+jméno|имя|to
+příjmení|фамилия|to
+věk|возраст|ten
+národnost|национальность|ta
+občanství|гражданство|to
+člověk|человек|ten
+osoba|лицо или человек|ta
+muž|мужчина|ten
+žena|женщина|ta
+chlapec|мальчик|ten
+dívka|девочка|ta
+kluk|парень или мальчик|ten
+holka|девушка или девочка|ta
+kamarád|друг|ten
+kamarádka|подруга|ta
+přítel|приятель или партнёр|ten
+přítelkyně|подруга или партнёрша|ta
+soused|сосед|ten
+sousedka|соседка|ta
+host|гость|ten
+návštěvník|посетитель|ten
+obyvatel|житель|ten
+cizinec|иностранец|ten
+občan|гражданин|ten
+dospělý|взрослый|ten
+senior|пожилой человек|ten
+mládež|молодёжь|ta
+lidé|люди|ti
+skupina|группа|ta
+člen|член или участник|ten
+známý|знакомый|ten
+známá|знакомая|ta
+kolega|коллега|ten
+kolegyně|коллега-женщина|ta
+šéf|начальник|ten
+vedoucí|руководитель|ten/ta
+zaměstnanec|сотрудник|ten
+pracovník|работник|ten
+zákazník|клиент или покупатель|ten
+zákaznice|клиентка или покупательница|ta
+prodavač|продавец|ten
+prodavačka|продавщица|ta
+číšník|официант|ten
+servírka|официантка|ta
+řidič|водитель|ten
+cestující|пассажир|ten/ta
+turista|турист|ten
+průvodce|гид|ten
+policista|полицейский|ten
+hasič|пожарный|ten
+majitel|владелец|ten
+nájemník|арендатор|ten
+nevěsta|невеста|ta
+ženich|жених|ten
+vztah|отношение или связь|ten
+láska|любовь|ta
+přátelství|дружба|to
+pomoc|помощь|ta
+povaha|характер|ta
+nálada|настроение|ta
+úsměv|улыбка|ten
+hlas|голос|ten
+vzhled|внешность|ten
+postava|фигура или персонаж|ta
+sousedství|соседство|to
+příbuzný|родственник|ten`)},
+      {name:'Дом и квартира',words:parseWords(`
+dům|дом|ten
+byt|квартира|ten
+pokoj|комната|ten
+kuchyně|кухня|ta
+koupelna|ванная комната|ta
+ložnice|спальня|ta
+postel|кровать|ta
+stůl|стол|ten
+židle|стул|ta
+okno|окно|to
+dveře|дверь|ty
+podlaha|пол|ta
+strop|потолок|ten
+zeď|стена|ta
+chodba|коридор|ta
+balkon|балкон|ten
+zahrada|сад|ta
+garáž|гараж|ta
+sklep|подвал|ten
+půda|чердак|ta
+terasa|терраса|ta
+výtah|лифт|ten
+schodiště|лестница|to
+schod|ступенька|ten
+patro|этаж|to
+přízemí|первый этаж|to
+budova|здание|ta
+vchod|вход|ten
+klíč|ключ|ten
+zámek|замок на двери|ten
+nábytek|мебель|ten
+skříň|шкаф|ta
+police|полка|ta
+pohovka|диван|ta
+křeslo|кресло|to
+koberec|ковёр|ten
+lampa|лампа|ta
+světlo|свет|to
+zásuvka|розетка|ta
+vypínač|выключатель|ten
+topení|отопление|to
+radiátor|радиатор|ten
+kotel|котёл|ten
+pračka|стиральная машина|ta
+lednice|холодильник|ta
+sporák|плита|ten
+trouba|духовка|ta
+myčka|посудомоечная машина|ta
+mikrovlnka|микроволновка|ta
+konvice|чайник|ta
+nádobí|посуда|to
+talíř|тарелка|ten
+hrnek|кружка|ten
+sklenice|стакан|ta
+příbor|столовый прибор|ten
+lžíce|ложка|ta
+vidlička|вилка|ta
+nůž|нож|ten
+hrnec|кастрюля|ten
+pánev|сковорода|ta
+ručník|полотенце|ten
+sprcha|душ|ta
+vana|ванна|ta
+umyvadlo|раковина|to
+záchod|туалет|ten
+zrcadlo|зеркало|to
+mýdlo|мыло|to
+kartáček|щётка|ten
+deka|одеяло|ta
+polštář|подушка|ten
+prostěradlo|простыня|to
+matrace|матрас|ta
+záclona|занавеска|ta
+závěs|штора|ten
+prádlo|бельё|to
+odpad|мусор|ten
+koš|корзина или мусорное ведро|ten
+úklid|уборка|ten
+nepořádek|беспорядок|ten
+čistota|чистота|ta
+oprava|ремонт|ta
+porucha|поломка|ta
+vodovod|водопровод|ten
+elektřina|электричество|ta
+plyn|газ|ten
+nájem|арендная плата|ten
+bydlení|жильё|to
+domácnost|домашнее хозяйство|ta
+stěhování|переезд|to
+krabice|коробка|ta
+zvonek|звонок|ten
+schránka|почтовый ящик|ta
+vysavač|пылесос|ten
+sušička|сушильная машина|ta
+mrazák|морозильник|ten
+mixér|блендер|ten
+toustovač|тостер|ten
+klimatizace|кондиционер|ta
+vybavení|оборудование|to
+domácí spotřebič|бытовой прибор|ten`)},
+      {name:'Город и учреждения',words:parseWords(`
+město|город|to
+centrum|центр|to
+ulice|улица|ta
+náměstí|площадь|to
+obchod|магазин|ten
+restaurace|ресторан|ta
+pošta|почта|ta
+banka|банк|ta
+nemocnice|больница|ta
+lékárna|аптека|ta
+vesnice|деревня|ta
+obec|населённый пункт|ta
+čtvrť|район города|ta
+kraj|край или регион|ten
+okres|район|ten
+hlavní město|столица|to
+radnice|мэрия|ta
+úřad|учреждение или ведомство|ten
+policie|полиция|ta
+školka|детский сад|ta
+univerzita|университет|ta
+knihovna|библиотека|ta
+muzeum|музей|to
+galerie|галерея|ta
+divadlo|театр|to
+kino|кинотеатр|to
+kostel|церковь|ten
+hrad|крепость или замок|ten
+park|парк|ten
+zoologická zahrada|зоопарк|ta
+hřiště|площадка|to
+stadion|стадион|ten
+bazén|бассейн|ten
+kavárna|кафе|ta
+hospoda|пивная или трактир|ta
+supermarket|супермаркет|ten
+trh|рынок|ten
+pekárna|пекарня|ta
+řeznictví|мясная лавка|to
+drogerie|магазин бытовой химии|ta
+kadeřnictví|парикмахерская|to
+pojišťovna|страховая компания|ta
+ambasáda|посольство|ta
+konzulát|консульство|ten
+soud|суд|ten
+vězení|тюрьма|to
+bankomat|банкомат|ten
+směnárna|обменный пункт|ta
+recepce|стойка регистрации|ta
+pokladna|касса|ta
+přepážka|окно обслуживания|ta
+čekárna|зал ожидания|ta
+toaleta|туалет|ta
+východ|выход|ten
+fronta|очередь|ta
+formulář|бланк|ten
+žádost|заявление|ta
+potvrzení|подтверждение или справка|to
+razítko|печать или штамп|to
+podpis|подпись|ten
+dokument|документ|ten
+průkaz|удостоверение|ten
+pas|паспорт|ten
+vízum|виза|to
+povolení|разрешение|to
+pobyt|проживание или пребывание|ten
+ministerstvo|министерство|to
+vláda|правительство|ta
+parlament|парламент|ten
+matrika|ЗАГС|ta
+chodník|тротуар|ten
+silnice|дорога для машин|ta
+přechod|пешеходный переход|ten
+semafor|светофор|ten
+křižovatka|перекрёсток|ta
+most|мост|ten
+tunel|туннель|ten
+parkoviště|парковка|to
+nábřeží|набережная|to
+řeka|река|ta
+jezero|озеро|to
+les|лес|ten
+kopec|холм|ten
+hora|гора|ta
+pole|поле|to
+louka|луг|ta
+okolí|окрестности|to
+místo|место|to
+roh|угол|ten
+památka|достопримечательность|ta
+pobočka|филиал|ta
+podatelna|канцелярия для подачи документов|ta
+automat|автомат|ten
+vstup|вход или входной билет|ten
+výstup|выход или подъём|ten
+zákaz|запрет|ten
+značení|обозначения или разметка|to
+provozovna|торговая точка|ta
+středisko|центр или отделение|to
+areál|территория или комплекс|ten`)},
+      {name:'Транспорт и дорога',words:parseWords(`
+autobus|автобус|ten
+tramvaj|трамвай|ta
+metro|метро|to
+vlak|поезд|ten
+nádraží|вокзал|to
+zastávka|остановка|ta
+letiště|аэропорт|to
+auto|автомобиль|to
+jízdenka|билет на транспорт|ta
+cesta|дорога или путь|ta
+doprava|транспорт|ta
+spoj|рейс или транспортное соединение|ten
+linka|маршрут или линия|ta
+odjezd|отправление|ten
+příjezd|прибытие|ten
+zpoždění|опоздание или задержка|to
+jízdní řád|расписание транспорта|ten
+nástupiště|платформа|to
+kolej|железнодорожный путь|ta
+vagón|вагон|ten
+sedadlo|сиденье|to
+taxi|такси|to
+motorka|мотоцикл|ta
+kolo|велосипед|to
+koloběžka|самокат|ta
+letadlo|самолёт|to
+loď|корабль|ta
+trajekt|паром|ten
+terminál|терминал|ten
+hala|зал|ta
+zavazadlo|багаж|to
+kufr|чемодан|ten
+batoh|рюкзак|ten
+taška|сумка|ta
+lístek|билет|ten
+letenka|авиабилет|ta
+rezervace|бронирование|ta
+navigace|навигация|ta
+trasa|маршрут|ta
+kilometr|километр|ten
+rychlost|скорость|ta
+nehoda|авария|ta
+provoz|движение или работа транспорта|ten
+dopravní zácpa|пробка на дороге|ta
+objížďka|объезд|ta
+benzín|бензин|ten
+nafta|дизельное топливо|ta
+čerpací stanice|заправочная станция|ta
+parkování|парковка как действие|to
+volant|руль|ten
+motor|двигатель|ten
+pneumatika|шина|ta
+brzda|тормоз|ta
+bezpečnostní pás|ремень безопасности|ten
+helma|шлем|ta
+dopravní značka|дорожный знак|ta
+kruhový objezd|круговое движение|ten
+hranice|граница|ta
+kontrola|контроль или проверка|ta
+doklad|документ или удостоверение|ten
+přestup|пересадка|ten
+výluka|временное прекращение движения|ta
+náhradní doprava|замещающий транспорт|ta
+kupé|купе|to
+lokomotiva|локомотив|ta
+rychlík|скорый поезд|ten
+osobní vlak|пассажирский поезд|ten
+lanovka|канатная дорога|ta
+trolejbus|троллейбус|ten
+autobusové nádraží|автовокзал|to
+stanice metra|станция метро|ta
+nástup|посадка|ten
+přístav|порт|ten
+plavba|плавание или рейс на судне|ta
+let|полёт или авиарейс|ten
+nástupní brána|выход на посадку|ta
+palubní lístek|посадочный талон|ten
+cestovní kancelář|туристическое агентство|ta
+ubytování|размещение|to
+nocleh|ночлег|ten
+země|страна|ta
+stát|государство|ten
+region|регион|ten
+ostrov|остров|ten
+pobřeží|побережье|to
+údolí|долина|to
+turistická mapa|туристическая карта|ta
+směrovka|указатель направления|ta
+vzdálenost|расстояние|ta
+jízdné|стоимость проезда|to
+taxametr|таксометр|ten
+řidičský průkaz|водительское удостоверение|ten
+technický průkaz|техпаспорт|ten
+servis|сервис|ten
+oprávnění|право или разрешение|to
+pokuta|штраф|ta
+dopravní podnik|транспортное предприятие|ten
+letištní hala|зал аэропорта|ta
+cestovní pojištění|туристическая страховка|to
+přeprava|перевозка|ta`)},
+      {name:'Еда и напитки',words:parseWords(`
+jídlo|еда|to
+pití|питьё или напиток|to
+voda|вода|ta
+káva|кофе|ta
+čaj|чай|ten
+chléb|хлеб|ten
+maso|мясо|to
+ovoce|фрукты|to
+zelenina|овощи|ta
+snídaně|завтрак|ta
+oběd|обед|ten
+večeře|ужин|ta
+svačina|перекус|ta
+polévka|суп|ta
+salát|салат|ten
+příloha|гарнир|ta
+hlavní chod|основное блюдо|ten
+dezert|десерт|ten
+moučník|выпечка или десерт|ten
+dort|торт|ten
+koláč|пирог|ten
+cukroví|сладкая выпечка|to
+zmrzlina|мороженое|ta
+jogurt|йогурт|ten
+mléko|молоко|to
+sýr|сыр|ten
+máslo|масло|to
+vejce|яйцо|to
+kuře|курица или цыплёнок|to
+ryba|рыба|ta
+klobása|колбаса|ta
+šunka|ветчина|ta
+slanina|бекон|ta
+rýže|рис|ta
+těstoviny|макароны|ty
+brambora|картофелина|ta
+hranolky|картофель фри|ty
+knedlík|кнедлик|ten
+omáčka|соус|ta
+mouka|мука|ta
+cukr|сахар|ten
+sůl|соль|ta
+pepř|перец как приправа|ten
+olej|растительное масло|ten
+ocet|уксус|ten
+koření|специи|to
+cibule|лук|ta
+česnek|чеснок|ten
+rajče|помидор|to
+okurka|огурец|ta
+paprika|сладкий перец|ta
+mrkev|морковь|ta
+zelí|капуста|to
+houba|гриб|ta
+jablko|яблоко|to
+hruška|груша|ta
+banán|банан|ten
+pomeranč|апельсин|ten
+citron|лимон|ten
+jahoda|клубника|ta
+malina|малина|ta
+borůvka|черника|ta
+hrozny|виноград|ty
+meloun|арбуз или дыня|ten
+ořech|орех|ten
+med|мёд|ten
+džem|джем|ten
+čokoláda|шоколад|ta
+sušenka|печенье|ta
+rohlík|рогалик|ten
+houska|булочка|ta
+pečivo|хлебобулочные изделия|to
+sendvič|сэндвич|ten
+pizza|пицца|ta
+hamburger|гамбургер|ten
+párek|сосиска|ten
+nápoj|напиток|ten
+džus|сок|ten
+limonáda|лимонад|ta
+pivo|пиво|to
+víno|вино|to
+jídelní lístek|меню|ten
+porce|порция|ta
+objednávka|заказ|ta
+chuť|вкус или аппетит|ta
+hlad|голод|ten
+žízeň|жажда|ta
+recept|рецепт блюда|ten
+ingredience|ингредиент|ta
+potravina|продукт питания|ta
+dieta|диета|ta
+alergie|аллергия|ta
+laktóza|лактоза|ta
+lepek|глютен|ten
+smetana|сливки или сметана|ta
+tvaroh|творог|ten
+minerálka|минеральная вода|ta
+kakao|какао|to
+šálek|чашка|ten
+láhev|бутылка|ta`)},
+      {name:'Время и погода',words:parseWords(`
+čas|время|ten
+hodina|час|ta
+den|день|ten
+týden|неделя|ten
+měsíc|месяц|ten
+rok|год|ten
+ráno|утро|to
+večer|вечер|ten
+víkend|выходные|ten
+počasí|погода|to
+minuta|минута|ta
+sekunda|секунда|ta
+okamžik|момент|ten
+chvíle|мгновение или некоторое время|ta
+poledne|полдень|to
+půlnoc|полночь|ta
+dopoledne|первая половина дня|to
+odpoledne|вторая половина дня|to
+noc|ночь|ta
+pracovní den|рабочий день|ten
+pondělí|понедельник|to
+úterý|вторник|to
+středa|среда|ta
+čtvrtek|четверг|ten
+pátek|пятница|ten
+sobota|суббота|ta
+neděle|воскресенье|ta
+kalendář|календарь|ten
+datum|дата|to
+termín|срок или назначенная дата|ten
+leden|январь|ten
+únor|февраль|ten
+březen|март|ten
+duben|апрель|ten
+květen|май|ten
+červen|июнь|ten
+červenec|июль|ten
+srpen|август|ten
+září|сентябрь|to
+říjen|октябрь|ten
+listopad|ноябрь|ten
+prosinec|декабрь|ten
+jaro|весна|to
+léto|лето|to
+podzim|осень|ten
+zima|зима|ta
+roční období|время года|to
+začátek|начало|ten
+konec|конец|ten
+minulost|прошлое|ta
+přítomnost|настоящее|ta
+budoucnost|будущее|ta
+program|программа|ten
+plán|план|ten
+rozvrh|расписание|ten
+přestávka|перерыв|ta
+volno|свободное время или выходной|to
+svátek|праздничный день|ten
+narozeniny|день рождения|ty
+výročí|годовщина|to
+prázdniny|каникулы|ty
+sezóna|сезон|ta
+teplota|температура|ta
+stupeň|градус|ten
+slunce|солнце|to
+déšť|дождь|ten
+sníh|снег|ten
+vítr|ветер|ten
+mrak|облако|ten
+bouřka|гроза|ta
+mlha|туман|ta
+mráz|мороз|ten
+horko|жара|to
+chlad|холод|ten
+teplo|тепло|to
+vedro|сильная жара|to
+led|лёд|ten
+předpověď|прогноз|ta
+klima|климат|to
+tma|темнота|ta
+sucho|засуха или сухость|to
+vlhkost|влажность|ta
+probouzení|пробуждение|to
+vstávání|вставание|to
+rutina|рутина|ta
+režim|режим|ten
+schůzka|встреча|ta
+pauza|пауза|ta
+směna|смена|ta
+spánek|сон|ten
+návrat|возвращение|ten
+odpočinek|отдых|ten
+východ slunce|восход солнца|ten
+západ slunce|закат|ten
+úsvit|рассвет|ten
+soumrak|сумерки|ten
+denní doba|время суток|ta
+čtvrtletí|квартал года|to
+pololetí|полугодие|to
+století|век|to`)},
+      {name:'Учёба и работа',words:parseWords(`
+práce|работа|ta
+škola|школа|ta
+kurz|курс|ten
+učitel|учитель|ten
+student|студент|ten
+kancelář|офис|ta
+úkol|задание|ten
+zkouška|экзамен|ta
+otázka|вопрос|ta
+odpověď|ответ|ta
+zaměstnání|занятость или работа|to
+povolání|профессия|to
+firma|фирма|ta
+podnik|предприятие|ten
+zaměstnavatel|работодатель|ten
+ředitel|директор|ten
+sekretářka|секретарь|ta
+tým|команда|ten
+oddělení|отдел|to
+pracovní doba|рабочее время|ta
+výplata|зарплата или выплата|ta
+plat|оклад|ten
+mzda|заработная плата|ta
+nemocenská|больничный|ta
+smlouva|договор|ta
+životopis|резюме|ten
+pohovor|собеседование|ten
+nabídka|предложение|ta
+pozice|должность|ta
+zkušenost|опыт|ta
+znalost|знание|ta
+dovednost|навык|ta
+jazyk|язык|ten
+počítač|компьютер|ten
+notebook|ноутбук|ten
+obrazovka|экран|ta
+klávesnice|клавиатура|ta
+myš|мышь|ta
+tiskárna|принтер|ta
+papír|бумага|ten
+tužka|карандаш|ta
+pero|ручка|to
+sešit|тетрадь|ten
+kniha|книга|ta
+učebnice|учебник|ta
+slovník|словарь|ten
+text|текст|ten
+věta|предложение|ta
+slovo|слово|to
+písmeno|буква|to
+tabule|доска|ta
+třída|класс|ta
+lekce|урок|ta
+domácí úkol|домашнее задание|ten
+přihláška|заявление на поступление|ta
+studium|обучение|to
+vzdělání|образование|to
+fakulta|факультет|ta
+obor|специальность|ten
+předmět|учебный предмет|ten
+známka|оценка|ta
+výsledek|результат|ten
+chyba|ошибка|ta
+pravidlo|правило|to
+gramatika|грамматика|ta
+slovní zásoba|словарный запас|ta
+poslech|аудирование|ten
+čtení|чтение|to
+psaní|письмо как навык|to
+mluvení|устная речь|to
+výslovnost|произношение|ta
+překlad|перевод|ten
+certifikát|сертификат|ten
+osvědčení|свидетельство|to
+projekt|проект|ten
+porada|совещание|ta
+prezentace|презентация|ta
+školení|обучающий семинар|to
+brigáda|подработка|ta
+důchod|пенсия|ten
+podpora|поддержка или пособие|ta
+praxe|практика|ta
+kariéra|карьера|ta
+pracovní místo|рабочее место|to
+pracovní poměr|трудовые отношения|ten
+zkušební doba|испытательный срок|ta
+nástup do práce|выход на работу|ten
+výpověď|увольнение или расторжение договора|ta
+docházka|посещаемость|ta
+absence|отсутствие|ta
+učivo|учебный материал|to
+kapitola|глава|ta
+stránka|страница|ta
+odstavec|абзац|ten
+cvičení|упражнение|to
+příklad|пример|ten
+poznámka|заметка|ta
+titul|титул или учёная степень|ten
+diplom|диплом|ten
+učiliště|профессиональное училище|to`)},
+      {name:'Здоровье и тело',words:parseWords(`
+lékař|врач|ten
+nemoc|болезнь|ta
+bolest|боль|ta
+hlava|голова|ta
+ruka|рука|ta
+noha|нога|ta
+břicho|живот|to
+lék|лекарство|ten
+zdraví|здоровье|to
+pojištění|страхование|to
+doktor|доктор|ten
+zdravotní sestra|медсестра|ta
+pacient|пациент|ten
+ordinace|кабинет врача|ta
+ambulance|амбулатория|ta
+pohotovost|неотложная помощь|ta
+záchranka|скорая помощь|ta
+vyšetření|обследование|to
+léčba|лечение|ta
+operace|операция|ta
+předpis|рецепт врача|ten
+tableta|таблетка|ta
+kapka|капля|ta
+sirup|сироп|ten
+mast|мазь|ta
+obvaz|бинт|ten
+náplast|пластырь|ta
+teploměr|термометр|ten
+horečka|жар или высокая температура|ta
+kašel|кашель|ten
+rýma|насморк|ta
+chřipka|грипп|ta
+nachlazení|простуда|to
+infekce|инфекция|ta
+zánět|воспаление|ten
+úraz|травма|ten
+rána|рана|ta
+zlomenina|перелом|ta
+krev|кровь|ta
+krevní tlak|кровяное давление|ten
+srdce|сердце|to
+záda|спина|ta
+krk|шея|ten
+rameno|плечо|to
+loket|локоть|ten
+prst|палец|ten
+dlaň|ладонь|ta
+koleno|колено|to
+chodidlo|ступня|to
+oko|глаз|to
+ucho|ухо|to
+nos|нос|ten
+ústa|рот|ta
+zub|зуб|ten
+hrdlo|горло|to
+žaludek|желудок|ten
+střevo|кишечник|to
+kůže|кожа|ta
+tělo|тело|to
+váha|вес|ta
+výška|рост|ta
+dech|дыхание|ten
+únava|усталость|ta
+stres|стресс|ten
+strach|страх|ten
+panika|паника|ta
+psychika|психика|ta
+paměť|память|ta
+chuť k jídlu|аппетит|ta
+nevolnost|тошнота|ta
+zvracení|рвота|to
+průjem|диарея|ten
+zácpa|запор|ta
+otok|отёк|ten
+vyrážka|сыпь|ta
+svědění|зуд|to
+závratě|головокружение|ty
+dušnost|одышка|ta
+příznak|симптом|ten
+diagnóza|диагноз|ta
+očkování|прививка|to
+vakcína|вакцина|ta
+dávka|доза|ta
+těhotenství|беременность|to
+porod|роды|ten
+miminko|младенец|to
+pediatr|педиатр|ten
+zubař|стоматолог|ten
+gynekolog|гинеколог|ten
+lékařská zpráva|медицинское заключение|ta
+prevence|профилактика|ta
+hygiena|гигиена|ta
+kondice|физическая форма|ta
+pohyb|движение|ten
+intolerance|непереносимость|ta
+životospráva|образ жизни|ta
+vitamín|витамин|ten
+bakterie|бактерия|ta
+virus|вирус|ten
+dezinfekce|дезинфекция|ta`)},
+      {name:'Покупки и общение',words:parseWords(`
+peníze|деньги|ty
+cena|цена|ta
+účet|счёт|ten
+karta|карта|ta
+oblečení|одежда|to
+telefon|телефон|ten
+zpráva|сообщение|ta
+dopis|письмо|ten
+adresa|адрес|ta
+číslo|номер|to
+nákup|покупка|ten
+prodej|продажа|ten
+sleva|скидка|ta
+akce|акция|ta
+zboží|товар|to
+výrobek|изделие|ten
+produkt|продукт|ten
+značka|марка или бренд|ta
+velikost|размер|ta
+barva|цвет|ta
+kus|штука|ten
+balení|упаковка|to
+pokladní doklad|кассовый документ|ten
+účtenka|чек|ta
+faktura|счёт-фактура|ta
+hotovost|наличные|ta
+mince|монета|ta
+bankovka|банкнота|ta
+koruna|крона|ta
+euro|евро|to
+platba|платёж|ta
+převod|перевод денег|ten
+platební terminál|платёжный терминал|ten
+peněženka|кошелёк|ta
+kabelka|дамская сумка|ta
+nákupní taška|сумка для покупок|ta
+košík|корзинка|ten
+vozík|тележка|ten
+reklamace|претензия или рекламация|ta
+vrácení|возврат|to
+výměna|обмен|ta
+záruka|гарантия|ta
+zásilka|отправление|ta
+balík|посылка|ten
+kurýr|курьер|ten
+doručení|доставка|to
+e-shop|интернет-магазин|ten
+web|веб-сайт|ten
+webová stránka|веб-страница|ta
+heslo|пароль|to
+e-mail|электронное письмо|ten
+chat|чат|ten
+hovor|разговор или звонок|ten
+kontakt|контакт|ten
+informace|информация|ta
+dotaz|запрос или вопрос|ten
+objednávkový formulář|форма заказа|ten
+kopie|копия|ta
+fotografie|фотография|ta
+služba|услуга|ta
+čistírna|химчистка|ta
+prádelna|прачечная|ta
+oprava obuvi|ремонт обуви|ta
+holičství|мужская парикмахерская|to
+poštovné|почтовые расходы|to
+dobírka|наложенный платёж|ta
+spropitné|чаевые|to
+telefonní číslo|номер телефона|to
+e-mailová adresa|адрес электронной почты|ta
+poštovní adresa|почтовый адрес|ta
+tričko|футболка|to
+košile|рубашка|ta
+kalhoty|брюки|ty
+sukně|юбка|ta
+šaty|платье|ty
+bunda|куртка|ta
+kabát|пальто|ten
+svetr|свитер|ten
+mikina|толстовка|ta
+boty|обувь|ty
+ponožky|носки|ty
+čepice|шапка|ta
+rukavice|перчатки|ty
+šála|шарф|ta
+pásek|ремень|ten
+brýle|очки|ty
+deštník|зонт|ten
+plavky|купальник|ty
+spodní prádlo|нижнее бельё|to
+velikost oblečení|размер одежды|ta
+materiál|материал|ten
+bavlna|хлопок|ta
+vlna|шерсть|ta
+hedvábí|шёлк|to
+kabinka|примерочная|ta
+štítek|этикетка|ten
+cenovka|ценник|ta
+kvalita|качество|ta
+množství|количество|to
+spotřeba|расход или потребление|ta`)},
+      {name:'Отдых и поездки',words:parseWords(`
+hotel|отель|ten
+moře|море|to
+pláž|пляж|ta
+dovolená|отпуск|ta
+výlet|поездка или экскурсия|ten
+oslava|праздник|ta
+dárek|подарок|ten
+sport|спорт|ten
+film|фильм|ten
+hudba|музыка|ta
+volný čas|свободное время|ten
+zábava|развлечение|ta
+koníček|увлечение|ten
+hra|игра|ta
+časopis|журнал|ten
+noviny|газета|ty
+televizní pořad|телепередача|ten
+koncert|концерт|ten
+výstava|выставка|ta
+festival|фестиваль|ten
+diskotéka|дискотека|ta
+tanec|танец|ten
+píseň|песня|ta
+hudební nástroj|музыкальный инструмент|ten
+kytara|гитара|ta
+fotoaparát|фотоаппарат|ten
+obrázek|картинка|ten
+video|видео|to
+příroda|природа|ta
+pohoří|горный массив|to
+turistika|туризм или пешие походы|ta
+koupání|купание|to
+plavání|плавание|to
+běh|бег|ten
+chůze|ходьба|ta
+cyklistika|велоспорт|ta
+lyžování|катание на лыжах|to
+fotbal|футбол|ten
+hokej|хоккей|ten
+tenis|теннис|ten
+volejbal|волейбол|ten
+tělocvična|спортивный зал|ta
+soutěž|соревнование|ta
+zápas|матч|ten
+hráč|игрок|ten
+vítěz|победитель|ten
+prohra|поражение|ta
+výhra|победа или выигрыш|ta
+vstupenka|входной билет|ta
+vstupné|плата за вход|to
+stan|палатка|ten
+kemp|кемпинг|ten
+chata|дачный домик|ta
+penzion|гостевой дом|ten
+apartmán|апартаменты|ten
+rezort|курортный комплекс|ten
+památková zóna|историческая зона|ta
+prohlídka|осмотр или экскурсия|ta
+exkurze|экскурсия|ta
+výprava|поход или экспедиция|ta
+plán výletu|план поездки|ten
+cestovní program|программа путешествия|ten
+volnočasová aktivita|занятие в свободное время|ta
+rodinná oslava|семейный праздник|ta
+narozeninová oslava|празднование дня рождения|ta
+svatební oslava|свадебное торжество|ta
+grilování|приготовление на гриле|to
+piknik|пикник|ten
+večírek|вечеринка|ten
+setkání|встреча|to
+divák|зритель|ten
+publikum|публика|to
+jeviště|сцена|to
+představení|представление|to
+herec|актёр|ten
+herečka|актриса|ta
+režisér|режиссёр|ten
+promítání|показ фильма|to
+seriál|сериал|ten
+pohádka|сказка|ta
+komedie|комедия|ta
+drama|драма|to
+vstupenka do kina|билет в кино|ta
+rezervace hotelu|бронирование отеля|ta
+turistická atrakce|туристическая достопримечательность|ta
+výhled|вид или обзор|ten
+panorama|панорама|to
+suvenýr|сувенир|ten
+pohlednice|открытка|ta
+dobrodružství|приключение|to
+tábor|лагерь|ten
+ohniště|место для костра|to
+spacák|спальный мешок|ten
+karimatka|туристический коврик|ta
+výletní loď|прогулочный корабль|ta
+sportovní hala|спортивная арена|ta
+sjezdovka|лыжная трасса|ta
+lanový park|верёвочный парк|ten
+aquapark|аквапарк|ten
+sauna|сауна|ta`)}
+    ];
+
+    const raw=topics.flatMap((topic,topicIndex)=>topic.words.map((word,wordIndex)=>({word:word[0],ru:word[1],article:word[2],cat:topic.name,topicIndex,wordIndex})));
+    const allQuestions=Array.from({length:100},(_,row)=>topics.map((_,topicIndex)=>raw.find(x=>x.topicIndex===topicIndex&&x.wordIndex===row))).flat();
+    const rotate=(arr,n)=>arr.slice(n).concat(arr.slice(0,n));
+    allQuestions.forEach((q,index)=>{
+      const siblings=raw.filter(x=>x.topicIndex===q.topicIndex);
+      const distractors=[1,3,6].map(offset=>siblings[(q.wordIndex+offset)%siblings.length].ru);
+      q.options=rotate([q.ru,...distractors],index%4);
+    });
+
+    const storageKey='czech-nouns-1000-v2';let queue=allQuestions.map((_,i)=>i),position=0,answers={},reviewMode=false;
+    const $=id=>document.getElementById(id);const els={quiz:$('quizView'),result:$('resultView'),counter:$('counter'),scoreTop:$('scoreTop'),progress:$('progressFill'),tag:$('tag'),word:$('word'),answers:$('answers'),feedback:$('feedback'),next:$('nextBtn'),reset:$('resetBtn'),scoreRing:$('scoreRing'),scoreNumber:$('scoreNumber'),resultTitle:$('resultTitle'),resultText:$('resultText'),retry:$('retryWrongBtn'),restart:$('restartBtn'),resume:$('resumeNote')};
+    function save(){if(!reviewMode)localStorage.setItem(storageKey,JSON.stringify({position,answers}))}
+    function restore(){try{const s=JSON.parse(localStorage.getItem(storageKey));if(s&&Number.isInteger(s.position)&&s.position<allQuestions.length){position=s.position;answers=s.answers||{};els.resume.classList.add('show');setTimeout(()=>els.resume.classList.remove('show'),3500)}}catch(_){localStorage.removeItem(storageKey)}}
+    function scoreFor(indices=queue){return indices.reduce((sum,i)=>sum+(answers[i]?.correct?1:0),0)}
+    function render(){
+      els.quiz.style.display='block';els.result.classList.remove('show');const qi=queue[position],q=allQuestions[qi],saved=answers[qi];
+      els.counter.textContent=`Слово ${position+1} из ${queue.length}`;els.scoreTop.textContent=`Правильно: ${scoreFor(queue)}`;els.progress.style.width=`${((position+(saved?1:0))/queue.length)*100}%`;els.tag.textContent=q.cat;els.word.textContent=q.word;els.answers.innerHTML='';
+      q.options.forEach((option,optionIndex)=>{const b=document.createElement('button');b.type='button';b.className='answer';b.textContent=`${optionIndex+1}. ${option}`;if(saved){b.disabled=true;if(option===q.ru)b.classList.add('correct');if(saved.selected===option&&!saved.correct)b.classList.add('wrong')}else b.addEventListener('click',()=>answer(qi,option));els.answers.appendChild(b)});
+      if(saved)showFeedback(q,saved.correct);else{els.feedback.className='feedback';els.feedback.textContent='';els.next.disabled=true}els.next.textContent=position===queue.length-1?'Показать результат':'Следующее слово';
+    }
+    function answer(qi,option){answers[qi]={selected:option,correct:option===allQuestions[qi].ru};save();render()}
+    function showFeedback(q,correct){els.feedback.className=`feedback show ${correct?'good':'bad'}`;els.feedback.innerHTML=`<strong>${correct?'Правильно.':`Правильный перевод: ${q.ru}.`}</strong><span class="czech-form">${q.article} ${q.word} — ${q.ru}</span>`;els.next.disabled=false}
+    function finish(){els.quiz.style.display='none';els.result.classList.add('show');const correct=scoreFor(queue),total=queue.length,percent=Math.round(correct/total*100),wrong=queue.filter(i=>!answers[i]?.correct);els.scoreRing.style.setProperty('--score',`${percent*3.6}deg`);els.scoreNumber.textContent=`${percent}%`;els.resultTitle.textContent=percent>=90?'Отличный словарный запас':percent>=75?'Хороший результат':'Повторите незнакомые слова';els.resultText.textContent=`Правильных ответов: ${correct} из ${total}. Ошибок: ${wrong.length}. ${reviewMode?'Это результат повторения.':'Прогресс сохранён.'}`;els.retry.disabled=wrong.length===0;if(!reviewMode&&position>=queue.length-1)localStorage.removeItem(storageKey)}
+    function restart(indices,isReview){queue=indices;position=0;reviewMode=isReview;if(isReview)indices.forEach(i=>delete answers[i]);else{answers={};localStorage.removeItem(storageKey)}render()}
+    els.next.addEventListener('click',()=>{if(position<queue.length-1){position++;save();render()}else finish()});els.reset.addEventListener('click',()=>{if(confirm('Сбросить все ответы и начать сначала?'))restart(allQuestions.map((_,i)=>i),false)});els.restart.addEventListener('click',()=>restart(allQuestions.map((_,i)=>i),false));els.retry.addEventListener('click',()=>{const wrong=queue.filter(i=>!answers[i]?.correct);if(wrong.length)restart(wrong,true)});document.addEventListener('keydown',e=>{if(/^[1-4]$/.test(e.key)&&!answers[queue[position]])els.answers.children[Number(e.key)-1]?.click();if(e.key==='Enter'&&!els.next.disabled)els.next.click()});
+    restore();if(allQuestions.length!==1000||new Set(allQuestions.map(q=>q.word)).size!==1000||topics.some(t=>t.words.length!==100)){document.body.innerHTML='<p>Ошибка формирования словаря.</p>'}else render();
+  </script>
+</body>
+</html>
