@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>300 чешских глаголов для экзамена A2</title>
+  <style>
+    :root{color-scheme:light;--ink:#1f2937;--muted:#667085;--paper:#fffdf8;--accent:#2855a6;--accent-soft:#eaf0fb;--good:#16805b;--good-bg:#e7f7ef;--bad:#b42318;--bad-bg:#fff0ee;--line:#e8e1d5;--shadow:0 18px 50px rgba(53,58,80,.13)}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(circle at 8% 8%,#e5edff 0,transparent 31%),radial-gradient(circle at 92% 92%,#f9e7ce 0,transparent 32%),#f5f1e9;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    button{font:inherit}.shell{width:min(760px,calc(100% - 28px));margin:0 auto;padding:24px 0 40px}.eyebrow{margin:0 0 6px;color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}h1{margin:0;font-size:clamp(27px,6vw,42px);line-height:1.08;letter-spacing:-.035em}.lead{margin:12px 0 20px;color:var(--muted);line-height:1.55}.card{overflow:hidden;background:rgba(255,253,248,.96);border:1px solid rgba(232,225,213,.9);border-radius:24px;box-shadow:var(--shadow)}
+    .topbar{display:flex;justify-content:space-between;gap:12px;padding:18px 22px 10px;color:var(--muted);font-size:14px;font-weight:700}.progress-track{height:8px;margin:0 22px;overflow:hidden;border-radius:999px;background:#ebe7df}.progress-fill{width:1%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#2855a6,#5e87d5);transition:width .25s ease}.content{padding:26px 22px 22px}.tag{display:inline-flex;padding:6px 10px;border-radius:999px;color:var(--accent);background:var(--accent-soft);font-size:12px;font-weight:800}.prompt{margin:22px 0 5px;color:var(--muted);font-size:14px;font-weight:700}.word{min-height:70px;margin:0 0 22px;font-size:clamp(34px,9vw,56px);font-weight:850;line-height:1.15;letter-spacing:-.035em}.answers{display:grid;grid-template-columns:1fr 1fr;gap:11px}.answer{width:100%;min-height:58px;padding:14px 15px;border:1.5px solid var(--line);border-radius:15px;color:var(--ink);background:#fff;text-align:left;font-weight:700;cursor:pointer;transition:transform .12s ease,border-color .12s ease,background .12s ease}.answer:hover:not(:disabled){transform:translateY(-1px);border-color:#809bd0}.answer:disabled{cursor:default;opacity:1}.answer.correct{color:var(--good);border-color:#77c8a7;background:var(--good-bg)}.answer.wrong{color:var(--bad);border-color:#e8a49e;background:var(--bad-bg)}
+    .feedback{display:none;margin-top:18px;padding:15px 16px;border-radius:15px;line-height:1.5}.feedback.show{display:block}.feedback.good{color:#125c45;background:var(--good-bg)}.feedback.bad{color:#7f241d;background:var(--bad-bg)}.czech-form{display:block;margin-top:5px;font-size:19px;font-weight:850}.controls{display:flex;justify-content:space-between;gap:12px;margin-top:20px}.btn{min-height:46px;padding:11px 17px;border:0;border-radius:13px;font-weight:800;cursor:pointer}.btn.primary{color:#fff;background:var(--accent)}.btn.secondary{color:var(--accent);background:var(--accent-soft)}.btn.ghost{color:var(--muted);background:transparent;border:1px solid var(--line)}.btn:disabled{opacity:.42;cursor:default}.tip{margin:16px 2px 0;color:var(--muted);font-size:13px;line-height:1.45}.resume-note{display:none;margin-bottom:14px;padding:11px 14px;border-radius:13px;color:#72521d;background:#fff3d7;font-size:14px}.resume-note.show{display:block}
+    .result{display:none;padding:34px 22px;text-align:center}.result.show{display:block}.score-ring{display:grid;place-items:center;width:150px;height:150px;margin:4px auto 22px;border-radius:50%;background:conic-gradient(var(--accent) var(--score),#e9e4da 0)}.score-inner{display:grid;place-items:center;width:122px;height:122px;border-radius:50%;background:var(--paper)}.score-number{font-size:34px;font-weight:850;letter-spacing:-.04em}.result h2{margin:0 0 8px;font-size:28px}.result p{margin:0 auto 22px;max-width:520px;color:var(--muted);line-height:1.55}.result-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+    @media(max-width:520px){.shell{width:min(100% - 18px,760px);padding-top:16px}.card{border-radius:19px}.content{padding:22px 16px 18px}.topbar{padding-inline:16px}.progress-track{margin-inline:16px}.answers{grid-template-columns:1fr}.controls{flex-direction:column-reverse}.btn{width:100%}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <p class="eyebrow">Глагольный тренажёр A2</p>
+    <h1>300 чешских глаголов</h1>
+    <p class="lead">Выберите русский перевод чешского глагола. В каждой из 10 экзаменационных тем — по 30 полезных глаголов.</p>
+    <div id="resumeNote" class="resume-note">Продолжаем с сохранённого места.</div>
+    <section class="card" aria-live="polite">
+      <div id="quizView">
+        <div class="topbar"><span id="counter">Глагол 1 из 300</span><span id="scoreTop">Правильно: 0</span></div>
+        <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
+        <div class="content">
+          <span id="tag" class="tag">Семья и люди</span>
+          <p class="prompt">Как переводится глагол?</p>
+          <div id="word" class="word"></div>
+          <div id="answers" class="answers"></div>
+          <div id="feedback" class="feedback"></div>
+          <div class="controls"><button id="resetBtn" class="btn ghost" type="button">Сбросить прогресс</button><button id="nextBtn" class="btn primary" type="button" disabled>Следующий глагол</button></div>
+          <p class="tip">Запоминайте <strong>se / si</strong> как часть глагола: <em>jmenovat se, učit se, obléct si</em>. На экзамене это особенно важно.</p>
+        </div>
+      </div>
+      <div id="resultView" class="result">
+        <div id="scoreRing" class="score-ring"><div class="score-inner"><div id="scoreNumber" class="score-number">0%</div></div></div>
+        <h2 id="resultTitle">Тест завершён</h2><p id="resultText"></p>
+        <div class="result-actions"><button id="retryWrongBtn" class="btn secondary" type="button">Повторить ошибки</button><button id="restartBtn" class="btn primary" type="button">Пройти все 300 заново</button></div>
+      </div>
+    </section>
+  </main>
+  <script>
+    const parseWords=source=>source.trim().split('\n').map(line=>line.split('|'));
+    const topics=[
+      {name:'Семья и люди',words:parseWords(`
+být|быть
+mít|иметь
+jmenovat se|зваться, носить имя
+žít|жить
+narodit se|родиться
+vyrůstat|расти, взрослеть
+znát|знать кого-то или что-то
+poznat|познакомиться, узнать
+potkat|встретить случайно
+setkat se|встретиться
+milovat|любить
+mít rád|любить, нравиться
+líbit se|нравиться
+vdát se|выйти замуж
+oženit se|жениться
+rozvést se|развестись
+navštívit|посетить, навестить
+pozvat|пригласить
+přivítat|поприветствовать
+představit se|представиться
+seznámit se|познакомиться
+slavit|праздновать
+přát|желать
+pomáhat|помогать
+postarat se|позаботиться
+hlídat|присматривать, сторожить
+vychovávat|воспитывать
+hádat se|ссориться, спорить
+omluvit se|извиниться
+poděkovat|поблагодарить`)},
+      {name:'Дом и квартира',words:parseWords(`
+stěhovat se|переезжать
+přestěhovat se|переехать
+pronajímat|сдавать в аренду
+pronajmout si|снять в аренду
+uklízet|убирать
+uklidit|убрать
+umývat|мыть
+prát|стирать
+žehlit|гладить
+vysávat|пылесосить
+zametat|подметать
+opravovat|ремонтировать
+opravit|починить
+rozbít|сломать, разбить
+otevřít|открыть
+zavřít|закрыть
+zamknout|запереть на ключ
+odemknout|отпереть
+zapnout|включить
+vypnout|выключить
+topit|топить, отапливать
+svítit|светить
+téct|течь
+stavět|строить
+zařídit|обустроить, организовать
+malovat|красить, рисовать
+balit|упаковывать
+vybalit|распаковать
+vynést|вынести
+zalévat|поливать`)},
+      {name:'Город и учреждения',words:parseWords(`
+jít|идти
+chodit|ходить
+hledat|искать
+najít|найти
+ztratit|потерять
+zeptat se|спросить
+ukázat|показать
+vysvětlit|объяснить
+pokračovat|продолжать, идти дальше
+odbočit|повернуть
+přejít|перейти
+dojít|дойти
+vejít|войти
+vyjít|выйти
+vrátit se|вернуться
+zastavit se|остановиться, зайти
+vyřídit|оформить, уладить
+žádat|просить, подавать заявление
+požádat|попросить
+podat|подать
+vyplnit|заполнить
+podepsat|подписать
+potvrdit|подтвердить
+nahlásit|сообщить, зарегистрировать
+přihlásit se|зарегистрироваться
+odhlásit se|отменить регистрацию
+fungovat|работать, функционировать
+potřebovat|нуждаться
+zavolat|позвонить
+čekat|ждать`)},
+      {name:'Транспорт и дорога',words:parseWords(`
+jet|ехать
+jezdit|ездить
+cestovat|путешествовать
+letět|лететь
+létat|летать
+plout|плыть на судне
+řídit|управлять автомобилем
+nastoupit|сесть в транспорт
+vystoupit|выйти из транспорта
+přestoupit|сделать пересадку
+odjet|уехать
+přijet|приехать
+dorazit|прибыть, добраться
+vyrazit|отправиться
+zpozdit se|опоздать, задержаться
+ujet|уехать, проехать расстояние
+minout|проехать или пройти мимо
+zastavit|остановить
+parkovat|парковаться
+zaparkovat|припарковаться
+zarezervovat|забронировать
+označit|прокомпостировать, обозначить
+nastartovat|завести двигатель
+zabrzdit|затормозить
+předjet|обогнать
+projet|проехать через
+přijíždět|прибывать
+odjíždět|уезжать
+odlétat|улетать
+přistát|приземлиться`)},
+      {name:'Еда и напитки',words:parseWords(`
+jíst|есть
+pít|пить
+vařit|готовить, варить
+uvařit|приготовить, сварить
+péct|печь
+upéct|испечь
+smažit|жарить
+krájet|резать
+nakrájet|нарезать
+míchat|мешать
+přidat|добавить
+ochutnat|попробовать на вкус
+chutnat|быть вкусным
+vonět|пахнуть приятно
+objednat|заказать
+servírovat|подавать блюдо
+přinést|принести
+odnést|унести
+sníst|съесть
+vypít|выпить
+ohřát|разогреть
+ohřívat|разогревать
+solit|солить
+sladit|подслащивать
+loupat|чистить от кожуры
+připravit|приготовить, подготовить
+připravovat|готовить, подготавливать
+snídat|завтракать
+obědvat|обедать
+večeřet|ужинать`)},
+      {name:'Время и погода',words:parseWords(`
+vstávat|вставать
+probudit se|проснуться
+budit se|просыпаться
+spát|спать
+usnout|уснуть
+začít|начать
+začínat|начинать
+končit|заканчиваться
+skončit|закончить, закончиться
+trvat|длиться
+plánovat|планировать
+stihnout|успеть
+opozdit se|опоздать
+pospíchat|спешить
+odpočívat|отдыхать
+relaxovat|расслабляться
+pršet|идти (о дожде)
+sněžit|идти (о снеге)
+foukat|дуть
+mrznout|морозить, замерзать
+tát|таять
+oteplit se|потеплеть
+ochladit se|похолодать
+stmívat se|смеркаться
+rozednít se|рассвести
+měnit se|меняться
+zlepšit se|улучшиться
+zhoršit se|ухудшиться
+chybět|не хватать, отсутствовать
+opakovat se|повторяться`)},
+      {name:'Учёба и работа',words:parseWords(`
+pracovat|работать
+studovat|учиться, изучать
+učit se|учиться
+naučit se|научиться
+číst|читать
+přečíst|прочитать
+psát|писать
+napsat|написать
+mluvit|говорить
+poslouchat|слушать
+rozumět|понимать
+odpovědět|ответить
+ptát se|спрашивать
+počítat|считать
+procvičovat|тренировать, отрабатывать
+opakovat|повторять
+vyslovovat|произносить
+překládat|переводить
+zapamatovat si|запомнить
+zapomenout|забыть
+vysvětlovat|объяснять
+prezentovat|представлять, презентовать
+kontrolovat|проверять
+opravovat chyby|исправлять ошибки
+složit zkoušku|сдать экзамен
+odevzdat|сдать, передать
+poslat|отправить
+přijmout|принять
+vydělat|заработать
+zaměstnat|нанять на работу`)},
+      {name:'Здоровье и тело',words:parseWords(`
+bolet|болеть, причинять боль
+cítit se|чувствовать себя
+onemocnět|заболеть
+uzdravit se|выздороветь
+léčit|лечить
+vyšetřit|обследовать
+objednat se|записаться на приём
+kašlat|кашлять
+kýchat|чихать
+smrkat|сморкаться
+dýchat|дышать
+krvácet|кровоточить
+zvracet|рвать
+omdlít|потерять сознание
+zranit se|получить травму
+spadnout|упасть
+zlomit si|сломать себе
+měřit|измерять
+vážit|взвешивать
+přibrat|набрать вес
+zhubnout|похудеть
+brát|принимать, брать
+užívat|принимать лекарство
+polykat|глотать
+očkovat|делать прививку
+operovat|оперировать
+kouřit|курить
+přestat|перестать
+doporučit|порекомендовать
+chránit|защищать`)},
+      {name:'Покупки и общение',words:parseWords(`
+nakupovat|делать покупки
+koupit|купить
+prodávat|продавать
+prodat|продать
+platit|платить
+zaplatit|заплатить
+stát|стоить
+vybírat|выбирать
+vybrat|выбрать
+vyzkoušet|примерить, попробовать
+nosit|носить
+obléct si|надеть на себя
+svléknout se|раздеться
+vyměnit|обменять, заменить
+reklamovat|предъявить претензию
+vracet|возвращать
+objednávat|заказывать
+doručit|доставить
+odeslat|отправить
+převzít|получить, принять
+volat|звонить
+telefonovat|разговаривать по телефону
+komunikovat|общаться
+informovat|информировать
+sdělit|сообщить
+nabídnout|предложить
+půjčit|одолжить кому-то
+půjčit si|взять взаймы
+šetřit|экономить, копить
+utrácet|тратить деньги`)},
+      {name:'Отдых и поездки',words:parseWords(`
+sportovat|заниматься спортом
+cvičit|тренироваться
+běhat|бегать
+plavat|плавать
+hrát|играть
+zpívat|петь
+tančit|танцевать
+dívat se|смотреть
+sledovat|смотреть, следить
+fotografovat|фотографировать (нейтрально)
+fotit|фотографировать (разговорно)
+kreslit|рисовать карандашом
+lyžovat|кататься на лыжах
+bruslit|кататься на коньках
+jezdit na kole|ездить на велосипеде
+hrát fotbal|играть в футбол
+navštěvovat|посещать
+prohlížet si|осматривать
+stanovat|жить в палатке
+rybařit|ловить рыбу
+grilovat|готовить на гриле
+bavit se|развлекаться
+ubytovat se|поселиться в отеле
+koupat se|купаться
+opalovat se|загорать
+zúčastnit se|принять участие
+vyhrát|выиграть
+prohrát|проиграть
+sbírat|собирать, коллекционировать
+jet na výlet|поехать на экскурсию`)},
+    ];
+
+    const raw=topics.flatMap((topic,topicIndex)=>topic.words.map((word,wordIndex)=>({word:word[0],ru:word[1],cat:topic.name,topicIndex,wordIndex})));
+    const allQuestions=Array.from({length:30},(_,row)=>topics.map((_,topicIndex)=>raw.find(x=>x.topicIndex===topicIndex&&x.wordIndex===row))).flat();
+    const rotate=(arr,n)=>arr.slice(n).concat(arr.slice(0,n));
+    allQuestions.forEach((q,index)=>{const siblings=raw.filter(x=>x.topicIndex===q.topicIndex);const distractors=[1,3,7].map(offset=>siblings[(q.wordIndex+offset)%siblings.length].ru);q.options=rotate([q.ru,...distractors],index%4)});
+
+    const storageKey='czech-verbs-300-v1';let queue=allQuestions.map((_,i)=>i),position=0,answers={},reviewMode=false;
+    const $=id=>document.getElementById(id);const els={quiz:$('quizView'),result:$('resultView'),counter:$('counter'),scoreTop:$('scoreTop'),progress:$('progressFill'),tag:$('tag'),word:$('word'),answers:$('answers'),feedback:$('feedback'),next:$('nextBtn'),reset:$('resetBtn'),scoreRing:$('scoreRing'),scoreNumber:$('scoreNumber'),resultTitle:$('resultTitle'),resultText:$('resultText'),retry:$('retryWrongBtn'),restart:$('restartBtn'),resume:$('resumeNote')};
+    function save(){if(!reviewMode)localStorage.setItem(storageKey,JSON.stringify({position,answers}))}
+    function restore(){try{const s=JSON.parse(localStorage.getItem(storageKey));if(s&&Number.isInteger(s.position)&&s.position<allQuestions.length){position=s.position;answers=s.answers||{};els.resume.classList.add('show');setTimeout(()=>els.resume.classList.remove('show'),3500)}}catch(_){localStorage.removeItem(storageKey)}}
+    function scoreFor(indices=queue){return indices.reduce((sum,i)=>sum+(answers[i]?.correct?1:0),0)}
+    function render(){els.quiz.style.display='block';els.result.classList.remove('show');const qi=queue[position],q=allQuestions[qi],saved=answers[qi];els.counter.textContent=`Глагол ${position+1} из ${queue.length}`;els.scoreTop.textContent=`Правильно: ${scoreFor(queue)}`;els.progress.style.width=`${((position+(saved?1:0))/queue.length)*100}%`;els.tag.textContent=q.cat;els.word.textContent=q.word;els.answers.innerHTML='';q.options.forEach((option,optionIndex)=>{const b=document.createElement('button');b.type='button';b.className='answer';b.textContent=`${optionIndex+1}. ${option}`;if(saved){b.disabled=true;if(option===q.ru)b.classList.add('correct');if(saved.selected===option&&!saved.correct)b.classList.add('wrong')}else b.addEventListener('click',()=>answer(qi,option));els.answers.appendChild(b)});if(saved)showFeedback(q,saved.correct);else{els.feedback.className='feedback';els.feedback.textContent='';els.next.disabled=true}els.next.textContent=position===queue.length-1?'Показать результат':'Следующий глагол'}
+    function answer(qi,option){answers[qi]={selected:option,correct:option===allQuestions[qi].ru};save();render()}
+    function showFeedback(q,correct){els.feedback.className=`feedback show ${correct?'good':'bad'}`;els.feedback.innerHTML=`<strong>${correct?'Правильно.':`Правильный перевод: ${q.ru}.`}</strong><span class="czech-form">${q.word} — ${q.ru}</span>`;els.next.disabled=false}
+    function finish(){els.quiz.style.display='none';els.result.classList.add('show');const correct=scoreFor(queue),total=queue.length,percent=Math.round(correct/total*100),wrong=queue.filter(i=>!answers[i]?.correct);els.scoreRing.style.setProperty('--score',`${percent*3.6}deg`);els.scoreNumber.textContent=`${percent}%`;els.resultTitle.textContent=percent>=90?'Отличное знание глаголов':percent>=75?'Хороший результат':'Повторите незнакомые глаголы';els.resultText.textContent=`Правильных ответов: ${correct} из ${total}. Ошибок: ${wrong.length}. ${reviewMode?'Это результат повторения.':'Прогресс сохранён.'}`;els.retry.disabled=wrong.length===0;if(!reviewMode&&position>=queue.length-1)localStorage.removeItem(storageKey)}
+    function restart(indices,isReview){queue=indices;position=0;reviewMode=isReview;if(isReview)indices.forEach(i=>delete answers[i]);else{answers={};localStorage.removeItem(storageKey)}render()}
+    els.next.addEventListener('click',()=>{if(position<queue.length-1){position++;save();render()}else finish()});els.reset.addEventListener('click',()=>{if(confirm('Сбросить все ответы и начать сначала?'))restart(allQuestions.map((_,i)=>i),false)});els.restart.addEventListener('click',()=>restart(allQuestions.map((_,i)=>i),false));els.retry.addEventListener('click',()=>{const wrong=queue.filter(i=>!answers[i]?.correct);if(wrong.length)restart(wrong,true)});document.addEventListener('keydown',e=>{if(/^[1-4]$/.test(e.key)&&!answers[queue[position]])els.answers.children[Number(e.key)-1]?.click();if(e.key==='Enter'&&!els.next.disabled)els.next.click()});
+    restore();if(allQuestions.length!==300||new Set(allQuestions.map(q=>q.word)).size!==300||topics.some(t=>t.words.length!==30)||allQuestions.some(q=>new Set(q.options).size!==4)){document.body.innerHTML='<p>Ошибка формирования словаря.</p>'}else render();
+  </script>
+</body>
+</html>
