@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f766e">
+  <title>300 готовых фраз для писем CCE–A2</title>
+  <style>
+    :root{
+      color-scheme:light;
+      --ink:#17212b;
+      --muted:#667085;
+      --paper:#fffdf8;
+      --panel:rgba(255,253,248,.97);
+      --accent:#0f766e;
+      --accent-2:#14b8a6;
+      --accent-soft:#e4f5f2;
+      --blue:#2855a6;
+      --blue-soft:#eaf0fb;
+      --good:#147a55;
+      --good-bg:#e8f7ef;
+      --bad:#b42318;
+      --bad-bg:#fff0ee;
+      --gold:#9a6700;
+      --gold-bg:#fff4d6;
+      --line:#e7e2d8;
+      --shadow:0 18px 50px rgba(43,52,69,.13);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 8% 8%,#dcf5f1 0,transparent 31%),
+        radial-gradient(circle at 92% 92%,#f9e8ce 0,transparent 32%),
+        #f5f1e9;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    button,input,select{font:inherit}
+    button{touch-action:manipulation}
+    .shell{width:min(980px,calc(100% - 28px));margin:0 auto;padding:24px 0 48px}
+    .eyebrow{margin:0 0 6px;color:var(--accent);font-size:13px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+    h1{margin:0;font-size:clamp(28px,6vw,46px);line-height:1.06;letter-spacing:-.04em}
+    .lead{max-width:790px;margin:12px 0 18px;color:var(--muted);line-height:1.55}
+    .summary{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:18px}
+    .summary span{padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.72);font-size:13px;font-weight:750}
+    .panel{background:var(--panel);border:1px solid rgba(231,226,216,.92);border-radius:24px;box-shadow:var(--shadow)}
+    .toolbar{display:grid;grid-template-columns:minmax(210px,1.6fr) minmax(170px,1fr);gap:12px;padding:18px;border-bottom:1px solid var(--line)}
+    .field label{display:block;margin:0 0 6px;color:var(--muted);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+    select,input[type="search"]{width:100%;min-height:46px;padding:10px 13px;border:1.5px solid var(--line);border-radius:13px;color:var(--ink);background:#fff;outline:none}
+    select:focus,input[type="search"]:focus{border-color:var(--accent-2);box-shadow:0 0 0 3px rgba(20,184,166,.12)}
+    .mode-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px 18px;border-bottom:1px solid var(--line)}
+    .mode-btn{min-height:44px;padding:10px 12px;border:0;border-radius:13px;color:var(--muted);background:#f2f0eb;font-weight:850;cursor:pointer}
+    .mode-btn.active{color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 8px 22px rgba(15,118,110,.2)}
+    .stats{display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--line)}
+    .progress-track{height:9px;overflow:hidden;border-radius:999px;background:#e9e5dd}
+    .progress-fill{width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .25s ease}
+    .stats-text{color:var(--muted);font-size:13px;font-weight:800;white-space:nowrap}
+    .task-box{margin:14px 18px 0;padding:12px 14px;border-radius:14px;color:#755514;background:var(--gold-bg);font-size:14px;line-height:1.45}
+    .task-box strong{color:var(--ink)}
+    .view{padding:20px}
+    .hidden{display:none!important}
+    .section-filter{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+    .chip{min-height:36px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:#fff;font-size:13px;font-weight:800;cursor:pointer}
+    .chip.active{color:var(--accent);border-color:#89cfc6;background:var(--accent-soft)}
+    .list-head{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;margin-bottom:14px}
+    .list-head h2{margin:0;font-size:22px;letter-spacing:-.025em}
+    .count-badge{padding:7px 10px;border-radius:999px;color:var(--accent);background:var(--accent-soft);font-size:12px;font-weight:850}
+    .phrase-list{display:grid;gap:10px}
+    .phrase-row{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:13px;align-items:center;padding:14px;border:1px solid var(--line);border-radius:16px;background:#fff}
+    .phrase-row.learned{border-color:#9bd3bf;background:#f4fbf7}
+    .number{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;color:var(--accent);background:var(--accent-soft);font-size:12px;font-weight:900}
+    .cz{font-size:18px;font-weight:850;line-height:1.35}
+    .ru{margin-top:4px;color:var(--muted);font-size:14px;line-height:1.4}
+    .part-label{display:inline-block;margin-top:7px;padding:4px 8px;border-radius:999px;color:var(--blue);background:var(--blue-soft);font-size:11px;font-weight:800}
+    .learn-btn{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--line);border-radius:12px;color:var(--muted);background:#fff;font-size:19px;cursor:pointer}
+    .learn-btn.active{color:#fff;border-color:var(--good);background:var(--good)}
+    .empty{padding:28px;text-align:center;color:var(--muted)}
+    .study-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;color:var(--muted);font-size:14px;font-weight:800}
+    .small-actions{display:flex;flex-wrap:wrap;gap:8px}
+    .small-btn{min-height:38px;padding:8px 12px;border:1px solid var(--line);border-radius:11px;color:var(--accent);background:#fff;font-weight:800;cursor:pointer}
+    .flashcard{display:grid;place-items:center;min-height:330px;padding:28px;border:1.5px solid #b7dcd6;border-radius:22px;background:linear-gradient(145deg,#fff,#f1faf8);text-align:center;cursor:pointer;user-select:none}
+    .flashcard .hint{margin-bottom:14px;color:var(--muted);font-size:12px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+    .flashcard .front{font-size:clamp(27px,6vw,44px);font-weight:900;line-height:1.2;letter-spacing:-.035em}
+    .flashcard .back{display:none;margin-top:20px;padding-top:20px;border-top:1px solid #bedfd9;color:var(--accent);font-size:clamp(20px,4.5vw,29px);font-weight:800;line-height:1.3}
+    .flashcard.flipped .back{display:block}
+    .card-controls{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:10px;margin-top:14px}
+    .btn{min-height:48px;padding:11px 16px;border:0;border-radius:13px;font-weight:850;cursor:pointer}
+    .btn.primary{color:#fff;background:var(--accent)}
+    .btn.secondary{color:var(--accent);background:var(--accent-soft)}
+    .btn.ghost{color:var(--muted);background:#fff;border:1px solid var(--line)}
+    .btn.good{color:#fff;background:var(--good)}
+    .quiz-card{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#fff}
+    .quiz-meta{display:flex;justify-content:space-between;gap:10px;padding:15px 18px;color:var(--muted);font-size:13px;font-weight:800;background:#faf8f3}
+    .quiz-body{padding:22px}
+    .quiz-prompt{margin:0 0 7px;color:var(--muted);font-size:13px;font-weight:800}
+    .quiz-question{min-height:78px;margin:0 0 20px;font-size:clamp(25px,5.7vw,40px);font-weight:900;line-height:1.2;letter-spacing:-.03em}
+    .answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .answer{min-height:64px;padding:13px 14px;border:1.5px solid var(--line);border-radius:14px;color:var(--ink);background:#fff;text-align:left;font-weight:750;line-height:1.35;cursor:pointer}
+    .answer:hover:not(:disabled){border-color:#86c9c0;transform:translateY(-1px)}
+    .answer.correct{color:var(--good);border-color:#73c49d;background:var(--good-bg)}
+    .answer.wrong{color:var(--bad);border-color:#e5a29c;background:var(--bad-bg)}
+    .answer:disabled{cursor:default}
+    .feedback{display:none;margin-top:16px;padding:14px 15px;border-radius:14px;line-height:1.5}
+    .feedback.show{display:block}
+    .feedback.good{color:#125c45;background:var(--good-bg)}
+    .feedback.bad{color:#7f241d;background:var(--bad-bg)}
+    .feedback strong{display:block;margin-top:4px;font-size:18px}
+    .quiz-actions{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+    .direction{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:13px}
+    .result{text-align:center;padding:22px}
+    .result h2{margin:4px 0 8px;font-size:28px}
+    .result p{color:var(--muted);line-height:1.5}
+    .score-circle{display:grid;place-items:center;width:132px;height:132px;margin:4px auto 18px;border-radius:50%;background:conic-gradient(var(--accent) var(--score),#e9e5dd 0)}
+    .score-circle span{display:grid;place-items:center;width:106px;height:106px;border-radius:50%;background:var(--paper);font-size:30px;font-weight:900}
+    .footer-note{margin:16px 4px 0;color:var(--muted);font-size:13px;line-height:1.5}
+    .danger-link{border:0;color:var(--muted);background:transparent;text-decoration:underline;cursor:pointer}
+    @media(max-width:680px){
+      .shell{width:min(100% - 18px,980px);padding-top:16px}
+      .panel{border-radius:19px}
+      .toolbar{grid-template-columns:1fr}
+      .view{padding:15px}
+      .phrase-row{grid-template-columns:auto minmax(0,1fr);align-items:start}
+      .learn-btn{grid-column:2;justify-self:end;margin-top:-48px}
+      .answers{grid-template-columns:1fr}
+      .card-controls{grid-template-columns:1fr}
+      .quiz-actions{flex-direction:column-reverse}
+      .btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <p class="eyebrow">CCE–A2 · письменная часть</p>
+    <h1>300 готовых фраз для писем</h1>
+    <p class="lead">10 реальных экзаменационных тем × 30 простых выражений. Учите фразу целиком: предлоги, падежи и окончания уже стоят в правильной форме.</p>
+    <div class="summary">
+      <span>10 тем</span><span>300 фраз</span><span>чешский + русский</span><span>работает без интернета</span>
+    </div>
+
+    <section class="panel">
+      <div class="toolbar">
+        <div class="field">
+          <label for="topicSelect">Тема письма</label>
+          <select id="topicSelect"></select>
+        </div>
+        <div class="field">
+          <label for="searchInput">Поиск во фразах</label>
+          <input id="searchInput" type="search" placeholder="Например: kdy, restaurace…" autocomplete="off">
+        </div>
+      </div>
+
+      <nav class="mode-tabs" aria-label="Режим тренировки">
+        <button class="mode-btn active" data-mode="list" type="button">Все фразы</button>
+        <button class="mode-btn" data-mode="cards" type="button">Карточки</button>
+        <button class="mode-btn" data-mode="quiz" type="button">Тест</button>
+      </nav>
+
+      <div class="stats">
+        <div class="progress-track"><div id="learnedProgress" class="progress-fill"></div></div>
+        <div id="learnedText" class="stats-text">Выучено: 0 из 300</div>
+      </div>
+      <div id="taskBox" class="task-box"></div>
+
+      <section id="listView" class="view">
+        <div class="section-filter" id="sectionFilter">
+          <button class="chip active" data-part="all" type="button">Все</button>
+          <button class="chip" data-part="start" type="button">Начало</button>
+          <button class="chip" data-part="body" type="button">Содержание и вопросы</button>
+          <button class="chip" data-part="end" type="button">Окончание</button>
+        </div>
+        <div class="list-head">
+          <h2 id="listTitle">Фразы по теме</h2>
+          <span id="visibleCount" class="count-badge">30 фраз</span>
+        </div>
+        <div id="phraseList" class="phrase-list"></div>
+      </section>
+
+      <section id="cardsView" class="view hidden">
+        <div class="study-top">
+          <span id="cardCounter">Карточка 1 из 30</span>
+          <div class="small-actions">
+            <button id="shuffleBtn" class="small-btn" type="button">Перемешать</button>
+            <button id="onlyUnlearnedBtn" class="small-btn" type="button">Только невыученные</button>
+          </div>
+        </div>
+        <div id="flashcard" class="flashcard" tabindex="0" role="button" aria-label="Перевернуть карточку">
+          <div>
+            <div class="hint">Нажмите, чтобы увидеть перевод</div>
+            <div id="cardFront" class="front"></div>
+            <div id="cardBack" class="back"></div>
+          </div>
+        </div>
+        <div class="card-controls">
+          <button id="prevCardBtn" class="btn ghost" type="button">Назад</button>
+          <button id="nextCardBtn" class="btn secondary" type="button">Дальше</button>
+          <button id="markCardBtn" class="btn good" type="button">✓ Я выучил</button>
+        </div>
+      </section>
+
+      <section id="quizView" class="view hidden">
+        <div class="direction">
+          <button class="chip active" data-direction="cz-ru" type="button">Чешский → русский</button>
+          <button class="chip" data-direction="ru-cz" type="button">Русский → чешский</button>
+          <button id="retryMistakesBtn" class="chip hidden" type="button">Повторить ошибки</button>
+        </div>
+        <div id="quizPlay" class="quiz-card">
+          <div class="quiz-meta"><span id="quizCounter">Вопрос 1 из 30</span><span id="quizScore">Правильно: 0</span></div>
+          <div class="quiz-body">
+            <p id="quizPrompt" class="quiz-prompt">Как переводится эта фраза?</p>
+            <div id="quizQuestion" class="quiz-question"></div>
+            <div id="answers" class="answers"></div>
+            <div id="feedback" class="feedback"></div>
+            <div class="quiz-actions">
+              <button id="restartQuizBtn" class="btn ghost" type="button">Начать заново</button>
+              <button id="nextQuestionBtn" class="btn primary" type="button" disabled>Следующая фраза</button>
+            </div>
+          </div>
+        </div>
+        <div id="quizResult" class="result hidden">
+          <div id="scoreCircle" class="score-circle"><span id="scorePercent">0%</span></div>
+          <h2>Тест завершён</h2>
+          <p id="resultText"></p>
+          <div class="small-actions" style="justify-content:center">
+            <button id="resultRetryBtn" class="btn secondary" type="button">Повторить ошибки</button>
+            <button id="resultRestartBtn" class="btn primary" type="button">Пройти ещё раз</button>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <p class="footer-note">Для письма на экзамене обычно достаточно выбрать приветствие, 4–6 фраз по заданию и окончание. Проверяйте, что вы ответили на каждый пункт условия и написали не меньше 40 слов. <button id="resetAllBtn" class="danger-link" type="button">Сбросить весь прогресс</button></p>
+  </main>
+
+  <script id="phraseData" type="application/json">
+[
+  {
+    "id":"1.1",
+    "name":"Приглашение на выходные в Прагу",
+    "task":"что будете делать · куда пойдёте · что будете есть",
+    "phrases":[
+      ["start","Ahoj!","Привет!"],
+      ["start","Milá kamarádko,","Дорогая подруга,"],
+      ["start","Jak se máš?","Как ты?"],
+      ["start","Doufám, že se máš dobře.","Надеюсь, у тебя всё хорошо."],
+      ["start","Chci tě pozvat na víkend do Prahy.","Я хочу пригласить тебя на выходные в Прагу."],
+      ["start","Přijeď ke mně příští víkend.","Приезжай ко мне в следующие выходные."],
+      ["body","Budu rád, když přijedeš.","Я буду рад, если ты приедешь."],
+      ["body","V sobotu půjdeme do centra.","В субботу мы пойдём в центр."],
+      ["body","Navštívíme Pražský hrad.","Мы посетим Пражский град."],
+      ["body","Podíváme se na Karlův most.","Мы посмотрим на Карлов мост."],
+      ["body","Projdeme se po Starém Městě.","Мы прогуляемся по Старому городу."],
+      ["body","Odpoledne navštívíme muzeum.","Днём мы посетим музей."],
+      ["body","Večer půjdeme do kina.","Вечером мы пойдём в кино."],
+      ["body","V neděli pojedeme do zoo.","В воскресенье мы поедем в зоопарк."],
+      ["body","Můžeme také nakupovat.","Мы также можем походить по магазинам."],
+      ["body","Oběd si dáme v české restauraci.","Мы пообедаем в чешском ресторане."],
+      ["body","Dám si kuře s hranolky.","Я закажу себе курицу с картофелем фри."],
+      ["body","Ty si můžeš dát smažený sýr.","Ты можешь заказать себе жареный сыр."],
+      ["body","Ochutnáme české jídlo.","Мы попробуем чешскую еду."],
+      ["body","Dáme si kávu a dort.","Мы возьмём кофе и торт."],
+      ["body","Můžeš přijet v pátek večer?","Ты можешь приехать в пятницу вечером?"],
+      ["body","Kde se chceš sejít?","Где ты хочешь встретиться?"],
+      ["body","Napiš mi, kdy přijedeš.","Напиши мне, когда ты приедешь."],
+      ["body","Napiš mi, co chceš dělat.","Напиши мне, что ты хочешь делать."],
+      ["end","Těším se na společný víkend.","Я с нетерпением жду наших совместных выходных."],
+      ["end","Doufám, že bude hezké počasí.","Надеюсь, будет хорошая погода."],
+      ["end","Určitě si to užijeme.","Мы точно хорошо проведём время."],
+      ["end","Dej mi prosím vědět.","Пожалуйста, дай мне знать."],
+      ["end","Těším se na tvou odpověď.","Жду твоего ответа."],
+      ["end","Měj se hezky!","Всего хорошего!"]
+    ]
+  },
+  {
+    "id":"1.2",
+    "name":"Привет с отдыха",
+    "task":"где вы и что делаете · как вам нравится · рекомендуете ли место",
+    "phrases":[
+      ["start","Ahoj!","Привет!"],
+      ["start","Milý kamaráde,","Дорогой друг,"],
+      ["start","Zdravím tě z dovolené.","Передаю тебе привет с отдыха."],
+      ["start","Píšu ti z krásné dovolené.","Пишу тебе с прекрасного отдыха."],
+      ["start","Jsem na dovolené v Itálii.","Я в отпуске в Италии."],
+      ["start","Bydlím v hotelu u moře.","Я живу в отеле у моря."],
+      ["body","Jsem tady s rodinou.","Я здесь с семьёй."],
+      ["body","Každé ráno se koupu v moři.","Каждое утро я купаюсь в море."],
+      ["body","Přes den se opaluji na pláži.","Днём я загораю на пляже."],
+      ["body","Odpoledne chodíme na výlety.","Днём мы ходим на экскурсии."],
+      ["body","Večer se procházíme po městě.","Вечером мы гуляем по городу."],
+      ["body","Navštěvujeme zajímavá místa.","Мы посещаем интересные места."],
+      ["body","Fotím moře a staré město.","Я фотографирую море и старый город."],
+      ["body","Ochutnávám místní jídlo.","Я пробую местную еду."],
+      ["body","Počasí je teplé a slunečné.","Погода тёплая и солнечная."],
+      ["body","Moře je čisté a teplé.","Море чистое и тёплое."],
+      ["body","Hotel je pohodlný a čistý.","Отель удобный и чистый."],
+      ["body","Jídlo je velmi dobré.","Еда очень хорошая."],
+      ["body","Moc se mi tady líbí.","Мне здесь очень нравится."],
+      ["body","Lidé jsou milí a přátelští.","Люди милые и дружелюбные."],
+      ["body","Je tu klid a krásná příroda.","Здесь спокойно и красивая природа."],
+      ["body","Dovolenou si opravdu užívám.","Я действительно наслаждаюсь отпуском."],
+      ["body","Toto místo určitě doporučuji.","Я определённо рекомендую это место."],
+      ["body","Je to dobré místo pro rodiny.","Это хорошее место для семей."],
+      ["body","Příští rok sem chci přijet znovu.","В следующем году я хочу приехать сюда снова."],
+      ["end","Škoda, že tu nejsi se mnou.","Жаль, что тебя нет здесь со мной."],
+      ["end","Pošlu ti několik fotografií.","Я пришлю тебе несколько фотографий."],
+      ["end","Brzy se uvidíme.","Скоро увидимся."],
+      ["end","Měj se krásně!","Всего тебе доброго!"],
+      ["end","Srdečně tě zdravím.","Сердечно тебя приветствую."]
+    ]
+  },
+  {
+    "id":"1.3",
+    "name":"Ответ на приглашение на день рождения",
+    "task":"поблагодарить · сколько людей · какой подарок · когда и где праздник",
+    "phrases":[
+      ["start","Ahoj!","Привет!"],
+      ["start","Milá sestro,","Дорогая сестра,"],
+      ["start","Děkuji ti za pozvání.","Спасибо тебе за приглашение."],
+      ["start","Moc děkuji za pozvání na oslavu.","Большое спасибо за приглашение на праздник."],
+      ["start","Tvoje pozvání mě potěšilo.","Твоё приглашение меня порадовало."],
+      ["start","Rád přijdu na tvou oslavu.","Я с удовольствием приду на твой праздник."],
+      ["body","Určitě přijdu.","Я обязательно приду."],
+      ["body","Těším se na oslavu.","Я с нетерпением жду праздника."],
+      ["body","Kolik lidí přijde na oslavu?","Сколько людей придёт на праздник?"],
+      ["body","Kdo přijde na oslavu?","Кто придёт на праздник?"],
+      ["body","Přijdou také naši rodiče?","Наши родители тоже придут?"],
+      ["body","Pozveš také své kamarády?","Ты также пригласишь своих друзей?"],
+      ["body","Jaký dárek si přeješ?","Какой подарок ты хочешь?"],
+      ["body","Co ti mám koupit?","Что мне тебе купить?"],
+      ["body","Mám ti koupit knihu?","Мне купить тебе книгу?"],
+      ["body","Mám přinést dort?","Мне принести торт?"],
+      ["body","Potřebuješ s něčím pomoct?","Тебе нужна с чем-нибудь помощь?"],
+      ["body","Kdy bude oslava?","Когда будет праздник?"],
+      ["body","Který den bude oslava?","В какой день будет праздник?"],
+      ["body","V kolik hodin oslava začne?","Во сколько начнётся праздник?"],
+      ["body","Kde bude oslava?","Где будет праздник?"],
+      ["body","Bude oslava u tebe doma?","Праздник будет у тебя дома?"],
+      ["body","Jak se tam dostanu?","Как мне туда добраться?"],
+      ["body","Mám přijít trochu dříve?","Мне прийти немного раньше?"],
+      ["end","Mohu ti před oslavou pomoct.","Я могу помочь тебе перед праздником."],
+      ["end","Doufám, že si oslavu užijeme.","Надеюсь, мы хорошо проведём время на празднике."],
+      ["end","Napiš mi prosím podrobnosti.","Напиши мне, пожалуйста, подробности."],
+      ["end","Těším se na tvou odpověď.","Жду твоего ответа."],
+      ["end","Brzy se uvidíme.","Скоро увидимся."],
+      ["end","Měj se hezky!","Всего хорошего!"]
+    ]
+  },
+  {
+    "id":"1.4",
+    "name":"Извинение и перенос встречи",
+    "task":"что случилось · где вы сейчас · другой день и время встречи",
+    "phrases":[
+      ["start","Ahoj!","Привет!"],
+      ["start","Milý kamaráde,","Дорогой друг,"],
+      ["start","Moc se omlouvám.","Я очень извиняюсь."],
+      ["start","Promiň, ale dnes nemohu přijít.","Извини, но сегодня я не могу прийти."],
+      ["start","Omlouvám se, ale přijdu pozdě.","Извини, но я приду поздно."],
+      ["start","Bohužel musím zrušit naši schůzku.","К сожалению, я должен отменить нашу встречу."],
+      ["body","Musím zůstat déle v práci.","Я должен дольше остаться на работе."],
+      ["body","Mám důležitou pracovní schůzku.","У меня важная рабочая встреча."],
+      ["body","Necítím se dobře.","Я плохо себя чувствую."],
+      ["body","Bolí mě hlava a mám teplotu.","У меня болит голова и температура."],
+      ["body","Ujel mi autobus.","Я не успел на автобус."],
+      ["body","Můj vlak má velké zpoždění.","Мой поезд сильно опаздывает."],
+      ["body","Musím se postarat o dítě.","Я должен позаботиться о ребёнке."],
+      ["body","Teď jsem ještě v kanceláři.","Сейчас я ещё в офисе."],
+      ["body","Teď jsem u lékaře.","Сейчас я у врача."],
+      ["body","Jsem na cestě domů.","Я по дороге домой."],
+      ["body","Dnes to bohužel nestihnu.","Сегодня я, к сожалению, не успею."],
+      ["body","Můžeme se sejít zítra?","Мы можем встретиться завтра?"],
+      ["body","Můžeme schůzku přesunout na pátek?","Мы можем перенести встречу на пятницу?"],
+      ["body","Hodí se ti sobota?","Тебе подходит суббота?"],
+      ["body","Máš čas v neděli odpoledne?","У тебя есть время в воскресенье днём?"],
+      ["body","Co třeba zítra v šest hodin?","Как насчёт завтра в шесть часов?"],
+      ["body","Navrhuji pátek v sedm hodin.","Предлагаю пятницу в семь часов."],
+      ["body","Sejdeme se před kavárnou.","Встретимся перед кафе."],
+      ["body","Napiš mi, který den se ti hodí.","Напиши мне, какой день тебе подходит."],
+      ["end","Ještě jednou se omlouvám.","Ещё раз извиняюсь."],
+      ["end","Doufám, že ti to nevadí.","Надеюсь, ты не против."],
+      ["end","Děkuji za pochopení.","Спасибо за понимание."],
+      ["end","Čekám na tvou odpověď.","Жду твоего ответа."],
+      ["end","Měj se hezky!","Всего хорошего!"]
+    ]
+  },
+  {
+    "id":"1.5",
+    "name":"Ответ на приглашение в горы",
+    "task":"поблагодарить · программа · что взять · во сколько отъезд",
+    "phrases":[
+      ["start","Ahoj!","Привет!"],
+      ["start","Milá kamarádko,","Дорогая подруга,"],
+      ["start","Děkuji za pozvání na výlet.","Спасибо за приглашение на экскурсию."],
+      ["start","Moc rád pojedu s tebou.","Я с удовольствием поеду с тобой."],
+      ["start","To je skvělý nápad.","Это отличная идея."],
+      ["start","Pozvání na výlet mě potěšilo.","Приглашение на поездку меня порадовало."],
+      ["body","Těším se na výlet do hor.","Я с нетерпением жду поездки в горы."],
+      ["body","Jaký je program výletu?","Какая программа поездки?"],
+      ["body","Kam přesně pojedeme?","Куда именно мы поедем?"],
+      ["body","Na kterou horu půjdeme?","На какую гору мы пойдём?"],
+      ["body","Jak dlouhá bude trasa?","Насколько длинным будет маршрут?"],
+      ["body","Je cesta náročná?","Дорога сложная?"],
+      ["body","Budeme celý den chodit?","Мы будем ходить весь день?"],
+      ["body","Navštívíme také nějaký hrad?","Мы также посетим какой-нибудь замок?"],
+      ["body","Kde budeme obědvat?","Где мы будем обедать?"],
+      ["body","Co si mám vzít s sebou?","Что мне взять с собой?"],
+      ["body","Mám si vzít teplé oblečení?","Мне взять тёплую одежду?"],
+      ["body","Potřebuji turistické boty?","Мне нужны туристические ботинки?"],
+      ["body","Mám si vzít jídlo a pití?","Мне взять еду и напитки?"],
+      ["body","Mám přinést mapu?","Мне принести карту?"],
+      ["body","V kolik hodin odjíždíme?","Во сколько мы отправляемся?"],
+      ["body","Odkud odjíždíme?","Откуда мы отправляемся?"],
+      ["body","Jedeme autem, nebo vlakem?","Мы едем на машине или на поезде?"],
+      ["body","V kolik hodin se vrátíme?","Во сколько мы вернёмся?"],
+      ["body","Kde se ráno sejdeme?","Где мы встретимся утром?"],
+      ["end","Doufám, že bude hezké počasí.","Надеюсь, будет хорошая погода."],
+      ["end","Určitě si výlet užijeme.","Мы точно хорошо проведём время в поездке."],
+      ["end","Napiš mi prosím podrobnosti.","Напиши мне, пожалуйста, подробности."],
+      ["end","Těším se na tvou odpověď.","Жду твоего ответа."],
+      ["end","Měj se hezky!","Всего хорошего!"]
+    ]
+  },
+  {
+    "id":"1.6",
+    "name":"Приглашение в ресторан",
+    "task":"где ресторан · день и время встречи · что будете есть",
+    "phrases":[
+      ["start","Ahoj!","Привет!"],
+      ["start","Milá kamarádko,","Дорогая подруга,"],
+      ["start","Jak se máš?","Как ты?"],
+      ["start","Chci tě pozvat do restaurace.","Я хочу пригласить тебя в ресторан."],
+      ["start","Půjdeš se mnou na večeři?","Ты пойдёшь со мной на ужин?"],
+      ["start","Znám jednu dobrou restauraci.","Я знаю один хороший ресторан."],
+      ["body","Je to italská restaurace.","Это итальянский ресторан."],
+      ["body","Restaurace se jmenuje Bella Italia.","Ресторан называется Bella Italia."],
+      ["body","Restaurace je v centru města.","Ресторан находится в центре города."],
+      ["body","Je blízko stanice metra.","Он находится недалеко от станции метро."],
+      ["body","Adresa je Václavské náměstí 10.","Адрес — Вацлавская площадь, 10."],
+      ["body","Sejdeme se v pátek.","Встретимся в пятницу."],
+      ["body","Sejdeme se v sedm hodin.","Встретимся в семь часов."],
+      ["body","Počkám na tebe před restaurací.","Я подожду тебя перед рестораном."],
+      ["body","Můžeme se sejít u metra.","Мы можем встретиться у метро."],
+      ["body","Rezervuji stůl pro dva.","Я забронирую столик на двоих."],
+      ["body","Dám si těstoviny s krevetami.","Я закажу себе макароны с креветками."],
+      ["body","Ty si můžeš dát pizzu.","Ты можешь заказать себе пиццу."],
+      ["body","Mají tam výborné saláty.","Там есть отличные салаты."],
+      ["body","Můžeme ochutnat italský dezert.","Мы можем попробовать итальянский десерт."],
+      ["body","Dáme si také kávu.","Мы также возьмём кофе."],
+      ["body","Myslím, že ti jídlo bude chutnat.","Думаю, тебе понравится еда."],
+      ["body","Máš v pátek večer čas?","У тебя есть время в пятницу вечером?"],
+      ["body","Hodí se ti sedm hodin?","Тебе подходит семь часов?"],
+      ["body","Co si chceš dát k jídlu?","Что ты хочешь заказать поесть?"],
+      ["end","Doufám, že přijdeš.","Надеюсь, ты придёшь."],
+      ["end","Určitě si pochutnáme.","Мы точно вкусно поедим."],
+      ["end","Dej mi prosím vědět.","Пожалуйста, дай мне знать."],
+      ["end","Těším se na naši večeři.","Я с нетерпением жду нашего ужина."],
+      ["end","Měj se hezky!","Всего хорошего!"]
+    ]
+  },
+  {
+    "id":"1.7",
+    "name":"Приглашение в кино",
+    "task":"какой фильм · где кинотеатр · когда и где встретитесь",
+    "phrases":[
+      ["start","Ahoj!","Привет!"],
+      ["start","Milá sestřenice,","Дорогая двоюродная сестра,"],
+      ["start","Jak se máš?","Как ты?"],
+      ["start","Chci tě pozvat do kina.","Я хочу пригласить тебя в кино."],
+      ["start","Půjdeš se mnou na film?","Ты пойдёшь со мной на фильм?"],
+      ["start","V kině dávají nový film.","В кинотеатре показывают новый фильм."],
+      ["body","Film se jmenuje Letní příběh.","Фильм называется «Летняя история»."],
+      ["body","Je to nová česká komedie.","Это новая чешская комедия."],
+      ["body","Film je veselý a zajímavý.","Фильм весёлый и интересный."],
+      ["body","Hraje v něm známý český herec.","В нём играет известный чешский актёр."],
+      ["body","Myslím, že se ti film bude líbit.","Думаю, фильм тебе понравится."],
+      ["body","Kino se jmenuje Cinema City.","Кинотеатр называется Cinema City."],
+      ["body","Kino je v obchodním centru.","Кинотеатр находится в торговом центре."],
+      ["body","Je blízko stanice metra.","Он находится недалеко от станции метро."],
+      ["body","Film dávají v sobotu.","Фильм показывают в субботу."],
+      ["body","Film začíná v osm hodin.","Фильм начинается в восемь часов."],
+      ["body","Sejdeme se v půl osmé.","Встретимся в половине восьмого."],
+      ["body","Sejdeme se před kinem.","Встретимся перед кинотеатром."],
+      ["body","Počkám na tebe u pokladny.","Я подожду тебя у кассы."],
+      ["body","Koupím lístky předem.","Я куплю билеты заранее."],
+      ["body","Můžeme si koupit popcorn.","Мы можем купить попкорн."],
+      ["body","Po filmu půjdeme na kávu.","После фильма мы пойдём пить кофе."],
+      ["body","Máš v sobotu večer čas?","У тебя есть время в субботу вечером?"],
+      ["body","Hodí se ti půl osmé?","Тебе подходит половина восьмого?"],
+      ["body","Kde se chceš sejít?","Где ты хочешь встретиться?"],
+      ["end","Doufám, že půjdeš se mnou.","Надеюсь, ты пойдёшь со мной."],
+      ["end","Dej mi prosím vědět.","Пожалуйста, дай мне знать."],
+      ["end","Těším se na společný večer.","Я с нетерпением жду нашего совместного вечера."],
+      ["end","Těším se na tvou odpověď.","Жду твоего ответа."],
+      ["end","Měj se hezky!","Всего хорошего!"]
+    ]
+  },
+  {
+    "id":"1.8",
+    "name":"Запись к врачу",
+    "task":"объяснить проблему · спросить дату, время и адрес клиники",
+    "phrases":[
+      ["start","Dobrý den,","Добрый день,"],
+      ["start","Vážená paní doktorko,","Уважаемая госпожа доктор,"],
+      ["start","Vážený pane doktore,","Уважаемый господин доктор,"],
+      ["start","Chtěl bych se objednat na vyšetření.","Я хотел бы записаться на обследование."],
+      ["start","Potřebuji se objednat k lékaři.","Мне нужно записаться к врачу."],
+      ["start","Mám zdravotní problém.","У меня проблема со здоровьем."],
+      ["body","Už tři dny mě bolí v krku.","У меня уже три дня болит горло."],
+      ["body","Mám kašel a rýmu.","У меня кашель и насморк."],
+      ["body","Mám teplotu 38 stupňů.","У меня температура 38 градусов."],
+      ["body","Často mě bolí hlava.","У меня часто болит голова."],
+      ["body","Od včerejška mě bolí záda.","Со вчерашнего дня у меня болит спина."],
+      ["body","Necítím se dobře.","Я плохо себя чувствую."],
+      ["body","Potřebuji lékařské vyšetření.","Мне нужно медицинское обследование."],
+      ["body","Kdy mohu přijít na vyšetření?","Когда я могу прийти на обследование?"],
+      ["body","Máte volný termín tento týden?","У Вас есть свободная запись на этой неделе?"],
+      ["body","Mohu přijít v pondělí?","Я могу прийти в понедельник?"],
+      ["body","Který den máte volný termín?","В какой день у Вас есть свободная запись?"],
+      ["body","V kolik hodin mohu přijít?","Во сколько я могу прийти?"],
+      ["body","Hodí se Vám deset hodin?","Вам подходит десять часов?"],
+      ["body","Jaká je adresa ordinace?","Какой адрес врачебного кабинета?"],
+      ["body","Kde přesně je ordinace?","Где точно находится врачебный кабинет?"],
+      ["body","Jak se k Vám dostanu?","Как мне до Вас добраться?"],
+      ["body","Je ordinace blízko metra?","Кабинет находится недалеко от метро?"],
+      ["body","Co si mám přinést s sebou?","Что мне взять с собой?"],
+      ["body","Potřebuji doporučení od lékaře?","Мне нужно направление от врача?"],
+      ["end","Prosím o potvrzení termínu.","Прошу подтвердить дату и время приёма."],
+      ["end","Prosím, napište mi co nejdříve.","Пожалуйста, напишите мне как можно скорее."],
+      ["end","Děkuji za Vaši odpověď.","Спасибо за Ваш ответ."],
+      ["end","S pozdravem","С уважением"],
+      ["end","Přeji hezký den.","Желаю хорошего дня."]
+    ]
+  },
+  {
+    "id":"1.9",
+    "name":"Запрос в туристическую фирму",
+    "task":"куда хотите поехать · транспорт · проживание · программа поездки",
+    "phrases":[
+      ["start","Dobrý den,","Добрый день,"],
+      ["start","Vážená paní, vážený pane,","Уважаемая госпожа, уважаемый господин,"],
+      ["start","Mám zájem o váš výlet.","Я интересуюсь вашей поездкой."],
+      ["start","Chtěl bych jet na výlet s vaší cestovní kanceláří.","Я хотел бы поехать на экскурсию с вашей туристической фирмой."],
+      ["start","Chtěl bych získat více informací.","Я хотел бы получить больше информации."],
+      ["start","Plánuji cestu na příští měsíc.","Я планирую поездку на следующий месяц."],
+      ["body","Chtěl bych jet do Vídně.","Я хотел бы поехать в Вену."],
+      ["body","Chci cestovat s manželkou.","Я хочу путешествовать с женой."],
+      ["body","Chtěli bychom jet na tři dny.","Мы хотели бы поехать на три дня."],
+      ["body","Jakým dopravním prostředkem pojedeme?","На каком транспорте мы поедем?"],
+      ["body","Pojedeme autobusem, nebo vlakem?","Мы поедем на автобусе или на поезде?"],
+      ["body","Odkud autobus odjíždí?","Откуда отправляется автобус?"],
+      ["body","V kolik hodin odjíždíme?","Во сколько мы отправляемся?"],
+      ["body","Jak dlouho trvá cesta?","Сколько длится дорога?"],
+      ["body","Kde budeme ubytovaní?","Где мы будем жить?"],
+      ["body","Budeme bydlet v hotelu?","Мы будем жить в отеле?"],
+      ["body","Je v ceně pokoje snídaně?","Завтрак входит в стоимость номера?"],
+      ["body","Je hotel blízko centra?","Отель находится недалеко от центра?"],
+      ["body","Jaký je program výletu?","Какая программа поездки?"],
+      ["body","Která místa navštívíme?","Какие места мы посетим?"],
+      ["body","Budeme mít prohlídku s průvodcem?","У нас будет экскурсия с гидом?"],
+      ["body","Budeme mít také volný čas?","У нас также будет свободное время?"],
+      ["body","Je v programu návštěva muzea?","В программе есть посещение музея?"],
+      ["body","Kolik výlet stojí?","Сколько стоит поездка?"],
+      ["body","Co je zahrnuto v ceně?","Что включено в цену?"],
+      ["end","Prosím, pošlete mi podrobné informace.","Пожалуйста, пришлите мне подробную информацию."],
+      ["end","Prosím o nabídku pro dvě osoby.","Прошу предложение для двух человек."],
+      ["end","Děkuji za Vaši odpověď.","Спасибо за Ваш ответ."],
+      ["end","S pozdravem","С уважением"],
+      ["end","Přeji hezký den.","Желаю хорошего дня."]
+    ]
+  },
+  {
+    "id":"1.11",
+    "name":"Приглашение на концерт",
+    "task":"кто будет играть · когда и где концерт · когда и где встретитесь",
+    "phrases":[
+      ["start","Ahoj!","Привет!"],
+      ["start","Milý kamaráde,","Дорогой друг,"],
+      ["start","Jak se máš?","Как ты?"],
+      ["start","Chci tě pozvat na koncert.","Я хочу пригласить тебя на концерт."],
+      ["start","Půjdeš se mnou na koncert?","Ты пойдёшь со мной на концерт?"],
+      ["start","Mám dva lístky na koncert.","У меня есть два билета на концерт."],
+      ["body","Na koncertě bude hrát česká skupina.","На концерте будет играть чешская группа."],
+      ["body","Skupina se jmenuje Mirai.","Группа называется Mirai."],
+      ["body","Je to známá popová skupina.","Это известная поп-группа."],
+      ["body","Mám jejich hudbu moc rád.","Мне очень нравится их музыка."],
+      ["body","Myslím, že se ti koncert bude líbit.","Думаю, концерт тебе понравится."],
+      ["body","Koncert bude v sobotu.","Концерт будет в субботу."],
+      ["body","Koncert začne v osm hodin.","Концерт начнётся в восемь часов."],
+      ["body","Koncert bude v O2 areně.","Концерт будет на O2 арене."],
+      ["body","O2 arena je blízko metra.","O2 арена находится недалеко от метро."],
+      ["body","Sejdeme se v sedm hodin.","Встретимся в семь часов."],
+      ["body","Sejdeme se před O2 arenou.","Встретимся перед O2 ареной."],
+      ["body","Počkám na tebe u stanice metra.","Я подожду тебя у станции метро."],
+      ["body","Pojedeme tam společně metrem.","Мы поедем туда вместе на метро."],
+      ["body","Přijď prosím včas.","Пожалуйста, приходи вовремя."],
+      ["body","Po koncertě můžeme jít na drink.","После концерта мы можем пойти выпить."],
+      ["body","Máš v sobotu večer čas?","У тебя есть время в субботу вечером?"],
+      ["body","Hodí se ti sedm hodin?","Тебе подходит семь часов?"],
+      ["body","Kde se chceš sejít?","Где ты хочешь встретиться?"],
+      ["body","Chceš jet metrem?","Ты хочешь поехать на метро?"],
+      ["end","Doufám, že půjdeš se mnou.","Надеюсь, ты пойдёшь со мной."],
+      ["end","Dej mi prosím vědět.","Пожалуйста, дай мне знать."],
+      ["end","Těším se na společný večer.","Я с нетерпением жду нашего совместного вечера."],
+      ["end","Těším se na tvou odpověď.","Жду твоего ответа."],
+      ["end","Měj se hezky!","Всего хорошего!"]
+    ]
+  }
+]
+  </script>
+  <script>
+    (function(){
+      "use strict";
+      var topics=JSON.parse(document.getElementById("phraseData").textContent);
+      var partNames={start:"Начало",body:"Содержание / вопрос",end:"Окончание"};
+      var state={
+        topic:localStorage.getItem("a2mail-topic")||topics[0].id,
+        mode:localStorage.getItem("a2mail-mode")||"list",
+        part:"all",
+        learned:new Set(JSON.parse(localStorage.getItem("a2mail-learned")||"[]")),
+        cardIndex:0,
+        cardOrder:[],
+        onlyUnlearned:false,
+        direction:localStorage.getItem("a2mail-direction")||"cz-ru",
+        quiz:[],
+        quizIndex:0,
+        correct:0,
+        mistakes:[],
+        answered:false
+      };
+
+      if(topics.length!==10||topics.some(function(t){return t.phrases.length!==30;})){
+        throw new Error("Ошибка данных: должно быть 10 тем по 30 фраз.");
+      }
+
+      function phraseKey(topic,phrase){return topic.id+"::"+phrase[1];}
+      function currentTopic(){return topics.find(function(t){return t.id===state.topic;})||topics[0];}
+      function allEntries(){
+        var result=[];
+        topics.forEach(function(topic){
+          topic.phrases.forEach(function(p,index){result.push({topic:topic,phrase:p,index:index,key:phraseKey(topic,p)});});
+        });
+        return result;
+      }
+      function topicEntries(){
+        var topic=currentTopic();
+        return topic.phrases.map(function(p,index){return {topic:topic,phrase:p,index:index,key:phraseKey(topic,p)};});
+      }
+      function saveLearned(){
+        localStorage.setItem("a2mail-learned",JSON.stringify(Array.from(state.learned)));
+        updateProgress();
+      }
+      function escapeHtml(value){
+        return String(value).replace(/[&<>"']/g,function(ch){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[ch];});
+      }
+      function shuffle(array){
+        var a=array.slice();
+        for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=a[i];a[i]=a[j];a[j]=tmp;}
+        return a;
+      }
+      function updateProgress(){
+        var total=300;
+        var learned=state.learned.size;
+        document.getElementById("learnedProgress").style.width=(learned/total*100)+"%";
+        document.getElementById("learnedText").textContent="Выучено: "+learned+" из "+total;
+      }
+      function buildTopicSelect(){
+        var select=document.getElementById("topicSelect");
+        select.innerHTML=topics.map(function(t){
+          return '<option value="'+escapeHtml(t.id)+'">#'+escapeHtml(t.id)+" · "+escapeHtml(t.name)+"</option>";
+        }).join("");
+        select.value=state.topic;
+      }
+      function updateTask(){
+        var topic=currentTopic();
+        document.getElementById("taskBox").innerHTML="<strong>В письме нужно:</strong> "+escapeHtml(topic.task)+".";
+      }
+      function setMode(mode){
+        state.mode=mode;
+        localStorage.setItem("a2mail-mode",mode);
+        document.querySelectorAll(".mode-btn").forEach(function(btn){btn.classList.toggle("active",btn.dataset.mode===mode);});
+        document.getElementById("listView").classList.toggle("hidden",mode!=="list");
+        document.getElementById("cardsView").classList.toggle("hidden",mode!=="cards");
+        document.getElementById("quizView").classList.toggle("hidden",mode!=="quiz");
+        document.getElementById("searchInput").disabled=mode!=="list";
+        if(mode==="list")renderList();
+        if(mode==="cards")resetCards();
+        if(mode==="quiz")startQuiz();
+      }
+      function renderList(){
+        var topic=currentTopic();
+        var query=document.getElementById("searchInput").value.trim().toLocaleLowerCase("cs");
+        var entries=topicEntries().filter(function(entry){
+          var partOk=state.part==="all"||entry.phrase[0]===state.part;
+          var queryOk=!query||(entry.phrase[1]+" "+entry.phrase[2]).toLocaleLowerCase("cs").includes(query);
+          return partOk&&queryOk;
+        });
+        document.getElementById("listTitle").textContent="#"+topic.id+" · "+topic.name;
+        document.getElementById("visibleCount").textContent=entries.length+" "+(entries.length===1?"фраза":"фраз");
+        var list=document.getElementById("phraseList");
+        if(!entries.length){list.innerHTML='<div class="empty">По этому фильтру ничего не найдено.</div>';return;}
+        list.innerHTML=entries.map(function(entry){
+          var learned=state.learned.has(entry.key);
+          return '<article class="phrase-row '+(learned?"learned":"")+'">'+
+            '<div class="number">'+(entry.index+1)+'</div>'+
+            '<div><div class="cz">'+escapeHtml(entry.phrase[1])+'</div><div class="ru">'+escapeHtml(entry.phrase[2])+'</div><span class="part-label">'+partNames[entry.phrase[0]]+'</span></div>'+
+            '<button class="learn-btn '+(learned?"active":"")+'" data-key="'+escapeHtml(entry.key)+'" type="button" title="Отметить как выученное" aria-label="Отметить как выученное">'+(learned?"✓":"○")+'</button>'+
+          '</article>';
+        }).join("");
+        list.querySelectorAll(".learn-btn").forEach(function(btn){
+          btn.addEventListener("click",function(){
+            if(state.learned.has(btn.dataset.key))state.learned.delete(btn.dataset.key);else state.learned.add(btn.dataset.key);
+            saveLearned();
+            renderList();
+          });
+        });
+      }
+      function resetCards(){
+        var entries=topicEntries();
+        if(state.onlyUnlearned)entries=entries.filter(function(e){return !state.learned.has(e.key);});
+        state.cardOrder=entries;
+        state.cardIndex=0;
+        renderCard();
+      }
+      function renderCard(){
+        var card=document.getElementById("flashcard");
+        card.classList.remove("flipped");
+        if(!state.cardOrder.length){
+          document.getElementById("cardCounter").textContent="Все фразы выучены";
+          document.getElementById("cardFront").textContent="Отличная работа!";
+          document.getElementById("cardBack").textContent="Снимите фильтр «Только невыученные», чтобы повторить все карточки.";
+          document.getElementById("markCardBtn").disabled=true;
+          return;
+        }
+        document.getElementById("markCardBtn").disabled=false;
+        var entry=state.cardOrder[state.cardIndex];
+        document.getElementById("cardCounter").textContent="Карточка "+(state.cardIndex+1)+" из "+state.cardOrder.length;
+        document.getElementById("cardFront").textContent=entry.phrase[1];
+        document.getElementById("cardBack").textContent=entry.phrase[2];
+        var learned=state.learned.has(entry.key);
+        var mark=document.getElementById("markCardBtn");
+        mark.textContent=learned?"✓ Выучено":"✓ Я выучил";
+        mark.classList.toggle("secondary",learned);
+        mark.classList.toggle("good",!learned);
+      }
+      function moveCard(delta){
+        if(!state.cardOrder.length)return;
+        state.cardIndex=(state.cardIndex+delta+state.cardOrder.length)%state.cardOrder.length;
+        renderCard();
+      }
+      function startQuiz(source){
+        var entries=source&&source.length?source:shuffle(topicEntries());
+        state.quiz=entries.slice();
+        state.quizIndex=0;
+        state.correct=0;
+        state.mistakes=[];
+        state.answered=false;
+        document.getElementById("quizPlay").classList.remove("hidden");
+        document.getElementById("quizResult").classList.add("hidden");
+        document.getElementById("retryMistakesBtn").classList.add("hidden");
+        renderQuestion();
+      }
+      function renderQuestion(){
+        if(state.quizIndex>=state.quiz.length){showResult();return;}
+        state.answered=false;
+        var entry=state.quiz[state.quizIndex];
+        var from=state.direction==="cz-ru"?1:2;
+        var to=state.direction==="cz-ru"?2:1;
+        document.getElementById("quizCounter").textContent="Вопрос "+(state.quizIndex+1)+" из "+state.quiz.length;
+        document.getElementById("quizScore").textContent="Правильно: "+state.correct;
+        document.getElementById("quizPrompt").textContent=state.direction==="cz-ru"?"Как переводится эта фраза?":"Выберите готовую чешскую фразу:";
+        document.getElementById("quizQuestion").textContent=entry.phrase[from];
+        document.getElementById("feedback").className="feedback";
+        document.getElementById("feedback").innerHTML="";
+        document.getElementById("nextQuestionBtn").disabled=true;
+        var pool=currentTopic().phrases.filter(function(p){return p[to]!==entry.phrase[to];});
+        var wrong=shuffle(pool).slice(0,3).map(function(p){return p[to];});
+        var options=shuffle(wrong.concat([entry.phrase[to]]));
+        var answers=document.getElementById("answers");
+        answers.innerHTML=options.map(function(value){return '<button class="answer" type="button" data-value="'+escapeHtml(value)+'">'+escapeHtml(value)+'</button>';}).join("");
+        answers.querySelectorAll(".answer").forEach(function(btn){
+          btn.addEventListener("click",function(){answerQuestion(btn,entry,btn.dataset.value===entry.phrase[to]);});
+        });
+      }
+      function answerQuestion(button,entry,isCorrect){
+        if(state.answered)return;
+        state.answered=true;
+        var to=state.direction==="cz-ru"?2:1;
+        document.querySelectorAll("#answers .answer").forEach(function(btn){
+          btn.disabled=true;
+          if(btn.dataset.value===entry.phrase[to])btn.classList.add("correct");
+        });
+        var feedback=document.getElementById("feedback");
+        if(isCorrect){
+          button.classList.add("correct");
+          state.correct++;
+          feedback.className="feedback show good";
+          feedback.innerHTML="Верно!<strong>"+escapeHtml(entry.phrase[1])+" — "+escapeHtml(entry.phrase[2])+"</strong>";
+        }else{
+          button.classList.add("wrong");
+          state.mistakes.push(entry);
+          feedback.className="feedback show bad";
+          feedback.innerHTML="Правильный вариант:<strong>"+escapeHtml(entry.phrase[1])+" — "+escapeHtml(entry.phrase[2])+"</strong>";
+        }
+        document.getElementById("quizScore").textContent="Правильно: "+state.correct;
+        document.getElementById("nextQuestionBtn").disabled=false;
+      }
+      function showResult(){
+        document.getElementById("quizPlay").classList.add("hidden");
+        document.getElementById("quizResult").classList.remove("hidden");
+        var percent=state.quiz.length?Math.round(state.correct/state.quiz.length*100):0;
+        document.getElementById("scorePercent").textContent=percent+"%";
+        document.getElementById("scoreCircle").style.setProperty("--score",percent+"%");
+        document.getElementById("resultText").textContent="Правильных ответов: "+state.correct+" из "+state.quiz.length+". Ошибок: "+state.mistakes.length+".";
+        document.getElementById("resultRetryBtn").disabled=!state.mistakes.length;
+        document.getElementById("retryMistakesBtn").classList.toggle("hidden",!state.mistakes.length);
+      }
+
+      buildTopicSelect();
+      updateTask();
+      updateProgress();
+      document.getElementById("topicSelect").addEventListener("change",function(e){
+        state.topic=e.target.value;
+        localStorage.setItem("a2mail-topic",state.topic);
+        updateTask();
+        document.getElementById("searchInput").value="";
+        if(state.mode==="list")renderList();
+        if(state.mode==="cards")resetCards();
+        if(state.mode==="quiz")startQuiz();
+      });
+      document.getElementById("searchInput").addEventListener("input",renderList);
+      document.querySelectorAll(".mode-btn").forEach(function(btn){btn.addEventListener("click",function(){setMode(btn.dataset.mode);});});
+      document.querySelectorAll("#sectionFilter .chip").forEach(function(btn){
+        btn.addEventListener("click",function(){
+          state.part=btn.dataset.part;
+          document.querySelectorAll("#sectionFilter .chip").forEach(function(b){b.classList.toggle("active",b===btn);});
+          renderList();
+        });
+      });
+      document.getElementById("flashcard").addEventListener("click",function(){this.classList.toggle("flipped");});
+      document.getElementById("flashcard").addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();this.classList.toggle("flipped");}});
+      document.getElementById("prevCardBtn").addEventListener("click",function(){moveCard(-1);});
+      document.getElementById("nextCardBtn").addEventListener("click",function(){moveCard(1);});
+      document.getElementById("shuffleBtn").addEventListener("click",function(){state.cardOrder=shuffle(state.cardOrder);state.cardIndex=0;renderCard();});
+      document.getElementById("onlyUnlearnedBtn").addEventListener("click",function(){
+        state.onlyUnlearned=!state.onlyUnlearned;
+        this.textContent=state.onlyUnlearned?"Показать все":"Только невыученные";
+        this.style.background=state.onlyUnlearned?"var(--accent-soft)":"#fff";
+        resetCards();
+      });
+      document.getElementById("markCardBtn").addEventListener("click",function(){
+        if(!state.cardOrder.length)return;
+        var entry=state.cardOrder[state.cardIndex];
+        if(state.learned.has(entry.key))state.learned.delete(entry.key);else state.learned.add(entry.key);
+        saveLearned();
+        if(state.onlyUnlearned&&state.learned.has(entry.key)){state.cardOrder.splice(state.cardIndex,1);if(state.cardIndex>=state.cardOrder.length)state.cardIndex=0;}
+        else moveCard(1);
+        renderCard();
+      });
+      document.querySelectorAll("[data-direction]").forEach(function(btn){
+        btn.addEventListener("click",function(){
+          state.direction=btn.dataset.direction;
+          localStorage.setItem("a2mail-direction",state.direction);
+          document.querySelectorAll("[data-direction]").forEach(function(b){b.classList.toggle("active",b===btn);});
+          startQuiz();
+        });
+      });
+      document.querySelectorAll("[data-direction]").forEach(function(btn){btn.classList.toggle("active",btn.dataset.direction===state.direction);});
+      document.getElementById("nextQuestionBtn").addEventListener("click",function(){state.quizIndex++;renderQuestion();});
+      document.getElementById("restartQuizBtn").addEventListener("click",function(){startQuiz();});
+      document.getElementById("resultRestartBtn").addEventListener("click",function(){startQuiz();});
+      document.getElementById("resultRetryBtn").addEventListener("click",function(){startQuiz(shuffle(state.mistakes));});
+      document.getElementById("retryMistakesBtn").addEventListener("click",function(){startQuiz(shuffle(state.mistakes));});
+      document.getElementById("resetAllBtn").addEventListener("click",function(){
+        if(confirm("Сбросить отметки «выучено» и настройки тренажёра?")){
+          localStorage.removeItem("a2mail-learned");
+          localStorage.removeItem("a2mail-topic");
+          localStorage.removeItem("a2mail-mode");
+          localStorage.removeItem("a2mail-direction");
+          state.learned.clear();
+          updateProgress();
+          renderList();
+        }
+      });
+      setMode(state.mode);
+    })();
+  </script>
+</body>
+</html>
