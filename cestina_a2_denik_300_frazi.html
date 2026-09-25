@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#276749">
+  <title>Čeština A2 — Deník: 300 frází</title>
+  <style>
+    :root{--bg:#f4f7f2;--card:#fff;--ink:#17211b;--muted:#65736a;--green:#276749;--green2:#dff1e7;--gold:#f0b429;--line:#dce5de;--red:#c2413b;--shadow:0 8px 24px rgba(25,55,38,.08)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(160deg,#e7f3eb 0,#f8f4e8 45%,#f4f7f2 100%);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;min-height:100vh}
+    button,input,select,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #f6c453;outline-offset:2px}
+    .wrap{width:min(1120px,100%);margin:auto;padding:18px 14px 70px}.hero{background:linear-gradient(135deg,#1f5b3f,#37805b);color:#fff;border-radius:24px;padding:24px;box-shadow:var(--shadow)}
+    .hero h1{font-size:clamp(25px,5vw,42px);line-height:1.08;margin:0 0 8px}.hero p{margin:0;color:#e9f6ee}.stats{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}.stat{background:#ffffff18;border:1px solid #ffffff32;border-radius:999px;padding:7px 12px;font-weight:700}
+    .tabs{position:sticky;top:0;z-index:20;display:flex;gap:7px;overflow:auto;padding:10px 2px;background:#f4f7f2e8;backdrop-filter:blur(10px);scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}.tab{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:10px 14px;white-space:nowrap;font-weight:750}.tab.active{background:var(--green);border-color:var(--green);color:#fff}
+    .panel{display:none}.panel.active{display:block}.box{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;margin:12px 0;box-shadow:var(--shadow)}h2{font-size:22px;margin:0 0 12px}h3{margin:0 0 8px}.sub{color:var(--muted);margin:-6px 0 14px}
+    .filters{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:10px}.filters input,.filters select,.builder select,.builder textarea{width:100%;border:1px solid #cbd8cf;background:#fff;border-radius:12px;padding:11px;color:var(--ink)}
+    .row{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.switch{display:flex;gap:4px;background:#edf2ee;border-radius:999px;padding:4px}.switch button{border:0;background:transparent;border-radius:999px;padding:7px 11px}.switch button.active{background:#fff;color:var(--green);font-weight:800;box-shadow:0 2px 8px #1b4c3420}
+    .count{margin-left:auto;color:var(--muted);font-weight:700}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.phrase{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px;box-shadow:0 3px 12px #1937260a;position:relative}.phrase.learned{background:#f3fbf6;border-color:#a9d7ba}.cz{font-size:18px;font-weight:780;padding-right:66px}.ru{color:var(--muted);margin-top:6px}.meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}.chip{font-size:12px;background:#edf4ef;color:#365444;border-radius:999px;padding:4px 8px}.actions{position:absolute;right:9px;top:9px;display:flex;gap:3px}.icon{border:0;background:transparent;border-radius:9px;padding:7px;font-size:18px}.icon:hover{background:#edf4ef}.fav.on{color:#d79b00}.learn.on{color:var(--green)}
+    .empty{text-align:center;color:var(--muted);padding:30px}.more{display:block;margin:16px auto 0;border:0;background:var(--green2);color:var(--green);font-weight:800;border-radius:12px;padding:11px 18px}.topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.topic{border:1px solid var(--line);border-radius:16px;padding:16px;background:#fff}.topic.active{border:2px solid var(--green);background:#f4fbf6}.topic ul{margin:8px 0 0;padding-left:21px}.topic button{border:0;background:var(--green2);color:var(--green);font-weight:800;border-radius:10px;padding:9px 12px;margin-top:12px}
+    .builder-grid{display:grid;grid-template-columns:.85fr 1.35fr;gap:14px}.palette{max-height:520px;overflow:auto;padding-right:4px}.pick{width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;margin:0 0 7px}.pick:hover{border-color:#72ad88;background:#f5fbf7}.builder textarea{min-height:330px;resize:vertical;line-height:1.65}.meter{height:10px;background:#e9eee9;border-radius:999px;overflow:hidden;margin-top:10px}.meter>div{height:100%;width:0;background:var(--gold);transition:.2s}.meter>div.ok{background:#36a269}.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.btn{border:0;border-radius:11px;padding:10px 14px;font-weight:800;background:var(--green);color:#fff}.btn.secondary{background:#e8f0ea;color:#234d35}.btn.danger{background:#f8e8e7;color:var(--red)}
+    .flash{min-height:320px;display:grid;place-items:center;text-align:center;border:2px dashed #b8cbbb;border-radius:22px;padding:30px;background:linear-gradient(150deg,#fff,#f5fbf7);user-select:none}.flash .big{font-size:clamp(23px,5vw,36px);font-weight:850}.flash .answer{color:var(--muted);font-size:19px;margin-top:16px}.flash .hint{color:var(--muted);margin-top:22px}.quiz-q{font-size:22px;font-weight:780;margin:8px 0 16px}.answers{display:grid;gap:9px}.answer-btn{text-align:left;border:1px solid var(--line);border-radius:13px;background:#fff;padding:12px}.answer-btn.correct{background:#e0f4e7;border-color:#51a872}.answer-btn.wrong{background:#fae8e6;border-color:#cf746e}.feedback{min-height:28px;margin:12px 0;font-weight:750}.progressline{height:8px;border-radius:999px;background:#e8ede9;overflow:hidden}.progressline div{height:100%;background:var(--green)}
+    .tips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.tip{border-left:5px solid var(--gold);background:#fffaf0;border-radius:10px;padding:12px}.notice{background:#eef7f1;border:1px solid #b9dbc4;border-radius:14px;padding:13px;margin-bottom:12px}.footer{text-align:center;color:var(--muted);margin-top:30px;font-size:14px}
+    @media(max-width:760px){.filters,.builder-grid{grid-template-columns:1fr}.cards,.topic-grid{grid-template-columns:1fr}.tips{grid-template-columns:1fr}.palette{max-height:300px}.hero{padding:20px}.wrap{padding:10px 10px 55px}.box{padding:14px}.cz{font-size:17px}}
+    @media print{.tabs,.filters,.actions,.more,.toolbar,.hero p{display:none!important}.panel{display:block!important}.phrase{break-inside:avoid}.cards{grid-template-columns:1fr 1fr}.hero{box-shadow:none}.wrap{width:100%;padding:0}}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <header class="hero">
+    <h1>Čeština A2 · Deník</h1>
+    <p>300 frází pro témata Film, Sport, Koníček, Minulý víkend a Nová země</p>
+    <div class="stats"><span class="stat">300 frází</span><span class="stat">10 oddílů × 30</span><span class="stat">funguje offline</span><span class="stat" id="learnedStat">Naučeno: 0</span></div>
+  </header>
+
+  <nav class="tabs" aria-label="Разделы">
+    <button class="tab active" data-tab="phrases">📚 Фразы</button>
+    <button class="tab" data-tab="tasks">🧩 Темы</button>
+    <button class="tab" data-tab="builder">✍️ Дневник</button>
+    <button class="tab" data-tab="cards">🃏 Карточки</button>
+    <button class="tab" data-tab="quiz">✅ Тест</button>
+    <button class="tab" data-tab="tips">💡 Экзамен</button>
+  </nav>
+
+  <section class="panel active" id="phrases">
+    <div class="box">
+      <h2>База фраз</h2>
+      <p class="sub">Нажмите 🔊, чтобы услышать фразу; ☆ — в избранное; ○ — выучено.</p>
+      <div class="filters">
+        <input id="search" type="search" placeholder="Поиск: kino, líbilo, погода…">
+        <select id="topicFilter" aria-label="Тема">
+          <option value="all">Все темы</option><option value="film">Film</option><option value="sport">Sport</option><option value="hobby">Koníček</option><option value="weekend">Minulý víkend</option><option value="country">Nová země</option><option value="favorite">★ Избранное</option><option value="learned">✓ Выучено</option>
+        </select>
+        <select id="catFilter" aria-label="Раздел"><option value="all">Все разделы</option></select>
+      </div>
+      <div class="row" style="margin-top:11px">
+        <span>Форма:</span><div class="switch"><button class="gender active" data-g="m">мужская</button><button class="gender" data-g="f">женская</button></div>
+        <span class="count" id="resultCount"></span>
+      </div>
+    </div>
+    <div class="cards" id="phraseList"></div>
+    <button class="more" id="showMore">Показать ещё</button>
+  </section>
+
+  <section class="panel" id="tasks">
+    <div class="box">
+      <h2>Темы дневника</h2>
+      <p class="sub">В каждом тексте ответьте на все вопросы и напишите минимум 60 слов, лучше 65–75.</p>
+      <div class="topic-grid" id="topicGrid"></div>
+    </div>
+  </section>
+
+  <section class="panel builder" id="builder">
+    <div class="box">
+      <h2>Конструктор дневника</h2>
+      <p class="sub">Выберите тему и добавляйте фразы слева. Черновик сохраняется только в вашем браузере.</p>
+      <div class="row" style="margin-bottom:12px"><select id="builderTopic" style="max-width:280px"></select><div class="switch"><button class="builderGender active" data-g="m">мужская</button><button class="builderGender" data-g="f">женская</button></div></div>
+      <div class="notice" id="taskPrompt"></div>
+      <div class="builder-grid">
+        <div><input id="builderSearch" type="search" placeholder="Найти фразу…" style="width:100%;padding:10px;border:1px solid #cbd8cf;border-radius:11px;margin-bottom:8px"><div class="palette" id="palette"></div></div>
+        <div>
+          <textarea id="draft" spellcheck="true" placeholder="Dnes bych chtěl napsat…"></textarea>
+          <div class="row"><strong id="wordCount">0 слов</strong><span id="wordAdvice" class="sub" style="margin:0"></span></div>
+          <div class="meter"><div id="meterBar"></div></div>
+          <div class="toolbar"><button class="btn" id="copyDraft">Копировать</button><button class="btn secondary" id="insertDate">Добавить дату</button><button class="btn secondary" id="printPage">Печать / PDF</button><button class="btn danger" id="clearDraft">Очистить</button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="cards">
+    <div class="box">
+      <h2>Карточки</h2><p class="sub">Сначала вспомните чешскую фразу, затем откройте ответ.</p>
+      <div class="row" style="margin-bottom:12px"><select id="cardTopic"><option value="all">Все темы</option><option value="film">Film</option><option value="sport">Sport</option><option value="hobby">Koníček</option><option value="weekend">Minulý víkend</option><option value="country">Nová země</option></select><button class="btn secondary" id="shuffleCards">Перемешать</button></div>
+      <div class="flash" id="flash" role="button" tabindex="0"><div><div class="big" id="flashFront"></div><div class="answer" id="flashBack" hidden></div><div class="hint">Нажмите, чтобы показать / скрыть ответ</div></div></div>
+      <div class="toolbar" style="justify-content:center"><button class="btn secondary" id="prevCard">← Назад</button><button class="btn" id="speakCard">🔊</button><button class="btn secondary" id="nextCard">Дальше →</button></div>
+    </div>
+  </section>
+
+  <section class="panel" id="quiz">
+    <div class="box">
+      <h2>Тест: выберите чешский перевод</h2>
+      <div class="row"><span id="quizScore">Счёт: 0/0</span><span class="count" id="quizStep">1/10</span></div><div class="progressline"><div id="quizProgress" style="width:0"></div></div>
+      <div class="quiz-q" id="quizQuestion"></div><div class="answers" id="quizAnswers"></div><div class="feedback" id="quizFeedback"></div>
+      <button class="btn" id="nextQuiz" hidden>Следующий вопрос</button><button class="btn secondary" id="restartQuiz">Новый тест</button>
+    </div>
+  </section>
+
+  <section class="panel" id="tips">
+    <div class="box"><h2>Стратегия на экзамене</h2>
+      <div class="tips">
+        <div class="tip"><strong>1. Ответьте на всё</strong><br>Сделайте три коротких абзаца — по одному на каждый пункт задания.</div>
+        <div class="tip"><strong>2. Цель: 65–75 слов</strong><br>Минимум — 60. Оставьте время проверить окончания и диакритику.</div>
+        <div class="tip"><strong>3. Простые предложения</strong><br>Лучше точное A2: Nejdřív…, potom…, protože…, nakonec…</div>
+        <div class="tip"><strong>4. Прошедшее время</strong><br>Дневник о событии: byl jsem, šel jsem, dělal jsem, líbilo se mi.</div>
+        <div class="tip"><strong>5. Не забудьте мнение</strong><br>Добавьте впечатление, причину и план: Líbilo se mi to, protože… Příště…</div>
+        <div class="tip"><strong>6. Быстрая проверка</strong><br>Kde? S kým? Co? Jaké to bylo? Proč? Co udělám příště?</div>
+      </div>
+      <div class="notice" style="margin-top:14px"><strong>Универсальный каркас:</strong><br>Dnes bych chtěl napsat o… Nejdřív… Potom… Nejvíc se mi líbilo… Byl to hezký zážitek, protože… Příště bych chtěl…</div>
+    </div>
+  </section>
+  <div class="footer">Все данные находятся внутри этого файла. Интернет не нужен.</div>
+</main>
+
+<script>
+const ALL="film,sport,hobby,weekend,country";
+const phraseRows=[
+// 1. Začátek a čas — 30
+["start",ALL,"Dnes bych chtěl napsat o svém zážitku.","Dnes bych chtěla napsat o svém zážitku.","Сегодня я хотел(а) бы написать о своём впечатлении."],
+["start",ALL,"Včera jsem prožil zajímavý den.","Včera jsem prožila zajímavý den.","Вчера я провёл(а) интересный день."],
+["start",ALL,"Minulý víkend jsem měl zajímavý program.","Minulý víkend jsem měla zajímavý program.","В прошлые выходные у меня была интересная программа."],
+["start",ALL,"V sobotu ráno jsem se rozhodl něco podniknout.","V sobotu ráno jsem se rozhodla něco podniknout.","В субботу утром я решил(а) чем-нибудь заняться."],
+["start",ALL,"V neděli odpoledne jsem měl volno.","V neděli odpoledne jsem měla volno.","В воскресенье после обеда у меня было свободное время."],
+["start",ALL,"Minulý týden se stalo něco zajímavého.",null,"На прошлой неделе произошло кое-что интересное."],
+["start",ALL,"Před několika dny jsem zažil něco nového.","Před několika dny jsem zažila něco nového.","Несколько дней назад я испытал(а) что-то новое."],
+["start",ALL,"Během dovolené jsem měl hodně volného času.","Během dovolené jsem měla hodně volného času.","Во время отпуска у меня было много свободного времени."],
+["start",ALL,"Letos v létě jsem navštívil nové místo.","Letos v létě jsem navštívila nové místo.","Этим летом я посетил(а) новое место."],
+["start",ALL,"Když jsem měl volno, chtěl jsem zkusit něco nového.","Když jsem měla volno, chtěla jsem zkusit něco nového.","Когда у меня было свободное время, я хотел(а) попробовать что-то новое."],
+["start",ALL,"Ráno jsem vstal dříve než obvykle.","Ráno jsem vstala dříve než obvykle.","Утром я встал(а) раньше обычного."],
+["start",ALL,"Po snídani jsem se začal připravovat.","Po snídani jsem se začala připravovat.","После завтрака я начал(а) готовиться."],
+["start",ALL,"Kolem desáté hodiny jsem vyrazil z domu.","Kolem desáté hodiny jsem vyrazila z domu.","Около десяти часов я вышел / вышла из дома."],
+["start",ALL,"Dopoledne jsem měl ještě několik povinností.","Dopoledne jsem měla ještě několik povinností.","До обеда у меня было ещё несколько дел."],
+["start",ALL,"V poledne jsme se všichni sešli.",null,"В полдень мы все встретились."],
+["start",ALL,"Odpoledne začal hlavní program.",null,"После обеда началась основная программа."],
+["start",ALL,"Večer jsem se vrátil domů.","Večer jsem se vrátila domů.","Вечером я вернулся / вернулась домой."],
+["start",ALL,"Celý den rychle utekl.",null,"Весь день быстро пролетел."],
+["start",ALL,"Strávil jsem tam několik hodin.","Strávila jsem tam několik hodin.","Я провёл / провела там несколько часов."],
+["start",ALL,"Akce začala v šest hodin večer.",null,"Мероприятие началось в шесть часов вечера."],
+["start",ALL,"Všechno skončilo kolem deváté hodiny.",null,"Всё закончилось около девяти часов."],
+["start",ALL,"Bylo to poprvé, co jsem něco takového zkusil.","Bylo to poprvé, co jsem něco takového zkusila.","Я впервые попробовал(а) что-то подобное."],
+["start",ALL,"Už dlouho jsem to chtěl vyzkoušet.","Už dlouho jsem to chtěla vyzkoušet.","Я уже давно хотел(а) это попробовать."],
+["start",ALL,"Na tento den jsem se dlouho těšil.","Na tento den jsem se dlouho těšila.","Я долго ждал(а) этого дня."],
+["start",ALL,"Všechno jsem si předem naplánoval.","Všechno jsem si předem naplánovala.","Я всё заранее спланировал(а)."],
+["start",ALL,"Původně jsem nic zvláštního neplánoval.","Původně jsem nic zvláštního neplánovala.","Сначала я ничего особенного не планировал(а)."],
+["start",ALL,"Byl to nečekaný, ale dobrý nápad.",null,"Это была неожиданная, но хорошая идея."],
+["start",ALL,"Měl jsem dost času, a tak jsem nikam nespěchal.","Měla jsem dost času, a tak jsem nikam nespěchala.","У меня было достаточно времени, поэтому я никуда не спешил(а)."],
+["start",ALL,"Byla to dobrá příležitost udělat něco nového.",null,"Это была хорошая возможность сделать что-то новое."],
+["start",ALL,"Nakonec jsem se rozhodl, že tam půjdu.","Nakonec jsem se rozhodla, že tam půjdu.","В конце концов я решил(а), что пойду туда."],
+
+// 2. Místo a lidé — 30
+["place",ALL,"Byl jsem tam s manželkou.","Byla jsem tam s manželem.","Я был(а) там с женой / мужем."],
+["place",ALL,"Šel jsem tam s dobrým kamarádem.","Šla jsem tam s dobrou kamarádkou.","Я пошёл / пошла туда с хорошим другом / подругой."],
+["place",ALL,"Doprovázela mě celá rodina.",null,"Меня сопровождала вся семья."],
+["place",ALL,"Byli jsme malá skupina přátel.",null,"Мы были небольшой компанией друзей."],
+["place",ALL,"Tentokrát jsem šel sám.","Tentokrát jsem šla sama.","На этот раз я пошёл один / пошла одна."],
+["place",ALL,"Sešli jsme se před hlavním vchodem.",null,"Мы встретились перед главным входом."],
+["place",ALL,"Kamarád na mě čekal u zastávky.","Kamarádka na mě čekala u zastávky.","Друг / подруга ждал(а) меня у остановки."],
+["place",ALL,"Na místo jsme dorazili včas.",null,"На место мы приехали вовремя."],
+["place",ALL,"Cesta tam trvala asi půl hodiny.",null,"Дорога туда заняла около получаса."],
+["place",ALL,"Jeli jsme tam tramvají.",null,"Мы ехали туда на трамвае."],
+["place",ALL,"Doprava byla rychlá a pohodlná.",null,"Транспорт был быстрым и удобным."],
+["place",ALL,"Místo nebylo daleko od mého domu.",null,"Место было недалеко от моего дома."],
+["place",ALL,"Nacházelo se přímo v centru města.",null,"Оно находилось прямо в центре города."],
+["place",ALL,"Okolí bylo klidné a příjemné.",null,"Окрестности были спокойными и приятными."],
+["place",ALL,"Bylo tam hodně lidí.",null,"Там было много людей."],
+["place",ALL,"Naštěstí jsme nemuseli dlouho čekat.",null,"К счастью, нам не пришлось долго ждать."],
+["place",ALL,"Personál byl milý a ochotný.",null,"Персонал был любезным и готовым помочь."],
+["place",ALL,"Potkal jsem tam několik známých.","Potkala jsem tam několik známých.","Я встретил(а) там нескольких знакомых."],
+["place",ALL,"Poznal jsem nové a zajímavé lidi.","Poznala jsem nové a zajímavé lidi.","Я познакомился / познакомилась с новыми интересными людьми."],
+["place",ALL,"Všichni měli dobrou náladu.",null,"У всех было хорошее настроение."],
+["place",ALL,"Lidé kolem nás byli přátelští.",null,"Люди вокруг нас были дружелюбными."],
+["place",ALL,"Můj kamarád mi se vším pomohl.","Moje kamarádka mi se vším pomohla.","Мой друг / моя подруга во всём мне помог(ла)."],
+["place",ALL,"Společně jsme si užili hezký den.",null,"Вместе мы хорошо провели день."],
+["place",ALL,"Měli jsme dost prostoru a pohodlí.",null,"У нас было достаточно места и было удобно."],
+["place",ALL,"Místo bylo čisté a dobře upravené.",null,"Место было чистым и ухоженным."],
+["place",ALL,"Snadno jsme našli správnou adresu.",null,"Мы легко нашли нужный адрес."],
+["place",ALL,"Z okna byl krásný výhled.",null,"Из окна открывался красивый вид."],
+["place",ALL,"V okolí bylo několik kaváren a obchodů.",null,"Поблизости было несколько кафе и магазинов."],
+["place",ALL,"Cestou jsme si hodně povídali.",null,"По дороге мы много разговаривали."],
+["place",ALL,"Byl jsem rád, že jsem tam nebyl sám.","Byla jsem ráda, že jsem tam nebyla sama.","Я был(а) рад(а), что был(а) там не один / одна."],
+
+// 3. Pořadí událostí — 30
+["sequence",ALL,"Nejdřív jsem si připravil všechno potřebné.","Nejdřív jsem si připravila všechno potřebné.","Сначала я подготовил(а) всё необходимое."],
+["sequence",ALL,"Potom jsme společně vyrazili.",null,"Потом мы вместе отправились в путь."],
+["sequence",ALL,"Pak jsme si koupili vstupenky.",null,"Затем мы купили билеты."],
+["sequence",ALL,"Hned potom začal program.",null,"Сразу после этого началась программа."],
+["sequence",ALL,"Za chvíli přišli i ostatní.",null,"Через некоторое время пришли и остальные."],
+["sequence",ALL,"Po krátké přestávce jsme pokračovali.",null,"После короткого перерыва мы продолжили."],
+["sequence",ALL,"Později jsme změnili plán.",null,"Позже мы изменили план."],
+["sequence",ALL,"Před začátkem jsme měli trochu času.",null,"До начала у нас было немного времени."],
+["sequence",ALL,"Po skončení jsme ještě chvíli zůstali.",null,"После окончания мы ещё немного остались."],
+["sequence",ALL,"Během programu se stále něco dělo.",null,"Во время программы постоянно что-то происходило."],
+["sequence",ALL,"Mezitím jsem si dal krátkou pauzu.","Mezitím jsem si dala krátkou pauzu.","Тем временем я сделал(а) короткий перерыв."],
+["sequence",ALL,"Když jsme dorazili, všechno už bylo připravené.",null,"Когда мы приехали, всё уже было готово."],
+["sequence",ALL,"Jakmile jsme vešli dovnitř, našli jsme svá místa.",null,"Как только мы вошли, мы нашли свои места."],
+["sequence",ALL,"Než jsme odešli, udělali jsme několik fotografií.",null,"Перед уходом мы сделали несколько фотографий."],
+["sequence",ALL,"Zatímco ostatní odpočívali, já jsem se procházel.","Zatímco ostatní odpočívali, já jsem se procházela.","Пока остальные отдыхали, я гулял(а)."],
+["sequence",ALL,"Najednou se stalo něco nečekaného.",null,"Вдруг произошло что-то неожиданное."],
+["sequence",ALL,"Naštěstí se problém rychle vyřešil.",null,"К счастью, проблема быстро решилась."],
+["sequence",ALL,"Bohužel jsme museli chvíli čekat.",null,"К сожалению, нам пришлось немного подождать."],
+["sequence",ALL,"Nakonec všechno dobře dopadlo.",null,"В конце концов всё закончилось хорошо."],
+["sequence",ALL,"Nakonec jsme se rozhodli jít domů.",null,"В конце концов мы решили пойти домой."],
+["sequence",ALL,"Cestou zpátky jsme si koupili něco k pití.",null,"По дороге назад мы купили что-нибудь попить."],
+["sequence",ALL,"Když jsem přišel domů, byl jsem unavený.","Když jsem přišla domů, byla jsem unavená.","Когда я пришёл / пришла домой, я устал(а)."],
+["sequence",ALL,"Po návratu domů jsem si odpočinul.","Po návratu domů jsem si odpočinula.","После возвращения домой я отдохнул(а)."],
+["sequence",ALL,"Večer jsem ještě přemýšlel o celém dni.","Večer jsem ještě přemýšlela o celém dni.","Вечером я ещё думал(а) обо всём дне."],
+["sequence",ALL,"Všechno proběhlo podle plánu.",null,"Всё прошло по плану."],
+["sequence",ALL,"Den začal klidně, ale později byl velmi zajímavý.",null,"День начался спокойно, но позже стал очень интересным."],
+["sequence",ALL,"Čas ubíhal velmi rychle.",null,"Время шло очень быстро."],
+["sequence",ALL,"Ani jsme si nevšimli, že už je večer.",null,"Мы даже не заметили, что уже вечер."],
+["sequence",ALL,"Celý program měl několik částí.",null,"Вся программа состояла из нескольких частей."],
+["sequence",ALL,"Každá část byla trochu jiná.",null,"Каждая часть была немного другой."],
+
+// 4. Činnosti — 30
+["activity","film,weekend","Šel jsem do kina na nový film.","Šla jsem do kina na nový film.","Я пошёл / пошла в кино на новый фильм."],
+["activity","film,weekend","Vybral jsem si komedii, protože mám tento žánr rád.","Vybrala jsem si komedii, protože mám tento žánr ráda.","Я выбрал(а) комедию, потому что люблю этот жанр."],
+["activity","film,weekend","Koupil jsem lístky předem přes internet.","Koupila jsem lístky předem přes internet.","Я заранее купил(а) билеты через интернет."],
+["activity","film,weekend","Film se jmenoval [název filmu].",null,"Фильм назывался [название фильма]."],
+["activity","film,weekend","Film vyprávěl příběh jedné rodiny.",null,"Фильм рассказывал историю одной семьи."],
+["activity","film,weekend","Hlavní postava musela vyřešit těžký problém.",null,"Главному герою пришлось решить трудную проблему."],
+["activity","film,weekend","Děj se odehrával ve velkém městě.",null,"Действие происходило в большом городе."],
+["activity","film,weekend","Herci hráli své role velmi dobře.",null,"Актёры очень хорошо исполнили свои роли."],
+["activity","film,weekend","Ve filmu byla krásná hudba.",null,"В фильме была красивая музыка."],
+["activity","film,weekend","Po filmu jsme si povídali o jeho ději.",null,"После фильма мы говорили о его сюжете."],
+["activity","sport,weekend","Vyzkoušel jsem nový sport.","Vyzkoušela jsem nový sport.","Я попробовал(а) новый вид спорта."],
+["activity","sport,weekend","Hrál jsem badminton se svým kamarádem.","Hrála jsem badminton se svou kamarádkou.","Я играл(а) в бадминтон со своим другом / подругой."],
+["activity","sport,weekend","Cvičil jsem v novém sportovním centru.","Cvičila jsem v novém sportovním centru.","Я тренировался / тренировалась в новом спортивном центре."],
+["activity","sport,weekend","Před tréninkem jsme se krátce rozcvičili.",null,"Перед тренировкой мы немного размялись."],
+["activity","sport,weekend","Trenér nám vysvětlil základní pravidla.",null,"Тренер объяснил нам основные правила."],
+["activity","sport,weekend","Používali jsme jednoduché sportovní vybavení.",null,"Мы использовали простой спортивный инвентарь."],
+["activity","sport,weekend","Rozdělili jsme se do dvou týmů.",null,"Мы разделились на две команды."],
+["activity","sport,weekend","Naučil jsem se nový pohyb.","Naučila jsem se nový pohyb.","Я научился / научилась новому движению."],
+["activity","sport,weekend","Trénink trval asi hodinu.",null,"Тренировка длилась около часа."],
+["activity","sport,weekend","Po sportu jsem byl příjemně unavený.","Po sportu jsem byla příjemně unavená.","После спорта я чувствовал(а) приятную усталость."],
+["activity","hobby,weekend","Vyzkoušel jsem si nový koníček.","Vyzkoušela jsem si nový koníček.","Я попробовал(а) новое увлечение."],
+["activity","hobby,weekend","Začal jsem se učit fotografovat.","Začala jsem se učit fotografovat.","Я начал(а) учиться фотографировать."],
+["activity","hobby,weekend","Připravil jsem si všechny potřebné věci.","Připravila jsem si všechny potřebné věci.","Я подготовил(а) все необходимые вещи."],
+["activity","hobby,weekend","Postupoval jsem podle jednoduchého návodu.","Postupovala jsem podle jednoduchého návodu.","Я действовал(а) по простой инструкции."],
+["activity","hobby,weekend","Nakonec jsem vytvořil svůj první výrobek.","Nakonec jsem vytvořila svůj první výrobek.","В конце концов я сделал(а) свою первую поделку."],
+["activity","hobby,weekend","Novou činnost jsem několikrát procvičoval.","Novou činnost jsem několikrát procvičovala.","Я несколько раз практиковал(а) новое занятие."],
+["activity","hobby,weekend","Některé kroky pro mě byly těžké.",null,"Некоторые шаги были для меня трудными."],
+["activity","hobby,weekend","Naučil jsem se něco užitečného.","Naučila jsem se něco užitečného.","Я научился / научилась чему-то полезному."],
+["activity","hobby,weekend","Svůj výsledek jsem ukázal rodině.","Svůj výsledek jsem ukázala rodině.","Я показал(а) результат семье."],
+["activity","hobby,weekend","Po práci jsem všechno uklidil.","Po práci jsem všechno uklidila.","После занятия я всё убрал(а)."],
+
+// 5. Popis a detaily — 30
+["detail",ALL,"Atmosféra byla příjemná a klidná.",null,"Атмосфера была приятной и спокойной."],
+["detail",ALL,"Program byl dobře připravený.",null,"Программа была хорошо подготовлена."],
+["detail",ALL,"Všechno bylo dobře zorganizované.",null,"Всё было хорошо организовано."],
+["detail",ALL,"Začátek byl trochu pomalý.",null,"Начало было немного медленным."],
+["detail",ALL,"Druhá část byla mnohem zajímavější.",null,"Вторая часть была намного интереснее."],
+["detail",ALL,"Nejzajímavější byl samotný konec.",null,"Самым интересным был сам конец."],
+["detail",ALL,"Celá akce trvala asi dvě hodiny.",null,"Всё мероприятие длилось около двух часов."],
+["detail",ALL,"Vstupenka nebyla příliš drahá.",null,"Билет был не слишком дорогим."],
+["detail",ALL,"Uvnitř bylo čisto a teplo.",null,"Внутри было чисто и тепло."],
+["detail",ALL,"V pozadí hrála příjemná hudba.",null,"На фоне играла приятная музыка."],
+["detail","film,weekend","Byla to dobrodružná komedie.",null,"Это была приключенческая комедия."],
+["detail","film,weekend","Příběh byl jednoduchý, ale zajímavý.",null,"История была простой, но интересной."],
+["detail","film,weekend","Hlavní hrdina byl sympatický.","Hlavní hrdinka byla sympatická.","Главный герой / главная героиня был(а) симпатичным / симпатичной."],
+["detail","film,weekend","Některé scény byly opravdu napínavé.",null,"Некоторые сцены были действительно напряжёнными."],
+["detail","film,weekend","Film měl překvapivý konec.",null,"У фильма был неожиданный конец."],
+["detail","film,weekend","Obraz a zvuk byly velmi kvalitní.",null,"Изображение и звук были очень качественными."],
+["detail","film,weekend","Film byl s českými titulky.",null,"Фильм был с чешскими субтитрами."],
+["detail","film,weekend","Film trval skoro dvě hodiny.",null,"Фильм длился почти два часа."],
+["detail","film,weekend","Bylo tam několik vtipných scén.",null,"Там было несколько смешных сцен."],
+["detail","film,weekend","Děj byl srozumitelný a nebyl složitý.",null,"Сюжет был понятным и несложным."],
+["detail","sport,hobby,weekend","Pravidla byla jednoduchá a jasná.",null,"Правила были простыми и понятными."],
+["detail","sport,hobby,weekend","Vybavení bylo nové a kvalitní.",null,"Оборудование было новым и качественным."],
+["detail","sport,hobby,weekend","Instruktor všechno vysvětloval pomalu.",null,"Инструктор всё объяснял медленно."],
+["detail","sport,hobby,weekend","Tempo bylo pro začátečníky ideální.",null,"Темп был идеальным для начинающих."],
+["detail","sport,hobby,weekend","Nejtěžší byl úplný začátek.",null,"Самым трудным было самое начало."],
+["detail","sport,hobby,weekend","Po několika pokusech se mi začalo dařit.",null,"После нескольких попыток у меня стало получаться."],
+["detail","sport,hobby,weekend","Výsledek byl lepší, než jsem čekal.","Výsledek byl lepší, než jsem čekala.","Результат был лучше, чем я ожидал(а)."],
+["detail","sport,hobby,weekend","Potřeboval jsem hlavně trpělivost.","Potřebovala jsem hlavně trpělivost.","Мне прежде всего понадобилось терпение."],
+["detail","sport,hobby,weekend","Byla to aktivní a užitečná činnost.",null,"Это было активное и полезное занятие."],
+["detail","sport,hobby,weekend","Každý si mohl pracovat vlastním tempem.",null,"Каждый мог заниматься в своём темпе."],
+
+// 6. Pocity a hodnocení — 30
+["feeling",ALL,"Moc se mi to líbilo.",null,"Мне это очень понравилось."],
+["feeling",ALL,"Byl jsem velmi spokojený.","Byla jsem velmi spokojená.","Я был очень доволен / была очень довольна."],
+["feeling",ALL,"Měl jsem z toho radost.","Měla jsem z toho radost.","Я был(а) этому рад(а)."],
+["feeling",ALL,"Celou dobu jsem měl dobrou náladu.","Celou dobu jsem měla dobrou náladu.","Всё время у меня было хорошее настроение."],
+["feeling",ALL,"Cítil jsem se tam velmi dobře.","Cítila jsem se tam velmi dobře.","Я чувствовал(а) себя там очень хорошо."],
+["feeling",ALL,"Byl jsem příjemně překvapený.","Byla jsem příjemně překvapená.","Я был приятно удивлён / была приятно удивлена."],
+["feeling",ALL,"Zážitek byl lepší, než jsem očekával.","Zážitek byl lepší, než jsem očekávala.","Впечатление оказалось лучше, чем я ожидал(а)."],
+["feeling",ALL,"Nejdřív jsem byl trochu nervózní.","Nejdřív jsem byla trochu nervózní.","Сначала я немного нервничал(а)."],
+["feeling",ALL,"Brzy jsem se ale uklidnil.","Brzy jsem se ale uklidnila.","Но вскоре я успокоился / успокоилась."],
+["feeling",ALL,"Chvílemi jsem si nebyl jistý.","Chvílemi jsem si nebyla jistá.","Иногда я был(а) не уверен(а)."],
+["feeling",ALL,"Nakonec jsem byl na sebe pyšný.","Nakonec jsem byla na sebe pyšná.","В конце концов я гордился / гордилась собой."],
+["feeling",ALL,"Byl jsem unavený, ale šťastný.","Byla jsem unavená, ale šťastná.","Я устал(а), но был(а) счастлив(а)."],
+["feeling",ALL,"Bylo mi trochu líto, že už musíme odejít.",null,"Мне было немного жаль, что нам уже нужно уходить."],
+["feeling",ALL,"Celý den jsem si opravdu užil.","Celý den jsem si opravdu užila.","Я действительно получил(а) удовольствие от всего дня."],
+["feeling",ALL,"Byla to pro mě nová zkušenost.",null,"Это был для меня новый опыт."],
+["feeling",ALL,"Odnesl jsem si mnoho hezkých vzpomínek.","Odnesla jsem si mnoho hezkých vzpomínek.","У меня осталось много приятных воспоминаний."],
+["feeling",ALL,"Nejvíc mě potěšila dobrá atmosféra.",null,"Больше всего меня порадовала хорошая атмосфера."],
+["feeling",ALL,"Nejvíc se mi líbila společnost přátel.",null,"Больше всего мне понравилась компания друзей."],
+["feeling",ALL,"Některé chvíle byly opravdu zábavné.",null,"Некоторые моменты были действительно весёлыми."],
+["feeling",ALL,"Ani chvíli jsem se nenudil.","Ani chvíli jsem se nenudila.","Я ни минуты не скучал(а)."],
+["feeling",ALL,"Bohužel mě jedna věc zklamala.",null,"К сожалению, одна вещь меня разочаровала."],
+["feeling",ALL,"Čekal jsem od toho trochu víc.","Čekala jsem od toho trochu víc.","Я ожидал(а) от этого немного большего."],
+["feeling",ALL,"Některé části byly trochu nudné.",null,"Некоторые части были немного скучными."],
+["feeling",ALL,"Přesto mám celkově dobrý pocit.",null,"Несмотря на это, в целом у меня хорошее впечатление."],
+["feeling",ALL,"Byl to příjemně strávený čas.",null,"Это было приятно проведённое время."],
+["feeling",ALL,"Tento zážitek mi zlepšil náladu.",null,"Это событие улучшило мне настроение."],
+["feeling",ALL,"Díky tomu jsem zapomněl na starosti.","Díky tomu jsem zapomněla na starosti.","Благодаря этому я забыл(а) о заботах."],
+["feeling",ALL,"Byl jsem rád, že jsem to vyzkoušel.","Byla jsem ráda, že jsem to vyzkoušela.","Я был(а) рад(а), что попробовал(а) это."],
+["feeling",ALL,"Bylo to pro mě opravdu důležité.",null,"Это было для меня действительно важно."],
+["feeling",ALL,"Na tento den budu dlouho vzpomínat.",null,"Я буду долго вспоминать этот день."],
+
+// 7. Názor a důvody — 30
+["opinion",ALL,"Myslím, že to byl skvělý nápad.",null,"Я думаю, что это была отличная идея."],
+["opinion",ALL,"Podle mě všechno proběhlo velmi dobře.",null,"По-моему, всё прошло очень хорошо."],
+["opinion",ALL,"Líbilo se mi to, protože to bylo zajímavé.",null,"Мне это понравилось, потому что было интересно."],
+["opinion",ALL,"Bylo to zábavné a zároveň užitečné.",null,"Это было весело и одновременно полезно."],
+["opinion",ALL,"Nejvíc se mi líbilo, že jsem se něco naučil.","Nejvíc se mi líbilo, že jsem se něco naučila.","Больше всего мне понравилось, что я чему-то научился / научилась."],
+["opinion",ALL,"Bylo příjemné strávit čas s blízkými lidmi.",null,"Было приятно провести время с близкими людьми."],
+["opinion",ALL,"Tuto možnost jsem si vybral kvůli dobrým recenzím.","Tuto možnost jsem si vybrala kvůli dobrým recenzím.","Я выбрал(а) этот вариант из-за хороших отзывов."],
+["opinion",ALL,"Rozhodl jsem se pro ni, protože nebyla drahá.","Rozhodla jsem se pro ni, protože nebyla drahá.","Я выбрал(а) её, потому что она была недорогой."],
+["opinion",ALL,"Chtěl jsem změnit svůj běžný program.","Chtěla jsem změnit svůj běžný program.","Я хотел(а) изменить свою обычную программу."],
+["opinion",ALL,"Potřeboval jsem si odpočinout od práce.","Potřebovala jsem si odpočinout od práce.","Мне нужно было отдохнуть от работы."],
+["opinion",ALL,"Chtěl jsem strávit více času s rodinou.","Chtěla jsem strávit více času s rodinou.","Я хотел(а) провести больше времени с семьёй."],
+["opinion",ALL,"Zajímalo mě, jaké to bude.",null,"Мне было интересно, как это будет."],
+["opinion",ALL,"Přátelé mi toto místo doporučili.",null,"Друзья порекомендовали мне это место."],
+["opinion",ALL,"O této možnosti jsem se dozvěděl na internetu.","O této možnosti jsem se dozvěděla na internetu.","Я узнал(а) об этой возможности в интернете."],
+["opinion",ALL,"Výhodou byla dobrá poloha.",null,"Преимуществом было хорошее расположение."],
+["opinion",ALL,"Další výhodou byla příjemná cena.",null,"Ещё одним преимуществом была приятная цена."],
+["opinion",ALL,"Jedinou nevýhodou bylo dlouhé čekání.",null,"Единственным недостатком было долгое ожидание."],
+["opinion",ALL,"Vadilo mi, že tam bylo příliš mnoho lidí.",null,"Мне мешало то, что там было слишком много людей."],
+["opinion",ALL,"Na druhou stranu byl personál velmi milý.",null,"С другой стороны, персонал был очень любезным."],
+["opinion",ALL,"I přes malý problém jsem byl spokojený.","I přes malý problém jsem byla spokojená.","Несмотря на небольшую проблему, я остался доволен / осталась довольна."],
+["opinion",ALL,"Určitě to stálo za to.",null,"Это определённо того стоило."],
+["opinion",ALL,"Cena odpovídala kvalitě.",null,"Цена соответствовала качеству."],
+["opinion",ALL,"Pro začátečníka to nebylo příliš těžké.","Pro začátečnici to nebylo příliš těžké.","Для новичка / начинающей это было не слишком трудно."],
+["opinion",ALL,"Každý si tam mohl najít něco zajímavého.",null,"Каждый мог найти там что-то интересное."],
+["opinion",ALL,"Myslím, že podobné zážitky jsou důležité.",null,"Я думаю, что подобные впечатления важны."],
+["opinion",ALL,"Člověk tak může poznat něco nového.",null,"Так человек может узнать что-то новое."],
+["opinion",ALL,"Pomohlo mi to získat nové zkušenosti.",null,"Это помогло мне получить новый опыт."],
+["opinion",ALL,"Byla to dobrá změna oproti běžnému dni.",null,"Это было хорошим изменением по сравнению с обычным днём."],
+["opinion",ALL,"Celkově hodnotím tento zážitek pozitivně.",null,"В целом я оцениваю это событие положительно."],
+["opinion",ALL,"Kdybych mohl, nic bych neměnil.","Kdybych mohla, nic bych neměnila.","Если бы я мог(ла), я бы ничего не менял(а)."],
+
+// 8. Počasí, jídlo a problémy — 30
+["situation","weekend,country","Počasí bylo slunečné a teplé.",null,"Погода была солнечной и тёплой."],
+["situation","weekend,country","Ráno bylo chladno, ale odpoledne se oteplilo.",null,"Утром было прохладно, но после обеда потеплело."],
+["situation","weekend,country","Celý den trochu pršelo.",null,"Весь день немного шёл дождь."],
+["situation","weekend,country","Kvůli dešti jsme museli změnit plán.",null,"Из-за дождя нам пришлось изменить план."],
+["situation","weekend,country","Naštěstí jsme měli deštníky.",null,"К счастью, у нас были зонты."],
+["situation","weekend,country","Bylo hezky, a tak jsme byli dlouho venku.",null,"Была хорошая погода, поэтому мы долго были на улице."],
+["situation","weekend,country","Foukal silný vítr, ale nepršelo.",null,"Дул сильный ветер, но дождя не было."],
+["situation","weekend,country","Počasí nám opravdu přálo.",null,"Погода нам действительно благоприятствовала."],
+["situation","weekend,country","K obědu jsme šli do malé restaurace.",null,"На обед мы пошли в маленький ресторан."],
+["situation","weekend,country","Objednal jsem si místní specialitu.","Objednala jsem si místní specialitu.","Я заказал(а) местное фирменное блюдо."],
+["situation","weekend,country","Jídlo bylo čerstvé a chutné.",null,"Еда была свежей и вкусной."],
+["situation","weekend,country","Porce byla velká a cena rozumná.",null,"Порция была большой, а цена разумной."],
+["situation","weekend,country","Dal jsem si kávu a něco sladkého.","Dala jsem si kávu a něco sladkého.","Я выпил(а) кофе и съел(а) что-нибудь сладкое."],
+["situation","weekend,country","Obsluha byla rychlá a příjemná.",null,"Обслуживание было быстрым и приятным."],
+["situation","weekend,country","Po jídle jsme pokračovali v programu.",null,"После еды мы продолжили программу."],
+["situation",ALL,"Během dne nastal malý problém.",null,"В течение дня возникла небольшая проблема."],
+["situation",ALL,"Nemohl jsem najít správný vchod.","Nemohla jsem najít správný vchod.","Я не мог(ла) найти правильный вход."],
+["situation",ALL,"Autobus měl několik minut zpoždění.",null,"Автобус опоздал на несколько минут."],
+["situation",ALL,"Zapomněl jsem si doma jednu důležitou věc.","Zapomněla jsem si doma jednu důležitou věc.","Я забыл(а) дома одну важную вещь."],
+["situation",ALL,"Nejdřív jsem nevěděl, co mám dělat.","Nejdřív jsem nevěděla, co mám dělat.","Сначала я не знал(а), что делать."],
+["situation",ALL,"Požádal jsem o pomoc zaměstnance.","Požádala jsem o pomoc zaměstnance.","Я попросил(а) сотрудника о помощи."],
+["situation",ALL,"Kamarád mi pomohl problém vyřešit.","Kamarádka mi pomohla problém vyřešit.","Друг / подруга помог(ла) мне решить проблему."],
+["situation",ALL,"Řešení bylo nakonec docela jednoduché.",null,"Решение в итоге было довольно простым."],
+["situation",ALL,"Kvůli tomu jsme přišli o několik minut později.",null,"Из-за этого мы пришли на несколько минут позже."],
+["situation",ALL,"Naštěstí jsme o nic důležitého nepřišli.",null,"К счастью, мы не пропустили ничего важного."],
+["situation",ALL,"Museli jsme chvíli čekat venku.",null,"Нам пришлось немного подождать на улице."],
+["situation",ALL,"Bylo tam trochu hlučno.",null,"Там было немного шумно."],
+["situation",ALL,"Nebylo snadné najít volné místo.",null,"Было нелегко найти свободное место."],
+["situation",ALL,"Tento malý problém nám ale nezkazil den.",null,"Но эта небольшая проблема не испортила нам день."],
+["situation",ALL,"Později jsme se tomu společně smáli.",null,"Позже мы вместе над этим смеялись."],
+
+// 9. Závěr a plány — 30
+["ending",ALL,"Celkově to byl velmi hezký den.",null,"В целом это был очень хороший день."],
+["ending",ALL,"Jsem rád, že jsem tam šel.","Jsem ráda, že jsem tam šla.","Я рад(а), что пошёл / пошла туда."],
+["ending",ALL,"Rozhodně svého rozhodnutí nelituji.",null,"Я определённо не жалею о своём решении."],
+["ending",ALL,"Tento zážitek mohu všem doporučit.",null,"Я могу всем порекомендовать такой опыт."],
+["ending",ALL,"Doporučil bych to hlavně svým přátelům.","Doporučila bych to hlavně svým přátelům.","Я порекомендовал(а) бы это прежде всего своим друзьям."],
+["ending",ALL,"Určitě bych tam chtěl jít znovu.","Určitě bych tam chtěla jít znovu.","Я определённо хотел(а) бы пойти туда снова."],
+["ending",ALL,"Příště bych chtěl zůstat déle.","Příště bych chtěla zůstat déle.","В следующий раз я хотел(а) бы остаться дольше."],
+["ending",ALL,"Příště si všechno lépe naplánuji.",null,"В следующий раз я всё лучше спланирую."],
+["ending",ALL,"Příště si vezmu více času.",null,"В следующий раз я выделю больше времени."],
+["ending",ALL,"Rád bych vyzkoušel i něco podobného.","Ráda bych vyzkoušela i něco podobného.","Я хотел(а) бы попробовать и что-нибудь похожее."],
+["ending",ALL,"Chtěl bych o tom zjistit více informací.","Chtěla bych o tom zjistit více informací.","Я хотел(а) бы узнать об этом больше информации."],
+["ending",ALL,"Mám v plánu pokračovat i příští týden.",null,"Я планирую продолжить и на следующей неделе."],
+["ending",ALL,"Budu se tomu věnovat pravidelně.",null,"Я буду заниматься этим регулярно."],
+["ending",ALL,"Doufám, že budu mít brzy další příležitost.",null,"Надеюсь, что скоро у меня будет ещё одна возможность."],
+["ending",ALL,"Příště pozvu také své přátele.",null,"В следующий раз я приглашу также своих друзей."],
+["ending",ALL,"Už jsme se domluvili na dalším termínu.",null,"Мы уже договорились о следующей дате."],
+["ending",ALL,"Rád bych se v tom zlepšil.","Ráda bych se v tom zlepšila.","Я хотел(а) бы стать в этом лучше."],
+["ending",ALL,"Musím ještě trochu trénovat.",null,"Мне нужно ещё немного потренироваться."],
+["ending",ALL,"Příště už budu lépe připravený.","Příště už budu lépe připravená.","В следующий раз я буду лучше подготовлен(а)."],
+["ending",ALL,"Teď už vím, co mohu očekávat.",null,"Теперь я знаю, чего могу ожидать."],
+["ending",ALL,"Získané zkušenosti určitě využiji.",null,"Я обязательно использую полученный опыт."],
+["ending",ALL,"Doma jsem o všem vyprávěl rodině.","Doma jsem o všem vyprávěla rodině.","Дома я обо всём рассказал(а) семье."],
+["ending",ALL,"Ukázal jsem rodině všechny fotografie.","Ukázala jsem rodině všechny fotografie.","Я показал(а) семье все фотографии."],
+["ending",ALL,"Ještě večer jsme si psali s přáteli.",null,"Ещё вечером мы переписывались с друзьями."],
+["ending",ALL,"Byla to hezká tečka za celým týdnem.",null,"Это было прекрасным завершением всей недели."],
+["ending",ALL,"Domů jsem se vrátil s dobrou náladou.","Domů jsem se vrátila s dobrou náladou.","Я вернулся / вернулась домой в хорошем настроении."],
+["ending",ALL,"Na závěr jsme se všichni rozloučili.",null,"В конце мы все попрощались."],
+["ending",ALL,"Těším se na další podobný zážitek.",null,"Я с нетерпением жду следующего подобного события."],
+["ending",ALL,"Doufám, že se tam jednou vrátím.",null,"Надеюсь, что однажды туда вернусь."],
+["ending",ALL,"Na tento den určitě nezapomenu.",null,"Я точно не забуду этот день."],
+
+// 10. Nová země — 30
+["country","country","Minulý rok jsem poprvé navštívil novou zemi.","Minulý rok jsem poprvé navštívila novou zemi.","В прошлом году я впервые посетил(а) новую страну."],
+["country","country","Jel jsem do [název země].","Jela jsem do [název země].","Я поехал / поехала в [название страны]."],
+["country","country","Cestoval jsem s manželkou a přáteli.","Cestovala jsem s manželem a přáteli.","Я путешествовал(а) с женой / мужем и друзьями."],
+["country","country","Cestu jsme plánovali několik měsíců.",null,"Мы планировали поездку несколько месяцев."],
+["country","country","Letěli jsme tam letadlem z Prahy.",null,"Мы полетели туда на самолёте из Праги."],
+["country","country","Let trval přibližně tři hodiny.",null,"Полёт длился примерно три часа."],
+["country","country","Bydleli jsme v malém hotelu v centru.",null,"Мы жили в небольшом отеле в центре."],
+["country","country","Ubytování bylo čisté a pohodlné.",null,"Жильё было чистым и удобным."],
+["country","country","Navštívili jsme hlavní město a jeho okolí.",null,"Мы посетили столицу и её окрестности."],
+["country","country","Město bylo živé a plné turistů.",null,"Город был оживлённым и полным туристов."],
+["country","country","Centrum města mělo krásnou architekturu.",null,"В центре города была красивая архитектура."],
+["country","country","Každý den jsme chodili na dlouhé procházky.",null,"Каждый день мы ходили на долгие прогулки."],
+["country","country","Viděli jsme mnoho známých památek.",null,"Мы увидели много известных достопримечательностей."],
+["country","country","Navštívili jsme také muzeum a starý hrad.",null,"Мы посетили также музей и старый замок."],
+["country","country","Vyzkoušel jsem tradiční místní jídlo.","Vyzkoušela jsem tradiční místní jídlo.","Я попробовал(а) традиционную местную еду."],
+["country","country","Nejvíc mi chutnala místní polévka.",null,"Больше всего мне понравился местный суп."],
+["country","country","Místní lidé byli otevření a přátelští.",null,"Местные жители были открытыми и дружелюбными."],
+["country","country","Většinou jsme mluvili anglicky.",null,"В основном мы говорили по-английски."],
+["country","country","Naučil jsem se několik slov v místním jazyce.","Naučila jsem se několik slov v místním jazyce.","Я выучил(а) несколько слов на местном языке."],
+["country","country","Veřejná doprava byla rychlá a přehledná.",null,"Общественный транспорт был быстрым и понятным."],
+["country","country","Ceny byly trochu vyšší než v Česku.",null,"Цены были немного выше, чем в Чехии."],
+["country","country","Kultura byla jiná, ale velmi zajímavá.",null,"Культура была другой, но очень интересной."],
+["country","country","Překvapilo mě, jak čisté bylo město.",null,"Меня удивило, насколько чистым был город."],
+["country","country","Nejvíc se mi líbila příroda.",null,"Больше всего мне понравилась природа."],
+["country","country","Jediným problémem bylo horké počasí.",null,"Единственной проблемой была жаркая погода."],
+["country","country","Koupil jsem několik malých suvenýrů.","Koupila jsem několik malých suvenýrů.","Я купил(а) несколько небольших сувениров."],
+["country","country","Pořídil jsem si mnoho krásných fotografií.","Pořídila jsem si mnoho krásných fotografií.","Я сделал(а) много красивых фотографий."],
+["country","country","Tuto zemi bych určitě doporučil navštívit.","Tuto zemi bych určitě doporučila navštívit.","Я определённо порекомендовал(а) бы посетить эту страну."],
+["country","country","Chtěl bych se tam v budoucnu vrátit.","Chtěla bych se tam v budoucnu vrátit.","Я хотел(а) бы вернуться туда в будущем."],
+["country","country","Byla to nezapomenutelná cesta plná nových zážitků.",null,"Это было незабываемое путешествие, полное новых впечатлений."]
+];
+
+const cats={
+ start:"1. Начало и время",place:"2. Место и люди",sequence:"3. Порядок событий",activity:"4. Действия",detail:"5. Описание и детали",feeling:"6. Чувства и оценка",opinion:"7. Мнение и причины",situation:"8. Погода, еда и проблемы",ending:"9. Заключение и планы",country:"10. Nová země"
+};
+const topicNames={film:"Film",sport:"Sport",hobby:"Koníček",weekend:"Minulý víkend",country:"Nová země"};
+const phrases=phraseRows.map((r,i)=>({id:i+1,cat:r[0],topics:r[1].split(","),m:r[2],f:r[3]||r[2],ru:r[4]}));
+const tasks={
+ film:{icon:"🎬",title:"Film",prompt:"Byl/a jste v kině. Napište krátký text do deníku.",qs:["Jaký film jste viděl/a?","O čem byl film?","Líbil se vám? Proč ano/ne?"]},
+ sport:{icon:"🏸",title:"Sport",prompt:"Vyzkoušel/a jste nový sport. Popište svůj zážitek.",qs:["Co jste konkrétně dělal/a?","Jak se vám sport líbil?","Budete pokračovat?"]},
+ hobby:{icon:"📷",title:"Koníček",prompt:"Vyzkoušel/a jste nový koníček. Popište svůj zážitek.",qs:["Co jste konkrétně dělal/a?","Jak se vám to líbilo?","Budete pokračovat?"]},
+ weekend:{icon:"🌤️",title:"Minulý víkend",prompt:"Napište, co jste dělal/a o víkendu.",qs:["Kde a s kým jste byl/a?","Co jste tam dělal/a?","Jak se vám tam líbilo?"]},
+ country:{icon:"🌍",title:"Nová země",prompt:"Navštívil/a jste novou zemi. Napište o své cestě.",qs:["Kterou zemi, kdy a s kým jste navštívil/a?","Co jste tam viděl/a a dělal/a?","Jak se vám země líbila a chcete se vrátit?"]}
+};
+let gender=localStorage.getItem("denikGender")||"m", visibleLimit=30;
+const learned=new Set(JSON.parse(localStorage.getItem("denikLearned")||"[]"));
+const favorites=new Set(JSON.parse(localStorage.getItem("denikFavorites")||"[]"));
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const form=p=>gender==="f"?p.f:p.m;
+const esc=s=>s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+
+function saveSets(){localStorage.setItem("denikLearned",JSON.stringify([...learned]));localStorage.setItem("denikFavorites",JSON.stringify([...favorites]));updateStats()}
+function updateStats(){$("#learnedStat").textContent=`Naučeno: ${learned.size}/300`}
+function speak(text){if(!("speechSynthesis" in window))return; speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text.replace(/\[[^\]]+\]/g,""));u.lang="cs-CZ";u.rate=.78;speechSynthesis.speak(u)}
+function filtered(){const q=$("#search").value.trim().toLocaleLowerCase("cs");const topic=$("#topicFilter").value;const cat=$("#catFilter").value;return phrases.filter(p=>{const topicOk=topic==="all"||(topic==="favorite"?favorites.has(p.id):topic==="learned"?learned.has(p.id):p.topics.includes(topic));const catOk=cat==="all"||p.cat===cat;const text=(p.m+" "+p.f+" "+p.ru).toLocaleLowerCase("cs");return topicOk&&catOk&&(!q||text.includes(q))})}
+function renderPhrases(){const list=filtered();$("#resultCount").textContent=`Найдено: ${list.length}`;$("#phraseList").innerHTML=list.slice(0,visibleLimit).map(p=>`<article class="phrase ${learned.has(p.id)?"learned":""}"><div class="actions"><button class="icon speak" data-id="${p.id}" title="Слушать">🔊</button><button class="icon fav ${favorites.has(p.id)?"on":""}" data-id="${p.id}" title="Избранное">${favorites.has(p.id)?"★":"☆"}</button><button class="icon learn ${learned.has(p.id)?"on":""}" data-id="${p.id}" title="Выучено">${learned.has(p.id)?"●":"○"}</button></div><div class="cz">${p.id}. ${esc(form(p))}</div><div class="ru">${esc(p.ru)}</div><div class="meta"><span class="chip">${cats[p.cat]}</span>${p.topics.map(t=>`<span class="chip">${topicNames[t]}</span>`).join("")}</div></article>`).join("")||'<div class="empty">Ничего не найдено</div>';$("#showMore").hidden=visibleLimit>=list.length}
+function renderTasks(){ $("#topicGrid").innerHTML=Object.entries(tasks).map(([k,t])=>`<article class="topic" data-topic="${k}"><h3>${t.icon} ${t.title}</h3><div>${t.prompt}</div><ul>${t.qs.map(q=>`<li>${q}</li>`).join("")}</ul><button data-use="${k}">Писать эту тему</button></article>`).join("") }
+function showTab(id){$$('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));$$('.panel').forEach(p=>p.classList.toggle('active',p.id===id));scrollTo({top:0,behavior:'smooth'})}
+
+// Builder
+let builderGender=gender;
+function builderForm(p){return builderGender==="f"?p.f:p.m}
+function setBuilderTask(){const key=$("#builderTopic").value,t=tasks[key];$("#taskPrompt").innerHTML=`<strong>${t.icon} ${t.title}:</strong> ${t.prompt}<br>${t.qs.map((q,i)=>`${i+1}. ${q}`).join(" &nbsp; ")}`;$("#draft").value=localStorage.getItem("denikDraft_"+key)||"";renderPalette();countWords()}
+function renderPalette(){const key=$("#builderTopic").value,q=$("#builderSearch").value.toLocaleLowerCase("cs");const arr=phrases.filter(p=>p.topics.includes(key)&&(builderForm(p)+p.ru).toLocaleLowerCase("cs").includes(q));$("#palette").innerHTML=arr.map(p=>`<button class="pick" data-pick="${p.id}"><strong>${esc(builderForm(p))}</strong><br><span class="ru">${esc(p.ru)}</span></button>`).join("")}
+function countWords(){const text=$("#draft").value.trim();const n=text?text.match(/[\p{L}\p{N}]+(?:[-’'][\p{L}\p{N}]+)*/gu)?.length||0:0;$("#wordCount").textContent=`${n} слов`;$("#wordAdvice").textContent=n<60?`ещё ${60-n} до минимума`:n<=80?"✓ хороший объём":"можно немного сократить";const pct=Math.min(100,n/60*100);$("#meterBar").style.width=pct+"%";$("#meterBar").classList.toggle("ok",n>=60);localStorage.setItem("denikDraft_"+$("#builderTopic").value,$("#draft").value)}
+
+// Flashcards
+let deck=[...phrases],cardIndex=0,cardOpen=false;
+function makeDeck(){const t=$("#cardTopic").value;deck=phrases.filter(p=>t==="all"||p.topics.includes(t));deck.sort(()=>Math.random()-.5);cardIndex=0;cardOpen=false;renderCard()}
+function renderCard(){if(!deck.length)return;const p=deck[cardIndex];$("#flashFront").textContent=p.ru;$("#flashBack").textContent=form(p);$("#flashBack").hidden=!cardOpen}
+function moveCard(n){cardIndex=(cardIndex+n+deck.length)%deck.length;cardOpen=false;renderCard()}
+
+// Quiz
+let quiz=[],qIndex=0,score=0,answered=false;
+function startQuiz(){quiz=[...phrases].sort(()=>Math.random()-.5).slice(0,10);qIndex=0;score=0;answered=false;renderQuiz()}
+function renderQuiz(){const p=quiz[qIndex];const pool=phrases.filter(x=>x.id!==p.id&&x.cat===p.cat).sort(()=>Math.random()-.5).slice(0,3);const opts=[p,...pool].sort(()=>Math.random()-.5);$("#quizQuestion").textContent=p.ru;$("#quizAnswers").innerHTML=opts.map(x=>`<button class="answer-btn" data-answer="${x.id}">${esc(form(x))}</button>`).join("");$("#quizFeedback").textContent="";$("#nextQuiz").hidden=true;$("#quizStep").textContent=`${qIndex+1}/10`;$("#quizScore").textContent=`Счёт: ${score}/${qIndex}`;$("#quizProgress").style.width=(qIndex*10)+"%";answered=false}
+function answerQuiz(id,btn){if(answered)return;answered=true;const p=quiz[qIndex],ok=id===p.id;if(ok){score++;btn.classList.add("correct");$("#quizFeedback").textContent="✓ Правильно!"}else{btn.classList.add("wrong");const right=$(`[data-answer="${p.id}"]`);right?.classList.add("correct");$("#quizFeedback").textContent=`Правильно: ${form(p)}`}$("#quizScore").textContent=`Счёт: ${score}/${qIndex+1}`;$("#quizProgress").style.width=((qIndex+1)*10)+"%";$("#nextQuiz").hidden=false;$("#nextQuiz").textContent=qIndex===9?"Показать результат":"Следующий вопрос"}
+
+// Init and events
+Object.entries(cats).forEach(([k,v])=>$("#catFilter").insertAdjacentHTML("beforeend",`<option value="${k}">${v}</option>`));
+Object.entries(tasks).forEach(([k,t])=>$("#builderTopic").insertAdjacentHTML("beforeend",`<option value="${k}">${t.title}</option>`));
+$$('.gender').forEach(b=>b.classList.toggle('active',b.dataset.g===gender));
+$$('.tab').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
+[$("#search"),$("#topicFilter"),$("#catFilter")].forEach(el=>el.addEventListener(el.tagName==='INPUT'?'input':'change',()=>{visibleLimit=30;renderPhrases()}));
+$$('.gender').forEach(b=>b.addEventListener('click',()=>{gender=b.dataset.g;localStorage.setItem("denikGender",gender);$$('.gender').forEach(x=>x.classList.toggle('active',x===b));renderPhrases();renderCard()}));
+$("#phraseList").addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const id=+b.dataset.id,p=phrases[id-1];if(b.classList.contains('speak'))speak(form(p));if(b.classList.contains('fav')){favorites.has(id)?favorites.delete(id):favorites.add(id);saveSets();renderPhrases()}if(b.classList.contains('learn')){learned.has(id)?learned.delete(id):learned.add(id);saveSets();renderPhrases()}});
+$("#showMore").addEventListener('click',()=>{visibleLimit+=30;renderPhrases()});
+$("#topicGrid").addEventListener('click',e=>{const b=e.target.closest('[data-use]');if(!b)return;$("#builderTopic").value=b.dataset.use;setBuilderTask();showTab('builder')});
+$("#builderTopic").addEventListener('change',setBuilderTask);$("#builderSearch").addEventListener('input',renderPalette);
+$$('.builderGender').forEach(b=>b.addEventListener('click',()=>{builderGender=b.dataset.g;$$('.builderGender').forEach(x=>x.classList.toggle('active',x===b));renderPalette()}));
+$("#palette").addEventListener('click',e=>{const b=e.target.closest('[data-pick]');if(!b)return;const p=phrases[+b.dataset.pick-1],ta=$("#draft");const add=builderForm(p);ta.value+=(ta.value.trim()?" ":"")+add;ta.focus();countWords()});
+$("#draft").addEventListener('input',countWords);
+$("#copyDraft").addEventListener('click',async()=>{try{await navigator.clipboard.writeText($("#draft").value);$("#copyDraft").textContent="Скопировано ✓";setTimeout(()=>$("#copyDraft").textContent="Копировать",1200)}catch{ $("#draft").select();document.execCommand('copy')}});
+$("#insertDate").addEventListener('click',()=>{const d=new Intl.DateTimeFormat('cs-CZ',{day:'numeric',month:'long',year:'numeric'}).format(new Date());$("#draft").value=d+"\n\n"+$("#draft").value;countWords()});
+$("#clearDraft").addEventListener('click',()=>{if(confirm("Очистить текущий черновик?")){ $("#draft").value="";countWords()}});$("#printPage").addEventListener('click',()=>print());
+$("#flash").addEventListener('click',()=>{cardOpen=!cardOpen;renderCard()});$("#flash").addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();cardOpen=!cardOpen;renderCard()}});$("#prevCard").addEventListener('click',()=>moveCard(-1));$("#nextCard").addEventListener('click',()=>moveCard(1));$("#shuffleCards").addEventListener('click',makeDeck);$("#cardTopic").addEventListener('change',makeDeck);$("#speakCard").addEventListener('click',()=>speak(form(deck[cardIndex])));
+$("#quizAnswers").addEventListener('click',e=>{const b=e.target.closest('[data-answer]');if(b)answerQuiz(+b.dataset.answer,b)});$("#nextQuiz").addEventListener('click',()=>{if(qIndex===9){alert(`Результат: ${score}/10`);startQuiz()}else{qIndex++;renderQuiz()}});$("#restartQuiz").addEventListener('click',startQuiz);
+
+renderTasks();renderPhrases();setBuilderTask();makeDeck();startQuiz();updateStats();
+if(phrases.length!==300)console.warn("Ожидалось 300 фраз, найдено:",phrases.length);
+</script>
+</body>
+</html>
