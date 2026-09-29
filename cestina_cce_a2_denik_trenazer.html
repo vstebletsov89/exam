@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#6750a4">
+  <title>CCE A2 — тренажёр дневника</title>
+  <style>
+    :root{--bg:#f7f5fb;--card:#fff;--ink:#201a2b;--muted:#6f6879;--line:#e5dfec;--primary:#6750a4;--primary2:#ede6ff;--good:#19734b;--goodbg:#def6e8;--bad:#a2343b;--badbg:#ffe5e6;--warn:#986600;--warnbg:#fff0c7;--shadow:0 10px 28px rgba(47,37,68,.10)}
+    *{box-sizing:border-box}body{margin:0;background:linear-gradient(150deg,#f4efff 0,#fbfafc 38%,#eef8f4 100%);color:var(--ink);font:16px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}button,select,input,textarea{font:inherit}button{cursor:pointer}.app{max-width:980px;margin:auto;padding:18px 16px 90px}.top{display:flex;gap:14px;align-items:center;justify-content:space-between;margin-bottom:15px}.title h1{font-size:clamp(22px,5vw,34px);line-height:1.08;margin:0}.title p{margin:7px 0 0;color:var(--muted)}.level{background:var(--primary);color:#fff;border-radius:16px;padding:9px 12px;font-weight:800;white-space:nowrap}.panel{background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:18px}.controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center;margin-bottom:13px}select,input[type=search]{width:100%;border:1px solid var(--line);background:#fff;border-radius:13px;padding:12px;color:var(--ink)}.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:13px 0}.tab{border:0;background:#ebe7ef;color:#4f4758;padding:11px 8px;border-radius:13px;font-weight:750}.tab.active{background:var(--primary);color:#fff}.view{display:none}.view.active{display:block}.topic-info{background:var(--primary2);border-radius:16px;padding:13px 15px;margin:10px 0 16px}.topic-info strong{display:block;margin-bottom:5px}.prompt{margin:0;padding-left:20px;color:#4f4758}.subline{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:11px 0}.pill{display:inline-flex;align-items:center;gap:6px;background:#eeeaf2;color:#51495a;border-radius:999px;padding:6px 10px;font-size:13px;font-weight:750}.pill.good{background:var(--goodbg);color:var(--good)}.pill.warn{background:var(--warnbg);color:var(--warn)}.btn{border:0;background:var(--primary);color:#fff;border-radius:13px;padding:11px 15px;font-weight:800}.btn.secondary{background:#ece8f0;color:#453d4e}.btn.good{background:var(--good)}.btn.bad{background:var(--bad)}.btn.small{padding:7px 10px;border-radius:10px;font-size:14px}.card{min-height:245px;border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;justify-content:center;text-align:center;background:linear-gradient(150deg,#fff,#faf7ff);position:relative}.card .group{position:absolute;top:14px;left:14px}.card .cz{font-size:clamp(23px,5vw,34px);font-weight:800;line-height:1.25;margin:18px 0}.card .ru{border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:18px}.hidden{display:none!important}.actions{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:13px}.progressbar{height:9px;background:#ece8f0;border-radius:9px;overflow:hidden}.progressbar>span{display:block;height:100%;background:linear-gradient(90deg,#6750a4,#8b75c8);border-radius:9px}.quizbox{border:1px solid var(--line);border-radius:20px;padding:18px}.question-label{color:var(--muted);font-size:14px}.question{font-size:clamp(21px,4vw,29px);font-weight:800;margin:8px 0 16px}.options{display:grid;gap:9px}.option{border:1px solid var(--line);background:#fff;text-align:left;border-radius:13px;padding:12px 14px;color:var(--ink)}.option:hover{border-color:#9b88cc}.option.correct{background:var(--goodbg);border-color:#76c69c;color:#105e3b}.option.wrong{background:var(--badbg);border-color:#e49b9f;color:#8e2930}.feedback{margin-top:12px;padding:11px 13px;border-radius:12px;font-weight:650}.feedback.ok{background:var(--goodbg);color:var(--good)}.feedback.no{background:var(--badbg);color:var(--bad)}.bank-tools{display:grid;grid-template-columns:1fr auto;gap:8px;margin-bottom:10px}.phrase-list{display:grid;gap:8px;max-height:590px;overflow:auto;padding-right:3px}.phrase{border:1px solid var(--line);background:#fff;border-radius:14px;padding:12px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.phrase .cz{font-weight:750}.phrase .ru{color:var(--muted);font-size:14px;margin-top:3px}.phrase .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px}.iconbtn{border:0;background:var(--primary2);color:var(--primary);border-radius:11px;width:38px;height:38px;font-size:22px;font-weight:800}.diary-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:14px}.checklist{border:1px solid var(--line);border-radius:16px;padding:14px}.checklist label{display:block;margin:8px 0}.checklist input{accent-color:var(--primary);transform:scale(1.15);margin-right:8px}.editor{display:flex;flex-direction:column}.editor textarea{width:100%;min-height:310px;resize:vertical;border:1px solid var(--line);border-radius:16px;padding:15px;line-height:1.6;color:var(--ink)}.counter{display:flex;justify-content:space-between;align-items:center;gap:9px;margin-top:9px}.status{font-weight:800}.status.bad{color:var(--bad)}.status.warn{color:var(--warn)}.status.good{color:var(--good)}.universal-groups{display:flex;gap:7px;overflow:auto;padding-bottom:5px;margin-bottom:9px}.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;white-space:nowrap}.chip.active{background:var(--primary2);border-color:#b8a5e6;color:#503a88;font-weight:750}.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:15px}.stat{background:#f3eff8;border-radius:16px;padding:14px;text-align:center}.stat b{display:block;font-size:25px}.topic-stat{display:grid;grid-template-columns:160px 1fr 70px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.note{color:var(--muted);font-size:14px}.footer-note{text-align:center;color:var(--muted);font-size:13px;margin:16px 0}.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(30px);background:#29232f;color:#fff;padding:10px 16px;border-radius:12px;opacity:0;pointer-events:none;transition:.2s;z-index:9}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    @media(max-width:720px){.app{padding:13px 10px 82px}.panel{padding:13px;border-radius:18px}.top{align-items:flex-start}.title p{font-size:14px}.level{font-size:13px}.tabs{position:sticky;top:5px;z-index:4;background:rgba(247,245,251,.93);padding:5px;margin:8px -2px 13px;backdrop-filter:blur(8px)}.tab{font-size:13px;padding:10px 3px}.diary-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}.stats-grid .stat:last-child{grid-column:1/-1}.topic-stat{grid-template-columns:105px 1fr 50px;font-size:13px}.controls{grid-template-columns:1fr}.card{min-height:225px;padding:20px 14px}.phrase-list{max-height:none}}
+  </style>
+</head>
+<body>
+<main class="app">
+  <header class="top">
+    <div class="title"><h1>Deník CCE A2</h1><p>300 простых фраз + универсальные филлеры</p></div>
+    <div class="level">CCE A2</div>
+  </header>
+
+  <section class="panel">
+    <div class="controls">
+      <select id="topicSelect" aria-label="Выбор темы"></select>
+      <span class="pill" id="topicCount">30 фраз</span>
+    </div>
+    <div class="topic-info" id="topicInfo"></div>
+    <nav class="tabs" aria-label="Режимы">
+      <button class="tab active" data-view="cards">Карточки</button>
+      <button class="tab" data-view="quiz">Тест</button>
+      <button class="tab" data-view="bank">Все фразы</button>
+      <button class="tab" data-view="diary">Дневник</button>
+    </nav>
+
+    <section class="view active" id="view-cards">
+      <div class="subline"><span id="cardPosition">1 / 30</span><span class="pill good" id="knownBadge">Выучено: 0</span></div>
+      <div class="progressbar"><span id="cardProgress" style="width:0"></span></div>
+      <div class="card" id="flashcard" tabindex="0" role="button" aria-label="Показать перевод">
+        <span class="pill group" id="cardGroup"></span><div class="cz" id="cardCz"></div><div class="ru hidden" id="cardRu"></div>
+      </div>
+      <div class="actions">
+        <button class="btn secondary" id="prevCard">← Назад</button>
+        <button class="btn" id="revealCard">Показать перевод</button>
+        <button class="btn bad" id="repeatCard">Повторить</button>
+        <button class="btn good" id="knowCard">Знаю ✓</button>
+      </div>
+    </section>
+
+    <section class="view" id="view-quiz">
+      <div class="subline">
+        <label>Направление: <select id="quizDirection" style="width:auto;padding:7px 9px"><option value="czru">Čeština → русский</option><option value="rucz">Русский → čeština</option></select></label>
+        <span class="pill" id="quizScore">0 / 0</span>
+      </div>
+      <div class="quizbox"><div class="question-label" id="questionLabel"></div><div class="question" id="question"></div><div class="options" id="options"></div><div id="feedback"></div></div>
+      <div class="actions"><button class="btn" id="nextQuestion">Следующий вопрос</button><button class="btn secondary" id="resetQuiz">Сбросить счёт</button></div>
+    </section>
+
+    <section class="view" id="view-bank">
+      <div class="bank-tools"><input id="search" type="search" placeholder="Найти фразу по-чешски или по-русски…"><button class="btn secondary" id="showUniversal">Филлеры</button></div>
+      <div class="universal-groups hidden" id="bankGroups"></div>
+      <div class="phrase-list" id="phraseList"></div>
+    </section>
+
+    <section class="view" id="view-diary">
+      <div class="diary-grid">
+        <div>
+          <div class="checklist"><strong>Проверьте задание</strong><div id="taskChecks"></div><label><input type="checkbox">Написано минимум 60 слов</label><label><input type="checkbox">Проверены окончания и диакритика</label></div>
+          <h3>Добавить фразу</h3>
+          <div class="universal-groups" id="diaryGroups"></div>
+          <input id="diaryPhraseSearch" type="search" placeholder="Поиск фразы…">
+          <div class="phrase-list" id="diaryPhrases" style="max-height:330px;margin-top:9px"></div>
+        </div>
+        <div class="editor">
+          <textarea id="diaryText" spellcheck="true" lang="cs" placeholder="Начните писать здесь… Нажимайте + рядом с фразами, чтобы добавить их."></textarea>
+          <div class="counter"><span id="wordStatus" class="status bad">0 слов — нужно ещё 60</span><span class="pill" id="charCount">0 знаков</span></div>
+          <div class="actions"><button class="btn" id="copyDiary">Копировать</button><button class="btn secondary" id="saveDiary">Сохранить</button><button class="btn secondary" id="clearDiary">Очистить</button></div>
+          <p class="note">Текст сохраняется только на этом устройстве. Для экзамена достаточно 60 слов; безопасная цель — 70–80.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="tabs" style="margin-top:18px"><button class="tab" id="openStats" style="grid-column:1/-1">Прогресс по темам</button></nav>
+    <section class="view" id="view-stats"><div class="stats-grid"><div class="stat"><b id="totalKnown">0</b>выучено</div><div class="stat"><b id="totalAnswered">0</b>ответов</div><div class="stat"><b id="totalAccuracy">0%</b>точность</div></div><div id="topicStats"></div><div class="actions"><button class="btn secondary" id="resetProgress">Сбросить весь прогресс</button></div></section>
+  </section>
+  <p class="footer-note">Мужские формы готовы для прямого использования: byl jsem, navštívil jsem, dostal jsem.</p>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+const T = (id,title,icon,prompt,phrases)=>({id,title,icon,prompt,phrases:phrases.map(x=>({cz:x[0],ru:x[1],group:x[2]}))});
+const topics = [
+T('film','Фильм','🎬',['Какой это был фильм?','О чём был фильм?','Понравился ли он вам и почему?'],[
+['Minulou sobotu jsem byl v kině.','В прошлую субботу я был в кино.','Начало'],
+['Do kina jsem šel s manželkou.','В кино я пошёл с женой.','Начало'],
+['Kino bylo blízko našeho domu.','Кинотеатр был недалеко от нашего дома.','Начало'],
+['Film začal v sedm hodin večer.','Фильм начался в семь часов вечера.','Начало'],
+['Film se jmenoval Duna.','Фильм назывался «Дюна».','Начало'],
+['Byl to dobrodružný film.','Это был приключенческий фильм.','Какой фильм'],
+['Film byl také trochu napínavý.','Фильм был также немного напряжённым.','Какой фильм'],
+['Příběh se odehrával v budoucnosti.','Действие происходило в будущем.','Какой фильм'],
+['Ve filmu hráli známí herci.','В фильме играли известные актёры.','Какой фильм'],
+['Film trval asi dvě hodiny.','Фильм длился около двух часов.','Какой фильм'],
+['Film byl o mladém hrdinovi.','Фильм был о молодом герое.','Сюжет'],
+['Hlavní hrdina chtěl pomoci své rodině.','Главный герой хотел помочь своей семье.','Сюжет'],
+['Musel překonat mnoho problémů.','Он должен был преодолеть много проблем.','Сюжет'],
+['Na začátku žil doma s rodiči.','В начале он жил дома с родителями.','Сюжет'],
+['Potom odjel do jiné země.','Потом он уехал в другую страну.','Сюжет'],
+['Tam potkal nové přátele.','Там он встретил новых друзей.','Детали'],
+['Společně bojovali proti nepřátelům.','Вместе они боролись против врагов.','Детали'],
+['Nakonec se všechno dobře skončilo.','В конце всё закончилось хорошо.','Детали'],
+['Hudba ve filmu byla krásná.','Музыка в фильме была красивой.','Детали'],
+['Obraz a efekty byly výborné.','Картинка и эффекты были отличными.','Детали'],
+['Film se mi moc líbil.','Фильм мне очень понравился.','Мнение'],
+['Příběh byl zajímavý a srozumitelný.','История была интересной и понятной.','Мнение'],
+['Herci hráli velmi dobře.','Актёры играли очень хорошо.','Мнение'],
+['Některé části byly trochu smutné.','Некоторые части были немного грустными.','Мнение'],
+['Nejvíc se mi líbil hlavní hrdina.','Больше всего мне понравился главный герой.','Мнение'],
+['Po filmu jsme si dali kávu.','После фильма мы выпили кофе.','Конец'],
+['Mluvili jsme spolu o příběhu.','Мы вместе говорили о сюжете.','Конец'],
+['Domů jsme se vrátili metrem.','Домой мы вернулись на метро.','Конец'],
+['Tento film mohu doporučit.','Я могу порекомендовать этот фильм.','Конец'],
+['Příště chci jít do kina znovu.','В следующий раз я снова хочу пойти в кино.','Конец']
+]),
+T('sport','Новый спорт','🏸',['Что конкретно вы делали?','Как вам понравился этот спорт?','Будете ли вы продолжать?'],[
+['Minulý týden jsem vyzkoušel nový sport.','На прошлой неделе я попробовал новый вид спорта.','Начало'],
+['Rozhodl jsem se hrát badminton.','Я решил играть в бадминтон.','Начало'],
+['Našel jsem sportovní centrum na internetu.','Я нашёл спортивный центр в интернете.','Начало'],
+['První lekce byla v sobotu ráno.','Первое занятие было в субботу утром.','Начало'],
+['Byl jsem trochu nervózní.','Я немного нервничал.','Начало'],
+['Do centra jsem jel autobusem.','В центр я поехал на автобусе.','Где и с кем'],
+['Šel jsem tam s kamarádem.','Я пошёл туда с другом.','Где и с кем'],
+['Trénink byl ve velké hale.','Тренировка была в большом зале.','Где и с кем'],
+['Bylo tam asi deset lidí.','Там было около десяти человек.','Где и с кем'],
+['Trenér byl mladý a milý.','Тренер был молодым и приятным.','Где и с кем'],
+['Nejdřív jsme se krátce rozcvičili.','Сначала мы немного размялись.','Что делал'],
+['Potom nám trenér vysvětlil pravidla.','Потом тренер объяснил нам правила.','Что делал'],
+['Naučil jsem se držet raketu.','Я научился держать ракетку.','Что делал'],
+['Hrál jsem proti kamarádovi.','Я играл против друга.','Что делал'],
+['Trénovali jsme skoro hodinu.','Мы тренировались почти час.','Что делал'],
+['Ze začátku to bylo těžké.','Сначала это было трудно.','Детали'],
+['Často jsem netrefil míček.','Я часто не попадал по волану.','Детали'],
+['Později jsem hrál lépe.','Позже я играл лучше.','Детали'],
+['Po sportu jsem byl unavený.','После спорта я был уставшим.','Детали'],
+['Měl jsem ale dobrou náladu.','Но у меня было хорошее настроение.','Детали'],
+['Badminton se mi moc líbil.','Бадминтон мне очень понравился.','Мнение'],
+['Je rychlý a zajímavý.','Он быстрый и интересный.','Мнение'],
+['Líbilo se mi hrát ve dvojici.','Мне понравилось играть вдвоём.','Мнение'],
+['Trenér všechno dobře vysvětlil.','Тренер всё хорошо объяснил.','Мнение'],
+['Cena lekce nebyla vysoká.','Цена занятия была невысокой.','Мнение'],
+['Po tréninku jsme pili vodu.','После тренировки мы пили воду.','Будущее'],
+['Příští sobotu půjdu znovu.','В следующую субботу я пойду снова.','Будущее'],
+['Chci trénovat jednou týdně.','Я хочу тренироваться раз в неделю.','Будущее'],
+['Musím si koupit vlastní raketu.','Мне нужно купить собственную ракетку.','Будущее'],
+['Doufám, že se budu zlepšovat.','Надеюсь, что буду становиться лучше.','Будущее']
+]),
+T('hobby','Новое хобби','📷',['Что конкретно вы делали?','Как вам это понравилось?','Будете ли вы продолжать?'],[
+['Minulý víkend jsem vyzkoušel nový koníček.','В прошлые выходные я попробовал новое хобби.','Начало'],
+['Rozhodl jsem se fotografovat.','Я решил фотографировать.','Начало'],
+['Fotografování mě zajímalo už dlouho.','Фотография интересовала меня уже давно.','Начало'],
+['Půjčil jsem si fotoaparát od kamaráda.','Я одолжил фотоаппарат у друга.','Начало'],
+['Začal jsem v sobotu dopoledne.','Я начал в субботу до обеда.','Начало'],
+['Šel jsem do velkého parku.','Я пошёл в большой парк.','Где и с кем'],
+['Byl jsem tam s manželkou.','Я был там с женой.','Где и с кем'],
+['V parku bylo málo lidí.','В парке было мало людей.','Где и с кем'],
+['Počasí bylo teplé a slunečné.','Погода была тёплой и солнечной.','Где и с кем'],
+['Měli jsme dost času.','У нас было достаточно времени.','Где и с кем'],
+['Fotografoval jsem stromy a květiny.','Я фотографировал деревья и цветы.','Что делал'],
+['Udělal jsem také několik portrétů.','Я также сделал несколько портретов.','Что делал'],
+['Zkoušel jsem různá místa.','Я пробовал разные места.','Что делал'],
+['Naučil jsem se pracovat se světlem.','Я научился работать со светом.','Что делал'],
+['Celkem jsem udělal sto fotografií.','Всего я сделал сто фотографий.','Что делал'],
+['Některé fotografie byly moc tmavé.','Некоторые фотографии были слишком тёмными.','Детали'],
+['Jiné fotografie se povedly dobře.','Другие фотографии получились хорошо.','Детали'],
+['Manželka mi pomáhala.','Жена мне помогала.','Детали'],
+['Doma jsem fotografie upravil.','Дома я обработал фотографии.','Детали'],
+['Nejlepší fotografii jsem poslal rodině.','Лучшую фотографию я отправил семье.','Детали'],
+['Nový koníček se mi líbil.','Новое хобби мне понравилось.','Мнение'],
+['Bylo to klidné a zajímavé.','Это было спокойно и интересно.','Мнение'],
+['Mohl jsem být venku.','Я мог быть на улице.','Мнение'],
+['Také jsem se naučil něco nového.','Я также научился чему-то новому.','Мнение'],
+['Fotoaparát byl trochu těžký.','Фотоаппарат был немного тяжёлым.','Мнение'],
+['Chci fotografovat každý víkend.','Я хочу фотографировать каждые выходные.','Будущее'],
+['Příště navštívím centrum Prahy.','В следующий раз я посещу центр Праги.','Будущее'],
+['Možná si koupím vlastní fotoaparát.','Возможно, я куплю собственный фотоаппарат.','Будущее'],
+['Nejdřív si ale přečtu dobrou knihu.','Но сначала я прочитаю хорошую книгу.','Будущее'],
+['Doufám, že u tohoto koníčku zůstanu.','Надеюсь, что продолжу заниматься этим хобби.','Будущее']
+]),
+T('weekend','Прошлые выходные','🌳',['Где и с кем вы были?','Что вы там делали?','Как вам там понравилось?'],[
+['Minulý víkend jsem měl volno.','В прошлые выходные я был свободен.','Начало'],
+['Rozhodl jsem se jet na výlet.','Я решил поехать на экскурсию.','Начало'],
+['Navštívil jsem město Kutná Hora.','Я посетил город Кутна-Гора.','Начало'],
+['Vyjel jsem v sobotu ráno.','Я выехал в субботу утром.','Начало'],
+['Domů jsem se vrátil v neděli.','Домой я вернулся в воскресенье.','Начало'],
+['Jel jsem tam s manželkou.','Я поехал туда с женой.','Где и с кем'],
+['Cestovali jsme vlakem z Prahy.','Мы ехали на поезде из Праги.','Где и с кем'],
+['Cesta trvala asi hodinu.','Дорога заняла около часа.','Где и с кем'],
+['Bydleli jsme v malém hotelu.','Мы жили в маленьком отеле.','Где и с кем'],
+['Hotel byl blízko centra.','Отель был недалеко от центра.','Где и с кем'],
+['Nejdřív jsme se prošli po městě.','Сначала мы прогулялись по городу.','Что делал'],
+['Navštívili jsme známou katedrálu.','Мы посетили известный собор.','Что делал'],
+['Potom jsme šli do muzea.','Потом мы пошли в музей.','Что делал'],
+['Odpoledne jsme pili kávu.','После обеда мы пили кофе.','Что делал'],
+['Večer jsme byli v restauraci.','Вечером мы были в ресторане.','Что делал'],
+['Dal jsem si kuře a hranolky.','Я заказал курицу и картофель фри.','Детали'],
+['Jídlo bylo čerstvé a chutné.','Еда была свежей и вкусной.','Детали'],
+['V neděli bylo krásné počasí.','В воскресенье была прекрасная погода.','Детали'],
+['Koupili jsme několik suvenýrů.','Мы купили несколько сувениров.','Детали'],
+['Udělali jsme hodně fotografií.','Мы сделали много фотографий.','Детали'],
+['Výlet se mi moc líbil.','Поездка мне очень понравилась.','Мнение'],
+['Město bylo krásné a klidné.','Город был красивым и спокойным.','Мнение'],
+['Nejvíc se mi líbila katedrála.','Больше всего мне понравился собор.','Мнение'],
+['Lidé byli příjemní a milí.','Люди были приятными и милыми.','Мнение'],
+['Hotel byl pohodlný a čistý.','Отель был удобным и чистым.','Мнение'],
+['Víkend rychle utekl.','Выходные быстро прошли.','Конец'],
+['Cestou domů jsme byli unavení.','По дороге домой мы были уставшими.','Конец'],
+['Měli jsme ale dobrou náladu.','Но у нас было хорошее настроение.','Конец'],
+['Rád bych tam jel znovu.','Я хотел бы поехать туда снова.','Конец'],
+['Byl to opravdu pěkný víkend.','Это были действительно хорошие выходные.','Конец']
+]),
+T('person','Интересный человек','👤',['Кого и где вы встретили?','Чем занимается этот человек?','О чём вы хотели бы его/её спросить?'],[
+['Minulý týden jsem potkal zajímavého člověka.','На прошлой неделе я встретил интересного человека.','Начало'],
+['Byla to známá česká spisovatelka.','Это была известная чешская писательница.','Начало'],
+['Jmenovala se Jana Nováková.','Её звали Яна Новакова.','Начало'],
+['Potkal jsem ji náhodou.','Я встретил её случайно.','Начало'],
+['Měl jsem z toho velkou radost.','Я был этому очень рад.','Начало'],
+['Setkali jsme se v knihkupectví.','Мы встретились в книжном магазине.','Где'],
+['Bylo to v centru Prahy.','Это было в центре Праги.','Где'],
+['Přišel jsem tam s kamarádem.','Я пришёл туда с другом.','Где'],
+['V obchodě bylo hodně lidí.','В магазине было много людей.','Где'],
+['Setkání trvalo asi deset minut.','Встреча длилась около десяти минут.','Где'],
+['Píše knihy pro děti.','Она пишет книги для детей.','О человеке'],
+['Její knihy jsou velmi populární.','Её книги очень популярны.','О человеке'],
+['Také často cestuje po světě.','Она также часто путешествует по миру.','О человеке'],
+['Ve školách mluví se studenty.','В школах она разговаривает с учениками.','О человеке'],
+['Má ráda přírodu a zvířata.','Она любит природу и животных.','О человеке'],
+['Byla milá a usměvavá.','Она была милой и улыбчивой.','Детали'],
+['Krátce jsme spolu mluvili.','Мы недолго поговорили.','Детали'],
+['Podepsala mi svou novou knihu.','Она подписала мне свою новую книгу.','Детали'],
+['Mohli jsme se spolu vyfotografovat.','Мы смогли вместе сфотографироваться.','Детали'],
+['Popřál jsem jí hodně úspěchů.','Я пожелал ей больших успехов.','Детали'],
+['Chtěl bych se zeptat na její práci.','Я хотел бы спросить о её работе.','Вопросы'],
+['Zajímá mě, kde bere nápady.','Мне интересно, откуда она берёт идеи.','Вопросы'],
+['Také bych se zeptal na její první knihu.','Я также спросил бы о её первой книге.','Вопросы'],
+['Chtěl bych vědět, kde nejraději píše.','Я хотел бы знать, где она любит писать.','Вопросы'],
+['Zeptal bych se, co právě připravuje.','Я бы спросил, что она сейчас готовит.','Вопросы'],
+['Setkání se mi moc líbilo.','Встреча мне очень понравилась.','Конец'],
+['Byl to pro mě hezký zážitek.','Для меня это было приятное событие.','Конец'],
+['Její knihu jsem začal číst doma.','Её книгу я начал читать дома.','Конец'],
+['O setkání jsem řekl své rodině.','Я рассказал семье о встрече.','Конец'],
+['Doufám, že ji někdy znovu potkám.','Надеюсь, что когда-нибудь снова её встречу.','Конец']
+]),
+T('course','Языковой курс','📚',['Где проходил курс?','Каким был преподаватель?','Почему курс понравился или не понравился?'],[
+['Minulý měsíc jsem chodil na jazykový kurz.','В прошлом месяце я ходил на языковой курс.','Начало'],
+['Učil jsem se tam česky.','Я учил там чешский язык.','Начало'],
+['Kurz trval čtyři týdny.','Курс длился четыре недели.','Начало'],
+['Měli jsme lekce třikrát týdně.','У нас были занятия три раза в неделю.','Начало'],
+['Každá lekce trvala dvě hodiny.','Каждое занятие длилось два часа.','Начало'],
+['Kurz byl v centru Prahy.','Курс проходил в центре Праги.','Где'],
+['Škola byla blízko metra.','Школа была рядом с метро.','Где'],
+['Do školy jsem jezdil tramvají.','В школу я ездил на трамвае.','Где'],
+['Učebna byla velká a světlá.','Класс был большим и светлым.','Где'],
+['Ve skupině bylo osm studentů.','В группе было восемь студентов.','Где'],
+['Naše učitelka se jmenovala Petra.','Нашу учительницу звали Петра.','Учитель'],
+['Byla mladá, milá a trpělivá.','Она была молодой, приятной и терпеливой.','Учитель'],
+['Všechno vysvětlovala jednoduše.','Она всё объясняла просто.','Учитель'],
+['Často nám pomáhala s gramatikou.','Она часто помогала нам с грамматикой.','Учитель'],
+['Mluvila pomalu a srozumitelně.','Она говорила медленно и понятно.','Учитель'],
+['V hodině jsme hodně mluvili.','На уроке мы много говорили.','Что делал'],
+['Také jsme četli krátké texty.','Мы также читали короткие тексты.','Что делал'],
+['Psali jsme e-maily a deníky.','Мы писали электронные письма и дневники.','Что делал'],
+['Poslouchali jsme jednoduché dialogy.','Мы слушали простые диалоги.','Что делал'],
+['Doma jsem dělal domácí úkoly.','Дома я делал домашние задания.','Что делал'],
+['Kurz se mi velmi líbil.','Курс мне очень понравился.','Мнение'],
+['Naučil jsem se mnoho nových slov.','Я выучил много новых слов.','Мнение'],
+['Teď lépe rozumím lidem.','Теперь я лучше понимаю людей.','Мнение'],
+['Nejvíc se mi líbily rozhovory.','Больше всего мне понравились разговоры.','Мнение'],
+['Gramatika byla někdy těžká.','Грамматика иногда была трудной.','Мнение'],
+['Na kurzu jsem poznal nové přátele.','На курсе я познакомился с новыми друзьями.','Конец'],
+['Po lekci jsme někdy šli na kávu.','После урока мы иногда ходили пить кофе.','Конец'],
+['Na konci jsme dostali certifikát.','В конце мы получили сертификат.','Конец'],
+['Chci pokračovat v dalším kurzu.','Я хочу продолжить на следующем курсе.','Конец'],
+['Češtinu budu dál studovat každý den.','Я буду дальше учить чешский каждый день.','Конец']
+]),
+T('mall','Торговый центр','🛍️',['Где это было?','Что вы там делали?','Понравилось ли вам там?'],[
+['V sobotu jsem navštívil nové obchodní centrum.','В субботу я посетил новый торговый центр.','Начало'],
+['Centrum se jmenovalo Nový Smíchov.','Центр назывался «Новый Смихов».','Начало'],
+['Otevřeli ho minulý měsíc.','Его открыли в прошлом месяце.','Начало'],
+['Chtěl jsem se tam podívat.','Я хотел там побывать.','Начало'],
+['Potřeboval jsem také nové boty.','Мне также были нужны новые ботинки.','Начало'],
+['Centrum bylo na druhém konci města.','Центр был на другом конце города.','Где'],
+['Jel jsem tam metrem.','Я поехал туда на метро.','Где'],
+['Šel jsem tam s manželkou.','Я пошёл туда с женой.','Где'],
+['Cesta trvala asi třicet minut.','Дорога заняла около тридцати минут.','Где'],
+['Od metra to bylo jen pět minut pěšky.','От метро было всего пять минут пешком.','Где'],
+['Nejdřív jsme si prohlédli obchody.','Сначала мы осмотрели магазины.','Что делал'],
+['Koupil jsem si černé boty.','Я купил себе чёрные ботинки.','Что делал'],
+['Manželka si koupila nové šaty.','Жена купила себе новое платье.','Что делал'],
+['Potom jsme šli do knihkupectví.','Потом мы пошли в книжный магазин.','Что делал'],
+['Nakonec jsme nakoupili potraviny.','В конце мы купили продукты.','Что делал'],
+['V poledne jsme měli hlad.','В полдень мы проголодались.','Еда и детали'],
+['Dali jsme si oběd v restauraci.','Мы пообедали в ресторане.','Еда и детали'],
+['Jídlo bylo dobré, ale drahé.','Еда была хорошей, но дорогой.','Еда и детали'],
+['V centru bylo také malé kino.','В центре также был маленький кинотеатр.','Еда и детали'],
+['Pro děti tam bylo dětské hřiště.','Для детей там была детская площадка.','Еда и детали'],
+['Obchodní centrum se mi líbilo.','Торговый центр мне понравился.','Мнение'],
+['Bylo moderní, čisté a světlé.','Он был современным, чистым и светлым.','Мнение'],
+['Výběr obchodů byl opravdu velký.','Выбор магазинов был действительно большим.','Мнение'],
+['Líbila se mi odpočinková zóna.','Мне понравилась зона отдыха.','Мнение'],
+['Bylo tam ale příliš mnoho lidí.','Но там было слишком много людей.','Мнение'],
+['Strávili jsme tam skoro čtyři hodiny.','Мы провели там почти четыре часа.','Конец'],
+['Nakonec jsme byli dost unavení.','В конце мы были довольно уставшими.','Конец'],
+['Domů jsme jeli autobusem.','Домой мы поехали на автобусе.','Конец'],
+['Příště tam půjdu ve všední den.','В следующий раз я пойду туда в будний день.','Конец'],
+['Určitě toto centrum navštívím znovu.','Я точно снова посещу этот центр.','Конец']
+]),
+T('party','Чужой день рождения','🎁',['У кого вы были?','Какой была вечеринка?','Какой подарок вы купили и почему?'],[
+['Minulý víkend jsem byl na oslavě narozenin.','В прошлые выходные я был на дне рождения.','Начало'],
+['Narozeniny měl můj kamarád Pavel.','День рождения был у моего друга Павла.','Начало'],
+['Bylo mu třicet let.','Ему исполнилось тридцать лет.','Начало'],
+['Na oslavu mě pozval už v pondělí.','Он пригласил меня на праздник ещё в понедельник.','Начало'],
+['Moc jsem se na oslavu těšil.','Я очень ждал праздника.','Начало'],
+['Oslava byla u Pavla doma.','Праздник был дома у Павла.','Где и с кем'],
+['Začala v sobotu v šest hodin.','Она началась в субботу в шесть часов.','Где и с кем'],
+['Přišel jsem tam s manželkou.','Я пришёл туда с женой.','Где и с кем'],
+['Na oslavě bylo asi patnáct lidí.','На празднике было около пятнадцати человек.','Где и с кем'],
+['Většinu hostů jsem znal.','Большинство гостей я знал.','Где и с кем'],
+['Pavel připravil hodně jídla.','Павел приготовил много еды.','Что делал'],
+['Jedli jsme maso, salát a dort.','Мы ели мясо, салат и торт.','Что делал'],
+['Poslouchali jsme hudbu a tancovali.','Мы слушали музыку и танцевали.','Что делал'],
+['Také jsme hráli společenské hry.','Мы также играли в настольные игры.','Что делал'],
+['Hodně jsme se smáli a povídali si.','Мы много смеялись и разговаривали.','Что делал'],
+['Oslava byla veselá a příjemná.','Праздник был весёлым и приятным.','Атмосфера'],
+['Hudba nebyla příliš hlasitá.','Музыка была не слишком громкой.','Атмосфера'],
+['Dort byl čokoládový a moc dobrý.','Торт был шоколадным и очень вкусным.','Атмосфера'],
+['Pavel měl z oslavy radost.','Павел был рад празднику.','Атмосфера'],
+['Všichni měli dobrou náladu.','У всех было хорошее настроение.','Атмосфера'],
+['Koupil jsem mu zajímavou knihu.','Я купил ему интересную книгу.','Подарок'],
+['Pavel totiž rád čte.','Потому что Павел любит читать.','Подарок'],
+['Kniha byla o cestování.','Книга была о путешествиях.','Подарок'],
+['Dárek jsem zabalil do modrého papíru.','Я завернул подарок в синюю бумагу.','Подарок'],
+['Pavlovi se můj dárek líbil.','Павлу понравился мой подарок.','Подарок'],
+['Domů jsme odešli před půlnocí.','Домой мы ушли до полуночи.','Конец'],
+['Jeli jsme domů taxíkem.','Мы поехали домой на такси.','Конец'],
+['Byl jsem unavený, ale spokojený.','Я был уставшим, но довольным.','Конец'],
+['Oslava se mi opravdu líbila.','Праздник мне действительно понравился.','Конец'],
+['Doufám, že se brzy znovu uvidíme.','Надеюсь, что мы скоро снова увидимся.','Конец']
+]),
+T('birthday','Мой день рождения','🎂',['Как вы его праздновали?','Где и каким был праздник?','Какие подарки вы получили?'],[
+['Minulý týden jsem měl narozeniny.','На прошлой неделе у меня был день рождения.','Начало'],
+['Bylo mi třicet pět let.','Мне исполнилось тридцать пять лет.','Начало'],
+['Narozeniny jsem slavil v sobotu.','День рождения я праздновал в субботу.','Начало'],
+['Na oslavu jsem se moc těšil.','Я очень ждал праздника.','Начало'],
+['Všechno jsem připravil už ráno.','Всё я приготовил уже утром.','Начало'],
+['Oslava byla u nás doma.','Праздник был у нас дома.','Где и с кем'],
+['Pozval jsem rodinu a několik přátel.','Я пригласил семью и нескольких друзей.','Где и с кем'],
+['První hosté přišli v pět hodin.','Первые гости пришли в пять часов.','Где и с кем'],
+['Celkem přišlo dvanáct lidí.','Всего пришло двенадцать человек.','Где и с кем'],
+['Doma jsme měli dost místa.','Дома у нас было достаточно места.','Где и с кем'],
+['Manželka připravila velký dort.','Жена приготовила большой торт.','Что делал'],
+['Já jsem udělal salát a chlebíčky.','Я сделал салат и бутерброды.','Что делал'],
+['Nejdřív jsme společně večeřeli.','Сначала мы вместе поужинали.','Что делал'],
+['Potom jsme pili kávu a jedli dort.','Потом мы пили кофе и ели торт.','Что делал'],
+['Večer jsme poslouchali hudbu.','Вечером мы слушали музыку.','Что делал'],
+['Oslava byla klidná a příjemná.','Праздник был спокойным и приятным.','Атмосфера'],
+['Všichni si spolu povídali.','Все разговаривали друг с другом.','Атмосфера'],
+['Také jsme se hodně smáli.','Мы также много смеялись.','Атмосфера'],
+['Nejvíc se mi líbila společná večeře.','Больше всего мне понравился совместный ужин.','Атмосфера'],
+['Měl jsem opravdu dobrou náladu.','У меня было действительно хорошее настроение.','Атмосфера'],
+['Dostal jsem několik pěkných dárků.','Я получил несколько хороших подарков.','Подарки'],
+['Manželka mi dala nové hodinky.','Жена подарила мне новые часы.','Подарки'],
+['Od rodičů jsem dostal knihu.','От родителей я получил книгу.','Подарки'],
+['Kamarádi mi koupili lístky do kina.','Друзья купили мне билеты в кино.','Подарки'],
+['Ze všech dárků jsem měl radost.','Я был рад всем подаркам.','Подарки'],
+['Hosté odešli kolem jedenácté hodiny.','Гости ушли около одиннадцати часов.','Конец'],
+['Potom jsme rychle uklidili byt.','Потом мы быстро убрали квартиру.','Конец'],
+['Byl jsem unavený, ale šťastný.','Я был уставшим, но счастливым.','Конец'],
+['Letošní narozeniny se mi líbily.','День рождения в этом году мне понравился.','Конец'],
+['Na tento den budu dlouho vzpomínat.','Я буду долго вспоминать этот день.','Конец']
+]),
+T('country','Новая страна','✈️',['Какую страну вы посетили?','С кем вы там были и что делали?','Что вам понравилось или не понравилось?'],[
+['Minulý týden jsem navštívil novou zemi.','На прошлой неделе я посетил новую страну.','Начало'],
+['Poprvé jsem byl ve Švédsku.','Я впервые был в Швеции.','Начало'],
+['Chtěl jsem tam jet už dlouho.','Я уже давно хотел туда поехать.','Начало'],
+['Cesta začala v pátek ráno.','Путешествие началось в пятницу утром.','Начало'],
+['Vrátil jsem se v neděli večer.','Я вернулся в воскресенье вечером.','Начало'],
+['Cestoval jsem s manželkou.','Я путешествовал с женой.','Дорога и жильё'],
+['Do Stockholmu jsme letěli letadlem.','В Стокгольм мы летели на самолёте.','Дорога и жильё'],
+['Let trval asi dvě hodiny.','Полёт длился около двух часов.','Дорога и жильё'],
+['Z letiště jsme jeli autobusem.','Из аэропорта мы ехали на автобусе.','Дорога и жильё'],
+['Bydleli jsme v hotelu v centru.','Мы жили в отеле в центре.','Дорога и жильё'],
+['První den jsme se procházeli po městě.','В первый день мы гуляли по городу.','Что делал'],
+['Navštívili jsme známé muzeum.','Мы посетили известный музей.','Что делал'],
+['Také jsme viděli starý královský palác.','Мы также увидели старый королевский дворец.','Что делал'],
+['Jeli jsme lodí kolem ostrovů.','Мы плавали на корабле вокруг островов.','Что делал'],
+['Udělali jsme mnoho fotografií.','Мы сделали много фотографий.','Что делал'],
+['Ochutnal jsem místní rybu.','Я попробовал местную рыбу.','Еда и погода'],
+['K obědu jsme měli také polévku.','На обед у нас также был суп.','Еда и погода'],
+['Jídlo bylo dobré, ale dost drahé.','Еда была хорошей, но довольно дорогой.','Еда и погода'],
+['V sobotu bylo chladno a větrno.','В субботу было холодно и ветрено.','Еда и погода'],
+['V neděli už svítilo slunce.','В воскресенье уже светило солнце.','Еда и погода'],
+['Švédsko se mi moc líbilo.','Швеция мне очень понравилась.','Мнение'],
+['Stockholm byl čistý a krásný.','Стокгольм был чистым и красивым.','Мнение'],
+['Nejvíc se mi líbilo muzeum.','Больше всего мне понравился музей.','Мнение'],
+['Lidé byli milí a ochotní.','Люди были приятными и готовыми помочь.','Мнение'],
+['Nelíbily se mi vysoké ceny.','Мне не понравились высокие цены.','Мнение'],
+['Výlet rychle utekl.','Поездка быстро прошла.','Конец'],
+['Domů jsme přijeli unavení.','Домой мы приехали уставшими.','Конец'],
+['Přivezli jsme rodině malé dárky.','Мы привезли семье небольшие подарки.','Конец'],
+['Do Švédska bych se rád vrátil.','Я хотел бы вернуться в Швецию.','Конец'],
+['Příště tam chci zůstat déle.','В следующий раз я хочу остаться там дольше.','Конец']
+])
+];
+
+const universal = [
+...[
+['Minulý týden jsem měl zajímavý den.','На прошлой неделе у меня был интересный день.'],['Všechno začalo v sobotu ráno.','Всё началось в субботу утром.'],['Na tento den jsem se dlouho těšil.','Я долго ждал этого дня.'],['Rozhodl jsem se vyzkoušet něco nového.','Я решил попробовать что-то новое.'],['Byl to můj první takový zážitek.','Это был мой первый такой опыт.'],['Měl jsem volno, a proto jsem měl dost času.','Я был свободен, поэтому у меня было достаточно времени.'],['Nejdřív jsem si všechno připravil.','Сначала я всё подготовил.'],['Vyrazil jsem brzy ráno.','Я отправился рано утром.'],['Dorazil jsem přesně včas.','Я приехал точно вовремя.'],['Celý den rychle utekl.','Весь день быстро прошёл.'],['Byl to pro mě důležitý den.','Для меня это был важный день.'],['Teď chci napsat, jaké to bylo.','Теперь я хочу написать, как это было.']
+].map(x=>[...x,'Начало и время']),
+...[
+['Ráno bylo krásné počasí.','Утром была прекрасная погода.'],['Bylo teplo a svítilo slunce.','Было тепло и светило солнце.'],['Obloha byla modrá a bez mraků.','Небо было голубым и без облаков.'],['Odpoledne se trochu ochladilo.','После обеда немного похолодало.'],['Začal foukat silný vítr.','Начал дуть сильный ветер.'],['Chvíli pršelo, ale nevadilo nám to.','Некоторое время шёл дождь, но нам это не мешало.'],['Naštěstí jsme měli deštník.','К счастью, у нас был зонт.'],['Večer už nepršelo.','Вечером дождя уже не было.'],['Počasí bylo lepší, než jsem čekal.','Погода была лучше, чем я ожидал.'],['Kvůli dešti jsme změnili program.','Из-за дождя мы изменили программу.'],['Bylo chladno, proto jsem měl bundu.','Было холодно, поэтому на мне была куртка.'],['Dobré počasí nám udělalo radost.','Хорошая погода нас порадовала.']
+].map(x=>[...x,'Погода']),
+...[
+['Jel jsem tam metrem.','Я поехал туда на метро.'],['Cestoval jsem vlakem z Prahy.','Я ехал на поезде из Праги.'],['Cesta trvala asi jednu hodinu.','Дорога заняла около одного часа.'],['Musel jsem jednou přestoupit.','Мне пришлось сделать одну пересадку.'],['Autobus přijel přesně včas.','Автобус приехал точно вовремя.'],['Vlak měl bohužel malé zpoždění.','К сожалению, поезд немного опоздал.'],['Zastávka byla blízko našeho domu.','Остановка была рядом с нашим домом.'],['Posledních deset minut jsme šli pěšky.','Последние десять минут мы шли пешком.'],['Cestou jsme si povídali.','По дороге мы разговаривали.'],['Cesta byla pohodlná a rychlá.','Дорога была удобной и быстрой.'],['Nemohli jsme najít správnou adresu.','Мы не могли найти правильный адрес.'],['Nakonec jsme se zeptali jednoho pána.','В конце мы спросили одного мужчину.'],['Domů jsme se vrátili taxíkem.','Домой мы вернулись на такси.'],['Dorazili jsme domů pozdě večer.','Мы приехали домой поздно вечером.']
+].map(x=>[...x,'Дорога']),
+...[
+['V poledne jsme měli velký hlad.','В полдень мы сильно проголодались.'],['Šli jsme proto do malé restaurace.','Поэтому мы пошли в маленький ресторан.'],['Dal jsem si kuře a hranolky.','Я заказал курицу и картофель фри.'],['Manželka si objednala salát.','Жена заказала салат.'],['K pití jsme si dali vodu.','Из напитков мы взяли воду.'],['Jídlo bylo čerstvé a chutné.','Еда была свежей и вкусной.'],['Porce byla dost velká.','Порция была довольно большой.'],['Obsluha byla milá a rychlá.','Обслуживание было приятным и быстрым.'],['Za oběd jsme zaplatili pět set korun.','За обед мы заплатили пятьсот крон.'],['Potom jsme si dali kávu a dort.','Потом мы выпили кофе и съели торт.'],['Místní jídlo mi moc chutnalo.','Местная еда мне очень понравилась.'],['Restaurace byla čistá a příjemná.','Ресторан был чистым и приятным.']
+].map(x=>[...x,'Еда и напитки']),
+...[
+['Byl jsem tam se svou manželkou.','Я был там со своей женой.'],['Šel jsem tam s dobrým kamarádem.','Я пошёл туда с хорошим другом.'],['Později jsme potkali další přátele.','Позже мы встретили других друзей.'],['Bylo tam asi deset lidí.','Там было около десяти человек.'],['Všichni byli milí a přátelští.','Все были милыми и дружелюбными.'],['Hodně jsme si spolu povídali.','Мы много разговаривали.'],['Společně jsme udělali několik fotografií.','Вместе мы сделали несколько фотографий.'],['Manželka mi se vším pomáhala.','Жена мне во всём помогала.'],['Poznal jsem tam několik nových lidí.','Я познакомился там с несколькими новыми людьми.'],['Měli jsme společně dobrou náladu.','Вместе у нас было хорошее настроение.']
+].map(x=>[...x,'Люди']),
+...[
+['Moc se mi to líbilo.','Мне это очень понравилось.'],['Bylo to zajímavé a příjemné.','Это было интересно и приятно.'],['Nejvíc se mi líbila dobrá atmosféra.','Больше всего мне понравилась хорошая атмосфера.'],['Všechno bylo dobře připravené.','Всё было хорошо подготовлено.'],['Bylo to lepší, než jsem čekal.','Это было лучше, чем я ожидал.'],['Měl jsem z toho velkou radost.','Я был этому очень рад.'],['Cítil jsem se tam dobře.','Я чувствовал себя там хорошо.'],['Trochu mi vadil velký hluk.','Мне немного мешал сильный шум.'],['Nelíbily se mi jen vysoké ceny.','Мне не понравились только высокие цены.'],['Některé věci byly trochu složité.','Некоторые вещи были немного сложными.'],['Přesto jsem byl spokojený.','Несмотря на это, я был доволен.'],['Určitě to mohu doporučit.','Я точно могу это порекомендовать.'],['Byl to opravdu hezký zážitek.','Это был действительно приятный опыт.'],['Na tento den budu dlouho vzpomínat.','Я буду долго вспоминать этот день.']
+].map(x=>[...x,'Мнение']),
+...[
+['Nejdřív všechno šlo podle plánu.','Сначала всё шло по плану.'],['Potom se objevil malý problém.','Потом появилась небольшая проблема.'],['Naštěstí jsme ho rychle vyřešili.','К счастью, мы её быстро решили.'],['Museli jsme chvíli čekat.','Нам пришлось немного подождать.'],['Čekání ale nebylo dlouhé.','Но ожидание не было долгим.'],['Bylo tam příliš mnoho lidí.','Там было слишком много людей.'],['Neměl jsem dost času na všechno.','У меня не было достаточно времени на всё.'],['Cena byla vyšší, než jsem čekal.','Цена была выше, чем я ожидал.'],['I přes tento problém jsme si den užili.','Несмотря на эту проблему, мы хорошо провели день.'],['Nakonec všechno dobře dopadlo.','В конце всё закончилось хорошо.']
+].map(x=>[...x,'Проблемы']),
+...[
+['Večer jsme se vrátili domů.','Вечером мы вернулись домой.'],['Byl jsem unavený, ale spokojený.','Я был уставшим, но довольным.'],['Doma jsem o všem vyprávěl rodině.','Дома я обо всём рассказал семье.'],['Potom jsem si prohlédl fotografie.','Потом я посмотрел фотографии.'],['Celý den se mi opravdu líbil.','Весь день мне действительно понравился.'],['Příště bych tam chtěl zůstat déle.','В следующий раз я хотел бы остаться там дольше.'],['Určitě tam půjdu ještě jednou.','Я точно пойду туда ещё раз.'],['Doufám, že to brzy zopakuji.','Надеюсь, что скоро это повторю.'],['Příště pozvu také své přátele.','В следующий раз я также приглашу своих друзей.'],['Už se těším na další podobný den.','Я уже жду следующего похожего дня.']
+].map(x=>[...x,'Завершение'])
+].map(x=>({cz:x[0],ru:x[1],group:x[2]}));
+
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const storeKey='cceA2DenikV1';
+let state={topic:'film',card:0,known:{},quiz:{},diaries:{},bankUniversal:false,diaryGroup:'Тема'};
+try{state={...state,...JSON.parse(localStorage.getItem(storeKey)||'{}')}}catch(e){}
+const save=()=>localStorage.setItem(storeKey,JSON.stringify(state));
+const topic=()=>topics.find(t=>t.id===state.topic)||topics[0];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const toast=msg=>{const e=$('#toast');e.textContent=msg;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),1700)};
+const phraseKey=(tid,i)=>tid+':'+i;
+
+function init(){
+  $('#topicSelect').innerHTML=topics.map(t=>`<option value="${t.id}">${t.icon} ${t.title}</option>`).join('');
+  $('#topicSelect').value=state.topic;
+  $('#topicSelect').addEventListener('change',e=>{state.topic=e.target.value;state.card=0;save();renderAll()});
+  $$('.tab[data-view]').forEach(b=>b.addEventListener('click',()=>openView(b.dataset.view)));
+  $('#openStats').addEventListener('click',()=>openView('stats'));
+  $('#flashcard').addEventListener('click',revealCard);$('#revealCard').addEventListener('click',revealCard);
+  $('#prevCard').addEventListener('click',()=>moveCard(-1));$('#repeatCard').addEventListener('click',()=>gradeCard(false));$('#knowCard').addEventListener('click',()=>gradeCard(true));
+  $('#quizDirection').addEventListener('change',newQuestion);$('#nextQuestion').addEventListener('click',newQuestion);$('#resetQuiz').addEventListener('click',resetQuiz);
+  $('#search').addEventListener('input',renderBank);$('#showUniversal').addEventListener('click',()=>{state.bankUniversal=!state.bankUniversal;save();renderBank()});
+  $('#diaryPhraseSearch').addEventListener('input',renderDiaryPhrases);$('#diaryText').addEventListener('input',onDiaryInput);
+  $('#copyDiary').addEventListener('click',copyDiary);$('#saveDiary').addEventListener('click',()=>{state.diaries[state.topic]=$('#diaryText').value;save();toast('Дневник сохранён')});
+  $('#clearDiary').addEventListener('click',()=>{if(confirm('Очистить текст этого дневника?')){$('#diaryText').value='';onDiaryInput();}});
+  $('#resetProgress').addEventListener('click',()=>{if(confirm('Сбросить карточки и результаты тестов?')){state.known={};state.quiz={};save();renderAll();toast('Прогресс сброшен')}});
+  renderAll();newQuestion();
+}
+function openView(name){
+  $$('.view').forEach(v=>v.classList.remove('active'));$$('.tab').forEach(t=>t.classList.remove('active'));
+  $('#view-'+name).classList.add('active');const tab=$(`.tab[data-view="${name}"]`);if(tab)tab.classList.add('active');
+  if(name==='stats')renderStats();if(name==='diary')renderDiary();if(name==='bank')renderBank();
+}
+function renderAll(){
+  const t=topic();$('#topicCount').textContent=t.phrases.length+' фраз';$('#topicInfo').innerHTML=`<strong>${t.icon} ${t.title}</strong><ol class="prompt">${t.prompt.map(x=>`<li>${esc(x)}</li>`).join('')}</ol>`;
+  renderCard();renderBank();renderDiary();renderStats();newQuestion();
+}
+function renderCard(){
+  const t=topic();state.card=Math.max(0,Math.min(state.card,t.phrases.length-1));const p=t.phrases[state.card];
+  $('#cardPosition').textContent=`${state.card+1} / ${t.phrases.length}`;$('#cardProgress').style.width=((state.card+1)/t.phrases.length*100)+'%';
+  $('#cardGroup').textContent=p.group;$('#cardCz').textContent=p.cz;$('#cardRu').textContent=p.ru;$('#cardRu').classList.add('hidden');$('#revealCard').classList.remove('hidden');
+  const known=t.phrases.filter((_,i)=>state.known[phraseKey(t.id,i)]).length;$('#knownBadge').textContent=`Выучено: ${known}`;
+}
+function revealCard(){ $('#cardRu').classList.remove('hidden');$('#revealCard').classList.add('hidden') }
+function moveCard(n){const len=topic().phrases.length;state.card=(state.card+n+len)%len;save();renderCard()}
+function gradeCard(ok){state.known[phraseKey(state.topic,state.card)]=ok;moveCard(1)}
+
+let currentQuestion=null,quizLocked=false;
+function newQuestion(){
+  quizLocked=false;const t=topic(),dir=$('#quizDirection').value,correctIndex=Math.floor(Math.random()*t.phrases.length),correct=t.phrases[correctIndex];
+  const pool=shuffle(t.phrases.filter((_,i)=>i!==correctIndex)).slice(0,3);const answers=shuffle([correct,...pool]);currentQuestion={correct,dir};
+  $('#questionLabel').textContent=dir==='czru'?'Выберите русский перевод':'Выберите чешскую фразу';$('#question').textContent=dir==='czru'?correct.cz:correct.ru;
+  $('#options').innerHTML=answers.map(a=>`<button class="option">${esc(dir==='czru'?a.ru:a.cz)}</button>`).join('');$('#feedback').innerHTML='';
+  $$('#options .option').forEach((b,i)=>b.addEventListener('click',()=>answerQuestion(b,answers[i]===correct)));
+  renderQuizScore();
+}
+function answerQuestion(btn,ok){
+  if(quizLocked)return;quizLocked=true;const q=state.quiz[state.topic]||{right:0,total:0};q.total++;if(ok)q.right++;state.quiz[state.topic]=q;save();
+  btn.classList.add(ok?'correct':'wrong');if(!ok){$$('#options .option').find(b=>b.textContent===(currentQuestion.dir==='czru'?currentQuestion.correct.ru:currentQuestion.correct.cz))?.classList.add('correct')}
+  $('#feedback').innerHTML=`<div class="feedback ${ok?'ok':'no'}">${ok?'Верно!':'Нужно повторить.'} ${esc(currentQuestion.correct.cz)} — ${esc(currentQuestion.correct.ru)}</div>`;renderQuizScore();
+}
+function renderQuizScore(){const q=state.quiz[state.topic]||{right:0,total:0};$('#quizScore').textContent=`${q.right} / ${q.total}`}
+function resetQuiz(){state.quiz[state.topic]={right:0,total:0};save();newQuestion()}
+
+function renderBankGroups(){
+  const groups=[...new Set(universal.map(p=>p.group))];$('#bankGroups').innerHTML=groups.map(g=>`<button class="chip" data-group="${esc(g)}">${esc(g)}</button>`).join('');
+  $$('#bankGroups .chip').forEach(b=>b.addEventListener('click',()=>{$('#search').value=b.dataset.group;renderBank()}));
+}
+function phraseHtml(p,i,source){return `<article class="phrase"><div><div class="cz">${esc(p.cz)}</div><div class="ru">${esc(p.ru)}</div><div class="meta"><span class="pill">${esc(p.group)}</span></div></div><button class="iconbtn" data-add="${source}:${i}" title="Добавить в дневник">+</button></article>`}
+function bindAddButtons(root){$$(root+' [data-add]').forEach(b=>b.addEventListener('click',()=>{const [source,idx]=b.dataset.add.split(':');const p=source==='u'?universal[+idx]:topic().phrases[+idx];addToDiary(p.cz)}))}
+function renderBank(){
+  const isU=state.bankUniversal;$('#showUniversal').textContent=isU?'Фразы темы':'Филлеры';$('#bankGroups').classList.toggle('hidden',!isU);if(isU)renderBankGroups();
+  const query=$('#search').value.trim().toLocaleLowerCase('cs');const arr=isU?universal:topic().phrases;
+  $('#phraseList').innerHTML=arr.map((p,i)=>({p,i})).filter(x=>!query||[x.p.cz,x.p.ru,x.p.group].some(s=>s.toLocaleLowerCase('cs').includes(query))).map(x=>phraseHtml(x.p,x.i,isU?'u':'t')).join('')||'<p class="note">Ничего не найдено.</p>';bindAddButtons('#phraseList');
+}
+function renderDiary(){
+  const t=topic();$('#taskChecks').innerHTML=t.prompt.map(x=>`<label><input type="checkbox">${esc(x)}</label>`).join('');
+  $('#diaryText').value=state.diaries[state.topic]||'';const groups=['Тема',...new Set(universal.map(p=>p.group))];
+  if(!groups.includes(state.diaryGroup))state.diaryGroup='Тема';$('#diaryGroups').innerHTML=groups.map(g=>`<button class="chip ${state.diaryGroup===g?'active':''}" data-dgroup="${esc(g)}">${esc(g)}</button>`).join('');
+  $$('#diaryGroups [data-dgroup]').forEach(b=>b.addEventListener('click',()=>{state.diaryGroup=b.dataset.dgroup;save();renderDiary()}));renderDiaryPhrases();updateCounter();
+}
+function renderDiaryPhrases(){
+  const query=$('#diaryPhraseSearch').value.trim().toLocaleLowerCase('cs');let arr=state.diaryGroup==='Тема'?topic().phrases:universal.filter(p=>p.group===state.diaryGroup);let source=state.diaryGroup==='Тема'?'t':'u';
+  const indexed=arr.map(p=>({p,i:source==='t'?topic().phrases.indexOf(p):universal.indexOf(p)})).filter(x=>!query||[x.p.cz,x.p.ru].some(s=>s.toLocaleLowerCase('cs').includes(query)));
+  $('#diaryPhrases').innerHTML=indexed.map(x=>phraseHtml(x.p,x.i,source)).join('');bindAddButtons('#diaryPhrases');
+}
+function addToDiary(text){const area=$('#diaryText');const old=area.value.trim();area.value=old+(old?' ':'')+text;state.diaries[state.topic]=area.value;save();updateCounter();toast('Фраза добавлена')}
+function onDiaryInput(){state.diaries[state.topic]=$('#diaryText').value;save();updateCounter()}
+function wordCount(s){return (s.trim().match(/[\p{L}\p{N}]+(?:[-’'][\p{L}\p{N}]+)*/gu)||[]).length}
+function updateCounter(){const s=$('#diaryText').value,n=wordCount(s),e=$('#wordStatus');e.className='status '+(n<60?'bad':n<70?'warn':n<=85?'good':'warn');e.textContent=n<60?`${n} слов — нужно ещё ${60-n}`:n<70?`${n} слов — минимум выполнен`:n<=85?`${n} слов — отличный объём`:`${n} слов — можно сократить`;$('#charCount').textContent=s.length+' знаков'}
+async function copyDiary(){const text=$('#diaryText').value;try{await navigator.clipboard.writeText(text);toast('Текст скопирован')}catch(e){const a=$('#diaryText');a.select();document.execCommand('copy');toast('Текст скопирован')}}
+function renderStats(){
+  let known=0,right=0,total=0;topics.forEach(t=>{known+=t.phrases.filter((_,i)=>state.known[phraseKey(t.id,i)]).length;const q=state.quiz[t.id]||{right:0,total:0};right+=q.right;total+=q.total});
+  $('#totalKnown').textContent=`${known} / 300`;$('#totalAnswered').textContent=total;$('#totalAccuracy').textContent=total?Math.round(right/total*100)+'%':'0%';
+  $('#topicStats').innerHTML=topics.map(t=>{const k=t.phrases.filter((_,i)=>state.known[phraseKey(t.id,i)]).length,q=state.quiz[t.id]||{right:0,total:0};return `<div class="topic-stat"><span>${t.icon} ${esc(t.title)}</span><div class="progressbar"><span style="width:${k/30*100}%"></span></div><span>${k}/30${q.total?` · ${Math.round(q.right/q.total*100)}%`:''}</span></div>`}).join('');
+}
+init();
+</script>
+</body>
+</html>
